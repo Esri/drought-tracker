@@ -1,12 +1,10 @@
 # Drought Tracking Application
 
-The Esri Drought Tracker application allows anyone to explore weekly values for drought intensity across the United States from 2000 to present. 
-
 Drought occurs when a region has an imbalance between water supply and water demand over an extended period of time. Droughts can have significant environmental, economic, and social consequences. Between 1980 and the present time, the cost of drought exceeded 100 billion dollars, making drought monitoring a key factor in planning, preparedness, and mitigation efforts at all levels of government. 
 
-This [Drought Tracking Application] provides access to current and historical drought intensity categories for the entire US. These data have been produced weekly since January 4, 2000 by the U.S. Drought Monitor and the full time series is archived here. Drought intensity is classified according to the deviation of precipitation, stream flow, and soil moisture content from historically established norms, in addition to subjective observations and reported impacts from than 350 partners across the country. A new map is released every Thursday to reflect the conditions of the previous week.
+This [Drought Tracking Application] provides access to current and historical drought intensity maps for the entire US. These maps have been produced weekly since January 4, 2000 by the U.S. Drought Monitor and the full time series is archived here. Drought intensity is classified according to the deviation of precipitation, stream flow, and soil moisture content from historically established norms, in addition to subjective observations and reported impacts from than 350 partners across the country. A new map is released every Thursday to reflect the conditions of the previous week.
 
-Click on the [map] to get a graph of drought conditions for a county. The slider bar on the time series at the bottom of the app allows you to change the time period displayed on the map. Login to the application with your ArcGIS Online credentials and save a view of the map. ArcGIS Online creates a new hosted feature service in your account. You can use the feature service to create and share your own drought maps.
+Click on the [map] to get a graph of historical drought conditions for any county. The slider bar on the time series at the bottom of the app allows you to change the time period displayed on the map. Login to the application with your ArcGIS Online credentials and save a view of the map. ArcGIS Online creates a new hosted feature service in your account. You can use the feature service to create and share your own drought maps.
 
 Additional drought content is available to the GIS community for custom mapping or analysis in the Living Atlas of the World. To access the full set of historical content Jan-2000 to present go to USA Drought Intensity 2000 - Present. To see only most current weekly map go to USA Drought Intensity (Current Conditions). 
 
