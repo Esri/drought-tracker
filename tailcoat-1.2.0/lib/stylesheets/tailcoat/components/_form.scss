@@ -1,0 +1,237 @@
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  vertical-align: baseline;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  width: auto;
+}
+
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+form {
+  margin: 0;
+}
+
+fieldset {
+  @extend %fields;
+  @include box-sizing(border-box);
+  margin: 1em 0 0;
+  @include rhythm-borders(1px, 0);
+  border: none;
+  label {
+    @include leader(.5);
+    margin-bottom: 0;
+  }
+}
+
+legend {
+  margin-left: .25em;
+  padding: 0;
+  @include adjust-font-size-to(18px);
+  font-weight: 700;
+  white-space: normal;
+  border: 0;
+}
+
+//## Labels
+//
+//Labels are given margin on the top and bottom and positioned above their input. By wrapping your input markup in a label, you create a semantic form element with good spacing and rhythm.
+//
+//No Modifications
+//
+//Styleguide 3.13.1
+
+label {
+  display: block;
+  @include leader(1, 14px);
+  @include trailer(1, 14px);
+  @include adjust-font-size-to(14px, 1);
+  input, select, textarea {
+    width: 100%;
+    max-width: 380px;
+  }
+  &.no-margin {
+    margin: 0;
+  }
+}
+
+//## Input Lists
+//
+//If you have several inputs in a large form, you can make your inputs list-items in an unordered list with a class of ```input-list``` and they will be cleared and spaced for you.
+//
+//No Modifiers
+//
+//Styleguide 3.13.6
+
+.input-list {
+  padding: 0;
+  margin: 0;
+  @include leader(1);
+  @include trailer(1);
+  li {
+    @extend %special-list;
+    label {
+      float: left;
+      margin: 0;
+    }
+  }
+}
+
+input, select, textarea {
+  @include box-sizing(border-box);
+  display: block;
+  width: 100%;
+  outline: none;
+  outline-offset: 0;
+}
+
+//## Checkboxes and Radio Buttons
+//
+//Checkboxes and radio buttons don't receive very much in the way of specific styling. They are simply aligned properly, and floated left.
+//
+//No Modifiers
+//
+//Styleguide 3.13.5
+
+input[type="checkbox"], input[type="radio"] {
+  margin: 4px 5px 0 0;
+  width: auto;
+  padding: 0;
+  float: left;
+}
+
+//## Text Inputs
+//
+//All text inputs are styled by default. They receive a border radius, a 1px border, a CSS3 transition, and a very distinct ```:focus``` style which helps provide feedback to the user while they engage with a form.
+//
+//### Modifiers
+//
+//:focus     - focus applies a blue border to the input
+//.error     - outlines the input in red, suitable for errors
+//
+//Styleguide 3.13.2
+
+#{$all-text-inputs} {
+  @include box-sizing(border-box);
+  @include transition(all 0.05s linear);
+  padding: .5em;
+  padding-right: 1.5em;
+  font-size: 0.875em;
+  font-family: $body-font;
+  border: 1px solid $lightest-gray;
+  display: block;
+  outline: none;
+  outline-offset: 0;
+  &:focus {
+    border: 1px solid $blue;
+  }
+}
+
+input, textarea, select {
+  @include border-radius($border-radius);
+}
+
+input.error {
+  border-color: $red;
+  background-color: transparentize($red, .9);
+}
+
+//## Text Area
+//
+//Aside from inheriting the default focus and error styles, ```<textarea>``` tags are also given a set of defaults and a ```.resize-h``` helper class.
+//
+//:focus        - focus applies a blue border to the input
+//.resize-h     - resizes the text area horizontally instead of vertically
+//.error        - adds a red border and background color for errors
+//
+//Styleguide 3.13.3
+
+textarea {
+  height: auto;
+  resize: vertical;
+  overflow: auto;
+  vertical-align: top;
+  &.resize-h {
+    resize: horizontal;
+  }
+  &.error {
+    border-color: $red;
+    background-color: transparentize($red, .9);
+  }
+}
+
+//## Select
+//
+//The basic select element has been styled to present itself uniformly in different browsers.
+//
+//.error  - outlines the select in red to indicate error
+//
+//Styleguide 3.13.4
+
+select {
+  padding: 0.5em;
+  border-color: $lighter-gray;
+  height: 32px;
+  -webkit-appearance: menulist-button;
+  &.error {
+    border-color: $red;
+    background-color: #f8e9e4;
+  }
+}
+
+// Select and file inputs ------------------------------------------------------
+input[type="submit"] {
+  width: auto;
+}
+
+@mixin placeholder {
+  color: $light-gray;
+}
+
+::-webkit-input-placeholder {  @include placeholder; }
+:-ms-input-placeholder      {  @include placeholder; }
+::-moz-placeholder          {  @include placeholder; }
+:-moz-placeholder           {  @include placeholder; }
+
+input.placeholder {
+  @include placeholder;
+}
+
+input[type="search"] {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMzJCOEUxNzcwMTMxMUUyOUQ4REY1OTJFODBDQTU1MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMzJCOEUxODcwMTMxMUUyOUQ4REY1OTJFODBDQTU1MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUzMkI4RTE1NzAxMzExRTI5RDhERjU5MkU4MENBNTUxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUzMkI4RTE2NzAxMzExRTI5RDhERjU5MkU4MENBNTUxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+0C7DGwAAATpJREFUeNqk000oRFEYxvE7EmWD8pEpqVlYsZmUTHayZ5S6xXaynsRCmo0oG6RkQxa6FiMfWdgrZSOJha0ozXaQLDD/U4+66t56x7z165zpnp7ue+c9iSAIPFUn5pBFEiWcYwlPXkz5vv/nd53Wftwgr+BHtCKHW2Q8Y7nARpygC6toRy/asIgWHKHZGjiJFA4wj3c9+1S7G3rrnDVwWPudmDO7WjPVtOyqHHPmTWuTNfBB+9GYMyNa76yB+/jAQkRbfVjGF/YsgfV41rhs4QJneuseTKABK7i3Brra1iCvYSz0/AUdmFLwrKXl3zrW+AxgHEPoxqXWvG6ROdDVN6416Ff6dpv4QUIjlKomMKoONeCebksxNGr/CnRVwKn2aazXGuhang7N4gwGawl09ao/paR7HzlGFQEGAF4qPAqWOrQNAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-position: right center;
+}

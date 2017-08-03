@@ -1,0 +1,84 @@
+//## Responsive Navigation Bar
+//
+//If you'd like to use the [navigation bar pattern](./patterns/#section-6.6) with a mobile-friendly page, a convinience class is provided for you. Simply add a ```responsive``` class the the navigation bar and a toggle icon.
+//
+//.green          - colors the background green
+//.nav-only       - no title or call to action, just the nav
+//
+//Styleguide 6.7
+
+.navigation-bar.responsive {
+  @include respond-to($phone-large){
+    h1 {
+      font-size: 1.5em;
+    }
+    .navigation-bar-nav {
+      position: relative;
+      display: block;
+      @include box-sizing(content-box);
+      width: 100%;
+      padding: 0 1.25em 0 .75em;
+      margin-top: 0.25em;
+      margin-left: -1em;
+      background-color: $purple;
+      border-top: 1px solid darken($purple, 10);
+      ul {
+        min-height: 2.75em;
+        margin-top: 0;
+      }
+      li {
+        display: none;
+        width: 100%;
+        max-width: 100% !important;
+        background: transparent;
+        margin: 0;
+        &:hover {
+          background: none;
+          &:after {
+            display: none;
+          }
+        }
+      }
+      a {
+        padding: 0.5em 0.25em 0.75em;
+      }
+      .current {
+        display: block;
+        background: none;
+        a {
+          color: $white;
+          text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+        }
+        &:after {
+          display: none;
+        }
+      }
+      .dropdown-toggle {
+        display: block;
+        padding: .15em .5em 0;
+      }
+      &.open {
+        ul {
+          li {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &.green .navigation-bar-nav {
+      background-color: $green;
+      border-top: 1px solid darken($green, 10);
+    }
+
+    &.nav-only .navigation-bar-nav {
+      margin-top: 0;
+      border-top: none;
+    }
+
+    .btn {
+      display: none;
+    }
+  }
+
+}

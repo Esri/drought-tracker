@@ -1,0 +1,464 @@
+//## Headers
+//
+//By default, headers are set in Avenir LT Medium. This can be easily changed with the ```$header-font``` config variable. Default header styles can be seen below:
+//
+// <div class="styleguide-modifiers">
+//   <div class="styleguide-modifier-example">
+//     <h1 class="no-trailer">Header 1</h1>
+//   </div>
+//   <div class="styleguide-modifier-example">
+//     <h2 class="no-trailer">Header 2</h2>
+//   </div>
+//   <div class="styleguide-modifier-example">
+//     <h3 class="no-trailer">Header 3</h3>
+//   </div>
+//   <div class="styleguide-modifier-example">
+//     <h4 class="no-trailer">Header 4</h4>
+//   </div>
+//   <div class="styleguide-modifier-example">
+//     <h5 class="no-trailer">Header 5</h5>
+//   </div>
+//   <div class="styleguide-modifier-example bottom">
+//     <h6 class="no-trailer">Header 6</h6>
+//   </div>
+// </div>
+//<pre class="styleguide-element styleguide-sample"><code class="html">&lt;h3&gt;Header 3&lt;/h3&gt;</code></pre>
+//
+//
+//### Modifiers
+//
+//.divider      - add a light gray border under the header
+//.icon-globe   - add any icon class to give the header padding and that icon
+//.bold         - sets the font to the bolder option created in config
+//.light        - sets the font to the lighter option created in config
+//.gray         - sets the color to the gray base color
+//.inline       - header will be inline instead of block
+//
+//Styleguide 2.2
+
+#{headers(all)} {
+  margin: 0;
+  font-family: $header-light;
+  font-style: $header-style;
+  font-weight: $header-weight;
+  letter-spacing: 0.02em;
+  &.divider {
+    @include padding-trailer(0.25);
+    @include trailer(0.5);
+    padding-bottom: 0.5;
+    border-bottom: 1px solid $lightest-gray;
+  }
+  &.bold {
+    font-family: $header-bold;
+  }
+  &.medium {
+    font-family: $header-font;
+  }
+  &.gray {
+    color: $gray;
+  }
+  &.inline {
+    display: inline-block;
+  }
+  &[class^="icon-"], &[class*=" icon-"] {
+    position: relative;
+  }
+  &[class^="icon-"]:before, &[class*=" icon-"]:before {
+    position: relative;
+    top: 1px;
+    left: 0;
+    padding-right: .25em;
+  }
+}
+
+h1 {
+  @include adjust-font-size-to($h1-size, $h1-lines);
+  @include header-extentions($h1-size, $h1-lines, $header-trailer, $header-leader);
+}
+
+h2 {
+  @include adjust-font-size-to($h2-size, $h2-lines);
+  @include header-extentions($h2-size, $h2-lines, $header-trailer, $header-leader);
+}
+
+h3 {
+  @include adjust-font-size-to($h3-size, $h3-lines);
+  @include header-extentions($h3-size, $h3-lines, $header-trailer, $header-leader);
+}
+
+h4 {
+  @include adjust-font-size-to($h4-size, $h4-lines);
+  @include header-extentions($h4-size, $h4-lines, $header-trailer, $header-leader);
+  font-family: $header-font;
+}
+
+h5 {
+  @include adjust-font-size-to($h5-size, $h5-lines);
+  @include header-extentions($h5-size, $h5-lines, $header-trailer, $header-leader);
+  font-family: $header-font;
+}
+
+h6 {
+  @include adjust-font-size-to($h6-size, $h6-lines);
+  @include header-extentions($h6-size, $h6-lines, $header-trailer, $header-leader);
+  font-family: $header-font;
+}
+
+//## Blockquotes
+//
+//Blockquotes will receive a left border, margin, and a lighter color.
+//
+//No modifiers
+//
+//Styleguide 2.4
+
+blockquote {
+  margin-left: 0;
+  border-color: $lighter-gray;
+  @include adjust-font-size-to(14px);
+  @include apply-side-rhythm-border(left, 5px, 1, 14px);
+  @include leader(1);
+  @include trailer(1);
+}
+
+//## Paragraphs
+//
+//Paragraph style is very simple. In order to maintain a good vertical flow a bottom margin is applied by default. There is one modifier to remove this default. See style guide 12.5 (Configuration - Typography) to learn about font stacks and default sizes. Obviously, inline elements such as b, strong, dfn, q, and small are all styled by default as well.
+//
+//### Modifiers
+//
+//.no-trailer    - eliminates default margin-bottom
+//.large         - larger font-size
+//.light         - use the light option of the header font
+//
+//Styleguide 2.3
+
+p {
+  @include adjust-font-size-to(14px, 1);
+  @include leader(0);
+  @include trailer(1, 14px);
+  &.no-trailer {
+    @include trailer(0);
+  }
+  &.large {
+    @include adjust-font-size-to(18px, 1);
+  }
+  &.light {
+    font-family: $header-light;
+    letter-spacing: 1px;
+  }
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+dfn {
+  font-style: italic;
+}
+
+q {
+  quotes: none;
+}
+
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+//## Small
+//
+//The ```<small>``` tag will be sized slightly smaller and given a gray color.
+//
+//No modifiers
+//
+//Styleguide 2.9
+
+small {
+  @include adjust-font-size-to(12px);
+  color: $gray;
+}
+
+// Superscript and Subscript ---------------------------------------------------
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+figure {
+  margin: 0;
+}
+
+//## Links
+//
+//A link's default text-decoration property is none, although this can be set in the config. See style guide 11.6.4 to learn about setting default colors of links.
+//
+//### Modifiers
+//
+//.no-color           - removes the link color in favor of the normal body color.
+//
+//Styleguide 2.5
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover, &:focus {
+    color: $link-hover;
+    cursor: pointer;
+  }
+  &:focus {
+    outline: thin dotted;
+  }
+  &:active, &:hover {
+    outline: 0;
+  }
+  &.no-color {
+    color: $dark-gray;
+    &:hover {
+      color: $dark-gray;
+    }
+  }
+}
+
+//## Lists
+//
+//```<li>``` elements inside an ```<ul>``` receive a list-style-type of none, and a subtle bullet background image by default.
+//
+//```<dl>``` elements can also be given a glass of ```.inline``` to stack them left.
+//
+//.inline                - displays the list inline
+//.bulleted              - adds a blue bullet to each list item
+//.compact               - removes the padding and margin from unordered lists
+//.compact.inline        - removes the padding and margin and displays inline
+//
+//Styleguide 2.6
+
+ul, ol {
+  @include adjust-font-size-to(14px);
+  @include trailer(1);
+  list-style-position: inside;
+  margin-top: 0;
+  padding: 0;
+  ul, ol {
+    padding-left: 1.25em;
+    @include adjust-font-size-to(14px, 1, 14px);
+    @include trailer(0);
+  }
+}
+
+ul {
+  list-style-type: none;
+  &.bulleted {
+    li {
+      @extend %bulleted-list;
+    }
+  }
+  &.inline {
+    li {
+      display: inline;
+      padding-right: 1em;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+  &.compact {
+    li {
+      padding: 0;
+    }
+  }
+}
+
+
+//## Ordered Lists
+//
+//```<ol>``` inside the ```content-area``` class will receive a "numbered list" style. You can also use the `.numbered` class on any `<ol>` to use these styles.
+//
+//.numbered     - uses the numbered list style
+//
+//Styleguide 2.6.1
+ol {
+  &.numbered {
+    @extend %numbered-list;
+  }
+}
+
+dl {
+  margin-top: 0;
+  dt {
+    font-family: $header-font;
+    @include adjust-font-size-to(16px, 1, 16px);
+  }
+  dd {
+    @include adjust-font-size-to(14px, 1, 16px);
+    margin: 0;
+    @include trailer(.5);
+  }
+}
+
+dl.inline {
+  @include clearfix;
+  margin: 0;
+  dt {
+    float: left;
+  }
+  dd {
+    margin-left: 168px;
+  }
+}
+
+//## Code
+//
+//Code blocks should be written as a ```<code>``` tag within a ```<pre>``` tag. the ```<code>``` tag can also be used inline as needed.
+//
+//```html
+//<pre id="curl">
+//  <code>
+//    Sample code
+//  </code>
+//</pre>
+//```
+//
+//No modifiers
+//
+//Styleguide 2.8
+code, kbd, pre, samp {
+  font-family: $code-font;
+}
+
+code {
+  @include border-radius(3px);
+  @include rhythm-borders(1px, .25, 16px, solid);
+  background: $off-white;
+  border-color: $lightest-gray;
+  border-width: 1px;
+  white-space: pre;
+}
+
+// Code Block ------------
+pre {
+  @include leader(0);
+  @include trailer(1);
+  @include adjust-font-size-to(12px);
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  @include experimental(tab-size, 4);
+  max-width: 100%;
+  code {
+    display: block;
+    overflow: auto;
+    word-wrap: normal;
+  }
+}
+
+// mark ------------------------------------------------------------------------
+mark {
+  padding: 2px 3px 0;
+}
+
+// abbr ------------------------------------------------------------------------
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted;
+}
+
+//## Horizontal Rules
+//
+//All ```<hr />``` tags are styled by default with top and bottom margin, and a 1px gray line.
+//
+//No modifiers
+//
+//Styleguide 2.10
+
+hr {
+  @include margin-leader(1);
+  @include margin-trailer(1);
+  border: none;
+  border-top: 1px solid #ededed;
+}
+
+//### Simple Text Modifiers
+//
+//There are also a few static classes that can help you quickly style the text.
+//
+//.center-text    - center the text of that element and all elements inside it
+//.white-text     - makes the text of that element and all neste elements white
+//.error-text     - adds the "caution" color to that text element
+//.success-text   - adds the "success" color to that text element
+//
+//Styleguide 2.11
+
+.center-text {
+  text-align: center;
+}
+
+.error-text {
+  color: $caution;
+}
+
+.success-text {
+  color: $green;
+}
+
+.white-text {
+  color: $white;
+}
+
+// basic type classes
+
+.body-font {
+  font-family: $body-font;
+}
+
+.header-light {
+  font-family: $header-light;
+}
+
+.header-font {
+  font-family: $header-font;
+}
+
+.header-bold {
+  font-family: $header-bold;
+}
+
+// selection color -------------------------------------------------------------
+img::selection {
+  background: transparent;
+}
+
+img::moz-selection {
+  background: transparent;
+}
+
+//## Mark
+//
+//Mark elements will receive a small text size, and be in all uppercase by default
+//
+//.blue - make the mark blue
+//
+//Styleguide 2.7
+mark {
+  @include border-radius(3px);
+  background-color: $lighter-gray;
+  padding: .25em .5em;
+  @include adjust-font-size-to(11px);
+  text-transform: uppercase;
+  &.blue {
+    color: $white;
+    background-color: $blue;
+  }
+}

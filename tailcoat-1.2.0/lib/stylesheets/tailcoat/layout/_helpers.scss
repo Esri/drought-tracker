@@ -1,0 +1,394 @@
+//## Show and Hide
+//
+//Use the helper classes ```show``` and ```hide``` to show and hide elements from view. For example:
+//
+//```html
+//<div class="show"> </div>
+//```
+//
+//and
+//
+//```html
+//<div class="hide"> </div>
+//```
+//
+//These are useful when you need to toggle visibility in Javascript. Use them with [responsive show and hide](#section-1.3.2) and [responsive columns](#section-1.1.4) for fast responsive layouts.
+//
+//No modifiers
+//
+//Styleguide 1.3.1
+.show {
+  @include show();
+}
+
+.hide {
+  @include hide();
+}
+
+//## Responsive Show and Hide
+//
+//These convinience classes are meant to help with quick responsive layout. Below are the classes and what breakpoints they are visible on:
+//
+//| Helper Class | Visible on Phone | Visible on Tablet | Visible on Desktop |
+//| ------------ | ---------------- | ----------------- | ------------------ |
+//| phone-hide   | no               | yes               | yes                |
+//| tablet-hide  | no               | no                | yes                |
+//| phone-show   | yes              | no                | no                 |
+//| tablet-show  | yes              | yes               | no                 |
+//| tablet-only  | no               | yes               | no                 |
+//
+//#### Show Helpers
+//
+//Essentially, the show classes will show that breakpoint and the breakpoint below it. So if you'd like something to be visible only on a phone, you would use ```class="phone-show"```. If you used tablet show, the element would be visible on tablet and phone.
+//
+//#### Hide Helpers
+//
+//Hide helpers are very similar to show. A responsive hide class will hide that breakpoint and the breakpoint below it. So if you wanted something to be visible on only desktop, you could use ```class="tablet-hide"```, hiding the element on tablet and phone. Or if you wanted something to be hidden only on a phone, ```class="phone-hide"``` would hide it on the phone only.
+//
+//These helpers can be combined with [responsive columns](#section-1.1.4) and [responsive pre and post](#section-1.1.6) for a full responsive toolkit.
+//
+//No modifiers
+//
+//Styleguide 1.3.2
+@media screen and (min-width: $tablet-mid) {
+  .phone-hide   {@include show();}
+  .tablet-hide  {@include show();}
+  .phone-show   {@include hide();}
+  .tablet-show  {@include hide();}
+  .tablet-only  {@include hide();}
+}
+
+// tablets
+@media screen and (max-width: $tablet-mid - 1) and (min-width: $phone) {
+  .phone-hide   {@include show();}
+  .tablet-hide  {@include hide();}
+  .phone-show   {@include hide();}
+  .tablet-show  {@include show();}
+  .tablet-only  {@include show();}
+}
+
+// mobile phones
+@media screen and (max-width: $phone - 1) {
+  .phone-hide   {@include hide();}
+  .tablet-hide  {@include hide();}
+  .phone-show   {@include show();}
+  .tablet-show  {@include show();}
+  .tablet-only  {@include hide();}
+}
+
+//### Visually Hidden
+//
+//Use a class of "visually-hidden" on html elements to apply the visually-hidden mixin. Visually hidden will render an element invisile, but leave it in the DOM, accessable to screen readers.
+//
+//```html
+//<div class="visually-hidden"> </div>
+//```
+//
+//No modifiers
+//
+//Styleguide 1.3.3
+.visually-hidden {
+  @extend %visually-hidden;
+}
+
+//## Leader and Trailer
+//
+//A method for applying space to the top or bottom of an element is provided by way of the ```leader-x``` and ```trailer-x``` helper classes.
+//
+//.leader-5      - apply 5 lines before the element
+//.trailer-5     - apply 5 lines after the element
+//.leader-4      - apply 4 lines before the element
+//.trailer-4     - apply 4 lines after the element
+//.leader-3      - apply 3 lines before the element
+//.trailer-3     - apply 3 lines after the element
+//.leader-2      - apply 2 lines before the element
+//.trailer-2     - apply 2 lines after the element
+//.leader-1      - apply 1 line before the element
+//.trailer-1     - apply 1 line after the element
+//.leader-half   - apply half a line before the element
+//.trailer-half  - apply half a line after the element
+//.trailer-0     - remove top margin from element
+//.trailer-0     - remove bottom margin from element
+//.no-leader     - remove top margin from element
+//.no-trailer    - remove bottom margin from the element
+//
+//Styleguide 1.3.4
+@for $i from 0 through 5 {
+  .leader-#{$i}  { margin-top:    $i * $base-line-height; }
+  .trailer-#{$i} { margin-bottom: $i * $base-line-height; }
+}
+
+.leader-half  { margin-top:    0.5 * $base-line-height; }
+.trailer-half { margin-bottom: 0.5 * $base-line-height; }
+
+// no-leader
+.no-leader            { margin-top:     0.0 * $base-line-height; }
+.no-trailer           { margin-bottom:  0.0 * $base-line-height; }
+.no-padding-leader    { padding-top:    0.0 * $base-line-height; }
+.no-padding-trailer   { padding-bottom: 0.0 * $base-line-height; }
+
+//## Responsive Leader and Trailer
+//
+// Much like other helpers, you can use ```tablet-leader``` and ```phone-leader``` for leader and trailer at specific viewport sizes.
+//
+//No Modifiers
+//
+//Styleguide 1.3.5
+
+// tablets
+@media screen and (max-width: $tablet-mid) {
+  .tablet-leader-5     { margin-top:    5.0 * $base-line-height; }
+  .tablet-trailer-5    { margin-bottom: 5.0 * $base-line-height; }
+  .tablet-leader-4     { margin-top:    4.0 * $base-line-height; }
+  .tablet-trailer-4    { margin-bottom: 4.0 * $base-line-height; }
+  .tablet-leader-3     { margin-top:    3.0 * $base-line-height; }
+  .tablet-trailer-3    { margin-bottom: 3.0 * $base-line-height; }
+  .tablet-leader-2     { margin-top:    2.0 * $base-line-height; }
+  .tablet-trailer-2    { margin-bottom: 2.0 * $base-line-height; }
+  .tablet-leader-1     { margin-top:    1.0 * $base-line-height; }
+  .tablet-trailer-1    { margin-bottom: 1.0 * $base-line-height; }
+  .tablet-leader-half  { margin-top:    0.5 * $base-line-height; }
+  .tablet-trailer-half { margin-bottom: 0.5 * $base-line-height; }
+  .tablet-leader-0     { margin-top:    0.0 * $base-line-height; }
+  .tablet-trailer-0    { margin-bottom: 0.0 * $base-line-height; }
+}
+
+// mobile phones
+@media screen and (max-width: $phone) {
+  .phone-leader-5     { margin-top:    5.0 * $base-line-height; }
+  .phone-trailer-5    { margin-bottom: 5.0 * $base-line-height; }
+  .phone-leader-4     { margin-top:    4.0 * $base-line-height; }
+  .phone-trailer-4    { margin-bottom: 4.0 * $base-line-height; }
+  .phone-leader-3     { margin-top:    3.0 * $base-line-height; }
+  .phone-trailer-3    { margin-bottom: 3.0 * $base-line-height; }
+  .phone-leader-2     { margin-top:    2.0 * $base-line-height; }
+  .phone-trailer-2    { margin-bottom: 2.0 * $base-line-height; }
+  .phone-leader-1     { margin-top:    1.0 * $base-line-height; }
+  .phone-trailer-1    { margin-bottom: 1.0 * $base-line-height; }
+  .phone-leader-half  { margin-top:    0.5 * $base-line-height; }
+  .phone-trailer-half { margin-bottom: 0.5 * $base-line-height; }
+  .phone-leader-0     { margin-top:    0.0 * $base-line-height; }
+  .phone-trailer-0    { margin-bottom: 0.0 * $base-line-height; }
+}
+
+//## Padding Leader and Trailer
+//
+//The ```padding-leader``` and ```padding-trailer``` helper classes work the same as the [leader and trailer classes](#section-1.3.4), but use padding instead of margin.
+//
+//.padding-leader-5      - apply 5 lines of padding before the element
+//.padding-trailer-5     - apply 5 lines of padding after the element
+//.padding-leader-4      - apply 4 lines of padding before the element
+//.padding-trailer-4     - apply 4 lines of padding after the element
+//.padding-leader-3      - apply 3 lines of padding before the element
+//.padding-trailer-3     - apply 3 lines of padding after the element
+//.padding-leader-2      - apply 2 lines of padding before the element
+//.padding-trailer-2     - apply 2 lines of padding after the element
+//.padding-leader-1      - apply 1 line of padding before the element
+//.padding-trailer-1     - apply 1 line of padding after the element
+//.padding-leader-half   - apply half a line of padding before the element
+//.padding-trailer-half  - apply half a line of padding after the element
+//.padding-leader-0      - remove top padding from element
+//.padding-trailer-0     - remove bottom padding from the element
+//
+//Styleguide 1.3.6
+.padding-leader-5     { padding-top:    5.0 * $base-line-height; }
+.padding-trailer-5    { padding-bottom: 5.0 * $base-line-height; }
+.padding-leader-4     { padding-top:    4.0 * $base-line-height; }
+.padding-trailer-4    { padding-bottom: 4.0 * $base-line-height; }
+.padding-leader-3     { padding-top:    3.0 * $base-line-height; }
+.padding-trailer-3    { padding-bottom: 3.0 * $base-line-height; }
+.padding-leader-2     { padding-top:    2.0 * $base-line-height; }
+.padding-trailer-2    { padding-bottom: 2.0 * $base-line-height; }
+.padding-leader-1     { padding-top:    1.0 * $base-line-height; }
+.padding-trailer-1    { padding-bottom: 1.0 * $base-line-height; }
+.padding-leader-half  { padding-top:    0.5 * $base-line-height; }
+.padding-trailer-half { padding-bottom: 0.5 * $base-line-height; }
+.padding-leader-0     { padding-top:    0.0 * $base-line-height; }
+.padding-trailer-0    { padding-bottom: 0.0 * $base-line-height; }
+
+//## Responsive Padding Leader and Trailer
+//
+// Much like other helpers, you can use ```tablet-padding-leader``` and ```phone-padding-leader``` for leader and trailer at specific viewport sizes.
+//
+//No Modifiers
+//
+//Styleguide 1.3.7
+
+// tablets
+@media screen and (max-width: $tablet-mid) {
+  .tablet-padding-leader-5     { padding-top:    5.0 * $base-line-height; }
+  .tablet-padding-trailer-5    { padding-bottom: 5.0 * $base-line-height; }
+  .tablet-padding-leader-4     { padding-top:    4.0 * $base-line-height; }
+  .tablet-padding-trailer-4    { padding-bottom: 4.0 * $base-line-height; }
+  .tablet-padding-leader-3     { padding-top:    3.0 * $base-line-height; }
+  .tablet-padding-trailer-3    { padding-bottom: 3.0 * $base-line-height; }
+  .tablet-padding-leader-2     { padding-top:    2.0 * $base-line-height; }
+  .tablet-padding-trailer-2    { padding-bottom: 2.0 * $base-line-height; }
+  .tablet-padding-leader-1     { padding-top:    1.0 * $base-line-height; }
+  .tablet-padding-trailer-1    { padding-bottom: 1.0 * $base-line-height; }
+  .tablet-padding-leader-half  { padding-top:    0.5 * $base-line-height; }
+  .tablet-padding-trailer-half { padding-bottom: 0.5 * $base-line-height; }
+  .tablet-padding-leader-0     { padding-top:    0.0 * $base-line-height; }
+  .tablet-padding-trailer-0    { padding-bottom: 0.0 * $base-line-height; }
+}
+
+// mobile phones
+@media screen and (max-width: $phone) {
+  .phone-padding-leader-5     { padding-top:    5.0 * $base-line-height; }
+  .phone-padding-trailer-5    { padding-bottom: 5.0 * $base-line-height; }
+  .phone-padding-leader-4     { padding-top:    4.0 * $base-line-height; }
+  .phone-padding-trailer-4    { padding-bottom: 4.0 * $base-line-height; }
+  .phone-padding-leader-3     { padding-top:    3.0 * $base-line-height; }
+  .phone-padding-trailer-3    { padding-bottom: 3.0 * $base-line-height; }
+  .phone-padding-leader-2     { padding-top:    2.0 * $base-line-height; }
+  .phone-padding-trailer-2    { padding-bottom: 2.0 * $base-line-height; }
+  .phone-padding-leader-1     { padding-top:    1.0 * $base-line-height; }
+  .phone-padding-trailer-1    { padding-bottom: 1.0 * $base-line-height; }
+  .phone-padding-leader-half  { padding-top:    0.5 * $base-line-height; }
+  .phone-padding-trailer-half { padding-bottom: 0.5 * $base-line-height; }
+  .phone-padding-leader-0     { padding-top:    0.0 * $base-line-height; }
+  .phone-padding-trailer-0    { padding-bottom: 0.0 * $base-line-height; }
+}
+
+//## Full
+//
+//Makes the object fill the parent. The parent must be absolute or relative. Writing  ```<div class="full"></div>``` will apply the following css:
+//
+//```css
+//.full {
+//  position: absolute;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  left: 0;
+//}
+//```
+//
+//No Modifiers
+//
+//Styleguide 1.3.8
+.full {
+  @extend %full;
+}
+
+//### Right
+//
+//Use a class of "right" on html elements to float elements to the right.
+//
+//```html
+//<div class="right"> </div>
+//```
+//
+//No modifiers
+//
+//Styleguide 1.3.9
+.right {
+  float: right !important;
+}
+
+//### Left
+//
+//Use a class of "left" on html elements to float elements to the left.
+//
+//```html
+//<div class="left"> </div>
+//```
+//
+//No modifiers
+//
+//Styleguide 1.3.10
+.left {
+  float: left !important;
+}
+
+//## Responsive Right and Left
+//
+//At times, you need to change which way elements are floated in tesponsive layouts. You can use the responsive right and left classes in conjunction with the standard ```right``` and ```left``` classes to quickly fix a float for a specific screen size.
+//
+//.tablet-left   - float the element left on tablets
+//.tablet-right   - float the element right on tablets
+//.phone-left   - float the element left on phones
+//.phone-right   - float the element right on phones
+//
+//Styleguide 1.3.11
+
+// tablets
+@media screen and (max-width: $tablet-mid) {
+  .tablet-left  { float: left  !important; }
+  .tablet-right { float: right !important; }
+}
+
+// mobile phones
+@media screen and (max-width: $phone) {
+  .phone-left   { float: left  !important; }
+  .phone-right  { float: right !important; }
+}
+
+//### Clear
+//
+//Elements with a class of clear get a simple ```clear: both;```.
+//
+//```html
+//<div class="clear"> </div>
+//```
+//
+//No modifiers
+//
+//Styleguide 1.3.12
+.clear {
+  clear: both;
+}
+
+//### Clearfix
+//
+//Use a class of "clearfix" on html elements to apply the clearfix mixin.
+//
+//```html
+//<div class="clearfix"> </div>
+//```
+//
+//No modifiers
+//
+//Styleguide 1.3.13
+.clearfix {
+  @extend %clearfix;
+}
+
+// #### Square Corners
+//
+// Use the classes "square-left", "square-right", "square-top", "square-bottom" and "square-top-left", "square-top-right", "square-bottom-left" and "square-bottom-right" to remove border radius form elements.
+//
+//.square-left         - Square off left
+//.square-right        - Square off right
+//.square-top          - Square off top
+//.square-bottom       - Square off bottom
+//.square-top-left     - Square off top-left
+//.square-top-right    - Square off top-right
+//.square-bottom-left  - Square off bottom-left
+//.square-bottom-right - Square off bottom-right
+//
+//Styleguide 1.3.14
+.square-left {
+  @include border-left-radius(0);
+}
+.square-right {
+  @include border-right-radius(0);
+}
+.square-top {
+  @include border-top-radius(0);
+}
+.square-bottom {
+  @include border-bottom-radius(0);
+}
+.square-top-left {
+  @include border-top-left-radius(0);
+}
+.square-top-right {
+  @include border-top-right-radius(0);
+}
+.square-bottom-left {
+  @include border-bottom-left-radius(0);
+}
+.square-bottom-right {
+  @include border-bottom-right-radius(0);
+}

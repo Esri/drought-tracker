@@ -1,0 +1,94 @@
+//## Dropdowns
+//
+//The framework provides a dropdown style. The dropdown happens on hover and requires no javascript.
+//
+//.right-align  - align the dropdown from the right of the button
+//
+//Styleguide 3.6
+
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  @extend %clearfix;
+  max-width: 320px;
+  z-index: 3;
+  &:hover {
+    .dropdown {
+      color: $blue;
+      border: 1px solid mix($lightest-gray, $lighter-gray);
+      border-bottom: 1px solid transparent;
+    }
+    .dropdown-content {
+      display: block;
+    }
+    .dropdown-menu {
+      display: block;
+      overflow: hidden;
+    }
+  }
+  &.right-align {
+    .dropdown-content {
+      left: auto;
+      right: 0;
+    }
+    .dropdown-menu {
+      @include border-radius($border-radius 0 $border-radius $border-radius);
+    }
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding: .5em 1.75em .5em .5em;
+  background-color: $white;
+  border: 1px solid transparent;
+  @include border-radius($border-radius $border-radius 0 0);
+  z-index: 1;
+  @include arrow("down", 4px, $light-gray, "right");
+  &:after {
+    right: .75em;
+    top: 1.45em;
+  }
+}
+
+.dropdown-menu {
+  width: 100%;
+  @include box-sizing(border-box);
+  overflow: hidden;
+  background-color: $white;
+  border: 1px solid mix($lightest-gray, $lighter-gray);
+  @include border-radius(0 $border-radius $border-radius $border-radius);
+  @include box-shadow(0 0 8px rgba(0,0,0,.1));
+  ul {
+    margin: 0;
+  }
+  li {
+    a {
+      display: block;
+      padding: .75em;
+      @include adjust-font-size-to(15px);
+      color: $dark-gray;
+      @include transition(all 150ms linear);
+      &:hover {
+        background-color: $lightest-gray;
+      }
+    }
+  }
+  hr {
+    margin: 0;
+    border-color: mix($lightest-gray, $lighter-gray);
+    border-top-width: 1px;
+  }
+}
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 220px;
+  margin-top: -1px;
+  display: none;
+  background: transparent;
+  z-index: -1;
+}

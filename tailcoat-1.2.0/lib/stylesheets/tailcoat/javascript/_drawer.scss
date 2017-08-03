@@ -1,0 +1,140 @@
+//## Drawer
+//
+//The off-canvas "drawer" pattern is used primarily for top-level mobile navigation.
+//
+// ```html
+// <body>
+//  <!-- Mobile Nav Drawer -->
+//  <div class="drawer">
+//    <nav class="drawer-nav drawer-left"> <!-- drawer-right will put the drawer on the right side. -->
+//      <div class="drawer-header">
+//        <h4 class="site-title">Arc<span class="bold">GIS</span> CSS</h4>
+//      </div>
+//      <ul>
+//        <li class="drawer-link"><a href="#">Link 1</a></li>
+//        <li class="drawer-link"><a href="#">Link 2</a></li>
+//        <li class="drawer-link"><a href="#">Link 3</a></li>
+//      </ul>
+//    </nav>
+//  </div>
+//
+//  <!-- Main Content Wrapper -->
+//  <div class="wrapper">
+//    <!-- ...all site content goes here... -->
+//  </div>
+// </body>
+// ```
+//
+//Add the `drawer-toggle` class and a `data-direction` attribute with a value of of either "active-left" (for the left drawer) or "active-right" (for the right drawer) to the element that you want to open the drawer.
+//
+//No Modifiers
+//
+//Styleguide 6.4
+
+// Generic Drawer Classes
+.drawer {
+  @include transform(translate3d(0,0,0));
+  @include transition(all 400ms linear);
+  background: $dark-gray;
+  background: rgba(0, 0, 0, 0);
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  visibility: hidden;
+  z-index: 1001;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  &.active-left, &.active-right  {
+    display: block;
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.6);
+    @include transition(all 200ms linear);
+  }
+}
+
+.drawer-nav {
+  list-style: none;
+  width: 280px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: white;
+  transition: -webkit-transform 300ms cubic-bezier(0.215, 0.440, 0.420, 0.880);
+  pointer-events: auto;
+  .drawer-link {
+    color: $dark-gray;
+    @include box-sizing(border-box);
+    padding: 1em;
+    background-color: $white;
+    border-top: 1px solid $lightest-gray;
+    display: block;
+    width: 100%;
+    font-family: $header-font;
+    @include transition(all 150ms linear);
+    &:before {
+      font-size: 1.5em;
+      margin-right: 0.45em;
+      vertical-align: -0.2em;
+    }
+    &:hover {
+      background-color: $lightest-gray;
+    }
+  }
+  .drawer-search {
+    padding: 1em 1em 1em 2.5em;
+    font-family: $header-font;
+    color: $dark-gray;
+    background-position: 1em center;
+    border: none;
+    border-top: 1px solid $lightest-gray;
+    &:focus {
+      background-color: $lightest-gray;
+      border: none;
+      border-top: 1px solid $lightest-gray;
+    }
+    &:before {
+      @extend %icon;
+      content: "\2b";
+    }
+  }
+}
+
+.drawer-header {
+  @include box-sizing(border-box);
+  padding: 1em;
+  .site-title {
+    margin-bottom: 0;
+  }
+  .site-logo {
+    font-size: 1em;
+  }
+}
+
+.drawer-left {
+  @include transform(translate3d(0,0,0));
+  left: -280px;
+}
+
+.drawer.active-left .drawer-left {
+  @include transform(translate3d(280px,0,0));
+  transition: -webkit-transform 300ms cubic-bezier(0.215, 0.440, 0.420, 0.880);
+}
+
+.drawer-right {
+  left: 100%;
+  @include transform(translate3d(0,0,0));
+}
+
+.drawer.active-right .drawer-right {
+  @include transform(translate3d(-280px,0,0));
+  transition: -webkit-transform 300ms cubic-bezier(0.215, 0.440, 0.420, 0.880);
+}

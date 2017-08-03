@@ -1,0 +1,63 @@
+@mixin ie8-support(){
+  html.ie8 {
+    .container {
+      width: 960px;
+    }
+    .phone-show, .tablet-show, .tablet-only {
+      display: none;
+    }
+    .dropdown {
+      padding-right: 40px;
+    }
+    .content-area img {
+      max-width: 600px;
+      height: auto;
+    }
+    .tooltip.animate {
+      .tooltip-content {
+        display: none;
+        opacity: 1;
+        pointer-events: none;
+      }
+      &:hover, &.show-tooltip {
+        .tooltip-content {
+          display: block;
+          pointer-events: auto;
+        }
+      }
+    }
+    .drawer {
+      background: transparent;
+      &.active-left, &.active-right {
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000,endColorstr=#80000000);
+        zoom: 1;
+      }
+      &.active-left {
+        .drawer-left {
+          left: 0;
+        }
+      }
+      &.active-right {
+        .drawer-right {
+          margin-left: -280px;
+        }
+      }
+    }
+    .navigation-bar-nav a:hover {
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50FFFFFF,endColorstr=#50FFFFFF);
+      zoom: 1;
+    }
+    .modal-overlay {
+      background: transparent;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99EEEEEE,endColorstr=#99EEEEEE);
+      zoom: 1;
+    }
+    .site-dropdown {
+      border: 1px solid $lighter-gray;
+    }
+  }
+}
+
+@if $legacy-support-for-ie8 == true {
+  @include ie8-support();
+}

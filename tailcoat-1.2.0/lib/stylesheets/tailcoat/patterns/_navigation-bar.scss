@@ -1,0 +1,120 @@
+//## Navigation Bar
+//
+//A sub-navigation menu is provided in the framework. Simply use a class of ```navigation-bar``` to create a container for the sub-nav.
+//
+//You can add a call to action or a search bar inside the sub-nav, and these will be styled specifically for the navigation-bar section.
+//
+//If you choose not to include a menu but still want a call-to-action in the header apply the `.small-leader` class to the call-to-action or input. A navigation-bar with only a nav and no header must be given the class `nav-only`. For a responsive version of this pattern, see the [responsive navigation bar](../javascript/#section-6.6) on the javascript page.
+//
+//.green          - colors the background green
+//.nav-only       - useful when no header is required
+//.no-nav         - useful when no nav is required
+//.green.nav-only - both green and short
+//
+//Styleguide 4.2
+
+.navigation-bar {
+  @extend %bar;
+  min-height: 83px;
+
+  a { color: $white; }
+
+  input {
+    float: right;
+    width: 250px;
+    margin-top: 1em;
+  }
+
+  header {
+    @include trailer(0);
+    @include column(24);
+    h1 {
+      float: left;
+      margin: .25em 0;
+      @include adjust-font-size-to(32px);
+      letter-spacing: 0.04em;
+      text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    }
+  }
+
+  &.green {
+    background: image-url("tailcoat/navigation-bar-background-green.jpg") repeat top center #359f3f;
+  }
+
+  &.nav-only {
+    header {
+      display: none;
+    }
+    min-height: inherit;
+    nav {
+      @include leader(0);
+    }
+    ul {
+      margin: 0.5em 0 0 0;
+    }
+  }
+
+  &.no-nav {
+    min-height: 0;
+    nav {
+      display: none;
+    }
+    h1 {
+      line-height: 1.35em;
+    }
+  }
+}
+
+.navigation-bar-nav {
+  @include column(24);
+  margin-top: -1em;
+  display: block;
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+  ul {
+    @include clearfix();
+    margin: 1em 0 0 0;
+    li {
+      background: rgba(255, 255, 255, 0.1);
+      float: left;
+      margin:0 2% 0 0;
+      padding: 0;
+      &:hover {
+        background-color: rgba($white, 0.5);
+      }
+      &:last-child {
+        margin: 0;
+      }
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .current {
+    background-color: $white;
+    a {
+      color: $dark-gray;
+      text-shadow: none;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 0.33em 1em 0.5em 1em;
+    @include adjust-font-size-to(15px, 1, 14px);
+    @include box-sizing(border-box);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .dropdown-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    padding: 0.25em 0.5em;
+    font-size: 1.5em;
+    z-index: 3;
+  }
+}

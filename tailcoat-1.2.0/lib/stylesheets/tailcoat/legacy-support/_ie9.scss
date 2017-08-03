@@ -1,0 +1,20 @@
+@mixin ie9-support(){
+  html.ie9 {
+    .drawer {
+      &.active-left {
+        .drawer-left {
+          left: 0;
+        }
+      }
+      &.active-right {
+        .drawer-right {
+          margin-left: -280px;
+        }
+      }
+    }
+  }
+}
+
+@if $legacy-support-for-ie9 == true {
+  @include ie9-support();
+}

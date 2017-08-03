@@ -1,0 +1,103 @@
+//## Standard Header
+//
+//If you want to create a standard site-wide header like the header for http://developers.arcgis.com you can implement the following HTML.
+//
+//No Modifiers
+//
+//Styleguide 4.1
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+}
+
+.page {
+  overflow: auto;
+  padding-bottom: 3 * $base-line-height;
+  &.sticky-footer {
+    padding-bottom: (3 * $base-line-height) + $footer-height;
+  }
+}
+
+.header {
+  @include box-shadow(0 1px 4px rgba(0,0,0,0.05));
+  height: auto;
+  padding-bottom: 0;
+  background: $white;
+  border-bottom: 1px solid $lightest-gray;
+  .header-inner {
+    @include column(24);
+  }
+}
+
+.site-nav {
+  @include clearfix();
+  float: left;
+  margin-top: .7em;
+  margin-left: 1.5em;
+  text-transform: uppercase;
+  ul {
+    @include clearfix();
+    margin-bottom: 0;
+  }
+  li {
+    @extend %left;
+    a {
+      @include adjust-font-size-to(15px);
+      letter-spacing: 1px;
+      font-family: $header-font;
+      color: $blue;
+      padding-bottom: 2px;
+      margin: 0 .75em;
+      &.active {
+        border-bottom: 2px solid $blue;
+      }
+    }
+  }
+}
+
+//## Standard Responsive Header
+//
+//The Standard Responsive Header expands the site-wide header into a robust and responsive header pattern.
+//
+//No Modifiers
+//
+//Styleguide 4.1.1
+.toggle-site-navigation {
+  &:before {
+    color: $dark-gray;
+    font-size: 1.25em;
+    padding-right: 0.25em;
+    vertical-align: -.1em;
+  }
+}
+
+.site-brand {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin-top: .7em;
+  margin-bottom: .6em;
+}
+
+.site-logo {
+  color: $darker-gray;
+  float: none;
+  margin-right: 0;
+  font-family: $header-font;
+  font-size: 1.2em;
+  line-height: 1.25em;
+  span {
+    font-family: $header-bold;
+  }
+  &:hover {
+    color: $darker-gray;
+  }
+}
+
+.esri-logo {
+  @include retina-image-replace("tailcoat/logo-esri.png", "tailcoat/logo-esri@2x.png");
+  float: right;
+}

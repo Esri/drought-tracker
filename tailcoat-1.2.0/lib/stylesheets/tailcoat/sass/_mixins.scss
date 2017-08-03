@@ -1,0 +1,724 @@
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  user-select: $select;
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-font-size($px) {
+  $num: strip-unit($px);
+  font-size: $px;
+  font-size: ($num / 16) * 1rem;
+}
+
+//## Position
+//
+//Position is a short-cut mixin to declare position, top, left, bottom, & right all in one go.
+//
+//```css
+//#styled-element{
+//  @include position(absolute, 2px, 16px, auto, 40px);
+//}
+//```
+//
+//Gives you:
+//
+//```css
+//#styled-element{
+//  position: absolute;
+//  top: 2px;
+//  left: 16px;
+//  bottom: auto;
+//  right: 40px;
+//}
+//```
+//
+//No Modifiers
+//
+//Styleguide 5.1.1
+
+@mixin position($type, $top:auto, $left:auto, $bottom:auto, $right:auto) {
+  position: $type;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin header-extentions($size, $lines, $trailer, $leader) {
+  @include trailer(($lines * $trailer), $size);
+  @include leader(($lines * $leader), $size);
+}
+
+//## Show
+//
+//```@include show()``` will apply the show class to the item. See [the static show class](./layouts/#section-1.3.1) for more information.
+//
+//No Modifiers
+//
+//Styleguide 5.1.2
+@mixin show() {
+  visibility: visible;
+}
+
+//## Hide
+//
+//```@include hide()``` will apply the hide class to the item. See [the static shaw and hide classes](./layouts/#section-1.3.1) for more information.
+//
+//No Modifiers
+//
+//Styleguide 5.1.3
+@mixin hide() {
+  display: none !important;
+  visibility: hidden;
+}
+
+@mixin clearfix() {
+  @extend %clearfix;
+}
+
+@mixin retina-display() {
+  @media screen and (-webkit-min-device-pixel-ratio : 1.5), screen and (min-device-pixel-ratio : 1.5) {
+    @content;
+  }
+}
+
+@function num-to-word($num) {
+  $count: 1;
+  @each $word in one,
+                 two,
+                 three,
+                 four,
+                 five,
+                 six,
+                 seven,
+                 eight,
+                 nine,
+                 ten,
+                 eleven,
+                 twelve,
+                 thirteen,
+                 fourteen,
+                 fifteen,
+                 sixteen,
+                 seventeen,
+                 eighteen,
+                 nineteen,
+                 twenty,
+                 twentyone,
+                 twentytwo,
+                 twentythree,
+                 twentyfour {
+    @if ($count == $num) { @return $word; }
+    $count: $count + 1;
+  }
+  @warn "Could not convert #{$num} to a word. Useage `num-to-word(8);`";
+  @return "invalid";
+}
+
+@mixin box-style($background, $borderColor, $textColor, $textShadow) {
+  @include button-style($background, $borderColor, $textColor, $textShadow);
+}
+
+%image-replace {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  @include retina-display() {
+    @include background-size(100% auto);
+  }
+}
+
+@mixin image-replace($url) {
+  @extend %image-replace;
+  background: image-url($url) no-repeat 0 0;
+  padding-top: image-height($url);
+  width: image-width($url);
+}
+
+//### Retina Image Replace
+//
+//Retina Image Replace allows you to easily swap background images for retina screens. It accepts two image urls: standard size and double sized for retina screens. Say we have two logos, one at 400 x 200 and one at 800 x 400:
+//
+//```css
+//#esri-logo {
+//  @include retina-image-replace("logo-esri.jpg", "logo-esri@2x.jpg");
+//}
+//```
+//The logo element will be exactly the size of the first image and retina users will see the double-sized image scaled down to the correct size for crystal clear retina resolution.
+//
+//No Modifiers
+//
+//Styleguide 5.1.4
+
+@mixin retina-image-replace($url, $retina-url) {
+  @extend %image-replace;
+  background-image: image-url($url);
+  padding-top: image-height($url);
+  width: image-width($url);
+  @include retina-display() {
+    background-image: image-url($retina-url);
+  }
+}
+
+//### Retina Background Image
+//
+//The retina-background mixin accepts two image urls, an x dimension and a y dimension and scales them with the background-size attribute.
+//
+//```css
+//#styled-element {
+//  @include retina-image-replace("graphic.jpg", "graphic@2x.jpg", 48px, 48px);
+//}
+//```
+//If your div is the same size as your image, it's recommended you use the retina-image-replace mixin (10.2.1).
+//
+//Compatible in IE9+, Firefox 4+, Chrome 4+, Safari 5+.
+//
+//No Modifiers
+//
+//Styleguide 5.1.5
+
+@mixin retina-background($url, $retina-url, $x, $y) {
+  background-image: image-url($url);
+  background-size: $x $y;
+  @include retina-display() {
+    background-image: image-url($retina-url);
+  }
+}
+
+
+//### Respond To
+//
+//Responsive design is handled with the respond-to mixin. A basic example would look like this:
+//
+//```css
+//#styled-element{
+//  margin-top: 4em;
+//  @include respond-to($tablet-tall){
+//    margin-top: 2em;
+//  }
+//}
+//```
+//
+//In the above example, the styled element will have 2em of top margin until the window becomes larger than the ```$tablet-tall``` breakpoint.
+//Custom or additional breakpoints can be set up in the config file very easily. (See 13.2)
+//
+//The best way to do responsive shifts in layout is to use columns in conjunction with respond-to for flexible, responsive grids.
+//A simple example would look like this:
+//
+//```css
+//#styled-element{
+//  @include column(8);
+//  @include respond-to($tablet-wide){
+//    @include column-width(12);
+//  }
+//  @include respond-to($phone-large){
+//    @include column-width(24);
+//  }
+//}
+//```
+//
+//The above example would generate an element that is 33% wide for desktops, 50% wide for tablets, and full-width for phones.
+//Remember to use ```column-width()``` if you're declaring the column-width inside the ```respond-to``` mixin. See 2.6 Responsive Columns.
+//
+//No Modifiers
+//
+//Styleguide 5.2
+
+@mixin respond-to($type, $m: max-width) {
+  @if $type == handheld {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $type == webkit {
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      @content;
+    }
+  } @else if $type == nonhandheld {
+    @media screen and (min-width: 769px) {
+      @content;
+    }
+  } @else {
+    @media screen and ($m: $type) {
+      @content;
+    }
+  }
+}
+
+@mixin arrow-base(){
+  width: 0;
+  height: 0;
+  content: "";
+  display: block;
+}
+
+@mixin arrow-direction($direction, $size, $color) {
+  @if $direction == "up" {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: none;
+    border-bottom: $size solid $color;
+  }
+  @if $direction == "down" {
+    border-bottom: none;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  }
+  @if $direction == "left" {
+    border-right:none;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
+  @if $direction == "right" {
+    border-left: none;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  }
+}
+
+@mixin arrow-position($size:6px, $position: false) {
+  position: absolute;
+  @if $position == "above" {
+    left: 50%;
+    top: -($size);
+    right: auto;
+    bottom: auto;
+    margin-left: -($size);
+  }
+  @if $position == "top" {
+    left: 50%;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    margin-left: -($size);
+  }
+  @if $position == "left" {
+    left: -($size);
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    margin-top: -($size);
+  }
+  @if $position == "below" {
+    bottom: -($size);
+    left: 50%;
+    top: auto;
+    right: auto;
+    margin-left: -($size);
+  }
+  @if $position == "bottom" {
+    left: 50%;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    margin-left: -($size);
+  }
+  @if $position == "right" {
+    right: -($size);
+    top: 50%;
+    bottom: auto;
+    left: auto;
+    margin-top: -($size);
+  }
+}
+
+// Arrow Mixin
+@mixin arrow($direction: "down", $size: 6px, $color: red, $position: false) {
+  position: relative;
+  &:after {
+    @include arrow-base();
+    @include arrow-direction($direction, $size, $color);
+    @include arrow-position($size, $position);
+  }
+}
+
+@function grid-calc($span) {
+  @return percentage(($span / $total-columns));
+}
+
+%column-base {
+  @include box-sizing(border-box);
+  float: left;
+  padding: 0 $column-gutter/2;
+}
+
+@mixin column-style() {
+  @extend %column-base;
+}
+
+//## Containers
+//
+//The container mixin and class sets up your grid. The mixin it accepts ```$width```, ```$max```, and ```$gutter```.
+//
+//By default there is a `.container` class that you can use. If you need multiple containers with different settings you can use the container mixin to create them.
+//
+//```css
+//.narrow-container {
+//  @include container(100%, 800px, 0);
+//}
+//```
+//
+//For more on setting the defaults for your grid, see 13.4 Grid Settings.
+//
+//### Mixin Parameters
+//
+//$width - Width of the container. Defaults to $container-width (100%).
+//$max - Maximum width of the container. Defaults to $container-max (1200px).
+//$gutter - Left and right gutter of the container. Defaults to $container-gutter (1em).
+//
+//Styleguide 5.5.1
+@mixin container($width, $max, $min, $gutter) {
+  @include clearfix();
+  @include box-sizing(border-box);
+  width: $width;
+  max-width: $max;
+  min-width: $min;
+  padding: 0 $gutter;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+//### Column-Width
+//
+//Inside the respond-to mixin, or if the element is already a column, use ```column-width()``` instead of ```column``` which sets the width without re-declaring all the column styles. For example:
+//
+//```css
+//#item-to-style{
+//  @include column(12);
+//  @include respond-to($tablet){
+//    @include column-width(24);
+//  }
+//}
+//```
+//No arguments are needed, but the element *does* need to be a column.
+//
+//No Modifiers
+//
+//Styleguide 5.5.3
+@mixin column-width($span) {
+  width: grid-calc($span);
+}
+
+//## Columns
+//
+//The column mixin adds a specific width to an element. For example:
+//
+//```css
+//#item-to-style {
+//  @include column(12);
+//}
+//```
+//
+//The item styled above will be 12 columns wide. Since the default ```$total-columns``` count is 24, that means it will be half of the parent width. Columns use their parent as 100%, so you can nest columns like this:
+//
+//```css
+//#parent-item{
+//  @include column(12);
+//  .child-item{
+//    @include column(12);
+//  }
+//}
+//```
+//
+//The `.child-item` will now be a quarter of the overall container, while the `#parent-item` will be half of the overall container. In this way columns can be infinitely granular.
+//
+//Columns use CSS3 box-sizing, so columns can have padding and borders without affecting the layout.
+//
+//
+//No Modifiers
+//
+//Styleguide 5.5.2
+@mixin column($span) {
+  @extend %column-base;
+  @include column-width($span);
+}
+
+//### Last Column
+//
+//The last-column mixin will float the column right. To use last-column, simply use:
+//
+//*You dont need to use this mixin if all your `column`s, `pre`s, and `post`s add up to the total number of columns (24).
+//
+//```css
+//#item-to-style{
+//  @include column(12);
+//  @include last-column();
+//}
+//```
+//No arguments are needed, but the element *does* need to be a column.
+//
+//No Modifiers
+//
+//Styleguide 5.5.5
+@mixin last-column() {
+  float: right;
+}
+
+//### Pre
+//
+//The pre mixin adds columns before the element For example:
+//
+//```css
+//#item-to-style {
+//  @include column(12);
+//  @include pre(2);
+//}
+//```
+//
+//### Post
+//
+//The post mixin adds columns after the element For example:
+//
+//```css
+//#item-to-style{
+//  @include column(12);
+//  @include post(2);
+//}
+//```
+//
+//The item styled above will have two columns of margin-right.
+//
+//No Modifiers
+//
+//Styleguide 5.5.6
+
+@mixin pre($amount) {
+  margin-left: grid-calc($amount);
+}
+
+@mixin post($amount) {
+  margin-right: grid-calc($amount);
+}
+
+//### Center Column
+//
+//The center-column mixin will center the element inside the parent container. To use center-column, simply use:
+//
+//```css
+//#item-to-style{
+//  @include column(12);
+//  @include center-column();
+//}
+//```
+//
+//No arguments are needed, but the element *does* need to be a column.
+//
+//No Modifiers
+//
+//Styleguide 5.5.4
+
+@mixin center-column {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+}
+
+//## IE Styles
+//
+//The ```for-ie``` mixin provides the ability to add IE specific styles.
+//
+//```css
+//#item-to-style{
+//  margin-right:10px;
+//  @include for-ie{
+//    margin-right: 20px;
+//  }
+//}
+//```
+//
+//The above element will have 20px margin-right in IE, but 10px margin-right everywhere else.
+//
+//In order for these mixins to work you *MUST* setup your `<html>` element as follows. This is an extention of the pattern from HTML 5 Boilerplate that adds IE specific classes to the ```<html>``` element.
+//
+//```html
+//<!--[if lt IE 9]>  <html class="ie lt-ie9 ie8"> <![endif]-->
+//<!--[if IE 9]>     <html class="ie ie9"> <![endif]-->
+//<!--[if !IE]><!--> <html> <!--<![endif]-->
+//```
+//#### For IE 9
+//
+//The for-ie9 mixin provides the ability to add IE9 specific styles. Works the same as ```for-ie```.
+//
+//#### For IE 8
+//
+//The for-ie8 mixin provides the ability to add IE8 specific styles. Works the same as ```for-ie```.
+//
+//No Modifiers
+//
+//Styleguide 5.4
+
+@mixin for-ie(){
+  html.ie & {
+    @content;
+  }
+}
+
+@mixin for-ie9(){
+  html.ie9 & {
+    @content;
+  }
+}
+
+@mixin for-ie8(){
+  html.ie8 & {
+    @content;
+  }
+}
+
+//### Right to Left Helpers
+//
+//Because all floats, left/right padding and margin, and absolutely positioned items need to be flipped for right-to-left languages (such as arabic and hebrew), a set of mixins are provided to automatically switch for you when a rtl class is added to the body. Below are the available mixins followed by the automatic action takin on right-to-left pages.
+//
+//```css
+//.class-of-item {
+//   @include left(12px, auto); // turns left into right, second value sets left in reversed layout (optional, auto by default)
+//   @include right(20%, auto); // turns right into left, second value sets right in reversed layout (optional, auto by default)
+//   @include float(right); // reverses float direction
+//   @include text-align(left); // reverses text-align direction
+//   @include padding(12px, 6px, 24px, 2px); // swaps left and right values of the padding
+//   @include padding-right(12px); // turns padding-left into padding-right
+//   @include padding-left(12px); // turns padding-right into padding-left
+//   @inclue margin(12px, 6px, 24px, 2px); // swaps left and right values of margin
+//   @include margin-right(12px); // turns margin-left into margin-right
+//   @include margin-left(12px); // turns margin-right into margin-left
+//}
+//```
+//These rules will get flipped automatically on right to left pages. For example, the following scss:
+//
+// ```css
+// .my-class {
+//   @include float(left);
+// }
+// ```
+//
+// Will become:
+//
+// ```css
+// .my-class {
+//   float: left;
+// }
+//
+// .rtl .my-class {
+//   float: right;
+// }
+// ```
+//
+//There is also a generic ```right-to-left``` mixin for writing custom css for right to left languages.
+//
+//No Modifiers
+//
+//Styleguide 5.3
+
+@mixin left($amount, $right: auto){
+  left: $amount;
+  .rtl & {
+    right: $amount;
+    left: $right;
+  }
+}
+
+@mixin right($amount, $left: auto){
+  right: $amount;
+  .rtl & {
+    left: $amount;
+    right: $left;
+  }
+}
+
+@mixin float($direction){
+  float: $direction;
+  .rtl & {
+    @if $direction == "right" {
+      float: left;
+    } @else {
+      float: right;
+    }
+  }
+}
+
+@mixin text-align($direction){
+  text-align: $direction;
+  .rtl & {
+    @if $direction == "right" {
+      text-align: left;
+    } @else {
+      text-align: right;
+    }
+  }
+}
+
+@mixin padding($top, $right, $bottom, $left){
+  padding: $top $right $bottom $left;
+  @if $top and $right and $bottom and $left {
+    .rtl & {
+      padding: $top $left $bottom $right;
+    }
+  }
+}
+
+@mixin padding-left($amount){
+  padding-left: $amount;
+  .rtl & {
+    padding-right: $amount;
+  }
+}
+
+@mixin padding-right($amount){
+  padding-right: $amount;
+  .rtl & {
+    padding-left: $amount;
+  }
+}
+
+@mixin margin($top, $right, $bottom, $left){
+  margin: $top $right $bottom $left;
+  @if $top and $right and $bottom and $left {
+    .rtl & {
+      margin: $top $left $bottom $right;
+    }
+  }
+}
+
+@mixin margin-left($amount){
+  margin-left: $amount;
+  .rtl & {
+    margin-right: $amount;
+  }
+}
+
+@mixin margin-right($amount){
+  margin-right: $amount;
+  .rtl & {
+    margin-left: $amount;
+  }
+}
+
+@mixin right-to-left(){
+  .rtl & {
+    @content;
+  }
+}
+
+@mixin plain-li(){
+  padding-left: 0;
+  &:before{
+    display: none;
+  }
+}
+
+@mixin compact-li(){
+  padding-right: 0;
+  margin-left: 0;
+}
+
+@mixin plain-list(){
+  @include plain-li();
+  @include compact-li();
+}

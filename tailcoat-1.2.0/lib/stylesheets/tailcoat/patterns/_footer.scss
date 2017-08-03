@@ -1,0 +1,149 @@
+//## Sticky Footer
+//
+//Included in the framework is an implementation of http://www.cssstickyfooter.com/. You can implement the sticky footer with the following HTML.
+//
+//```html
+//<body>
+//  <div class="wrapper">
+//    <div class="page sticky-footer"></div>
+//  </div>
+//  <footer class="footer sticky-footer"></footer>
+//</body>
+//```
+//
+//If you want to change the height of the footer set the `$footer-height` config variable or include the following in your own CSS.
+//
+//```css
+//.page.sticky-footer {
+//  padding-bottom: 100px;
+//}
+//
+//.footer.sticky-footer {
+//  margin-top: -100px;
+//  min-height: 100px;
+//}
+//```
+//
+//No Modifiers
+//
+//Styleguide 4.8
+.footer.sticky-footer {
+  clear: both;
+  margin-top: -($footer-height);
+  min-height: $footer-height;
+}
+
+//## Standard Footer
+//
+//If you want to create a standard sitewide footer like on http://developers.arcgis.com you can implement the following HTML.
+//
+//```html
+//<footer class="footer">
+//  <div class="container">
+//    <div class="row">
+//      <nav>
+//        <h4>Arc<span>GIS</span></h4>
+//        <ul>
+//          <li><a href="http://www.arcgis.com/about/">Home</a></li>
+//          <li><a href="http://www.arcgis.com/about/features.html">Features</a></li>
+//          <li><a href="http://www.arcgis.com/about/pricing.html">Pricing</a></li>
+//        </ul>
+//      </nav>
+//
+//      <nav>
+//        <h4>Arc<span>GIS</span> for Developers</h4>
+//        <ul>
+//          <li><a href="/en/">Home</a></li>
+//          <li><a href="/en/features/">Features</a></li>
+//          <li><a href="http://blogs.esri.com/esri/arcgis/category/developer/">Blog</a></li>
+//        </ul>
+//      </nav>
+//
+//      <nav>
+//        <h4>About Esri</h4>
+//        <ul>
+//          <li><a href="http://www.esri.com/about-esri/">About Us</a></li>
+//          <li><a href="http://www.esri.com/careers/">Careers</a></li>
+//          <li><a href="http://blogs.esri.com/esri/esri-insider/">Insiders Blog</a></li>
+//          <li><a href="http://www.esri.com/events/user-conference/index.html">User Conference</a></li>
+//          <li><a href="http://www.esri.com/events/devsummit/index.html">Developer Summit</a></li>
+//        </ul>
+//      </nav>
+//
+//      <nav>
+//        <a class="esri-logo-footer" href="http://esri.com">Esri</a>
+//        <section class="footer-social-nav">
+//          <a class="icon-twitter" href="https://twitter.com/Esri/"></a>
+//          <a class="icon-facebook" href="https://www.facebook.com/esrigis/"></a>
+//          <a class="icon-github" href="http://esri.github.com/"></a>
+//          <a class="icon-email" href="http://www.esri.com/about-esri/contact/"></a>
+//        </section>
+//      </nav>
+//      <small class="footer-legal">© Copyright 2013 Environmental Systems Research Institute, Inc. | <a href="http://www.esri.com/legal/privacy">Privacy</a> | <a href="http://www.esri.com/legal/software-license">Legal</a></small>
+//    </div>
+//
+//  </div>
+//</footer>
+//```
+//
+//By default, there is three lines of whitespace between the end of the page's content and the footer. You can clear this by putting a ```no-space-to-footer``` class on the last div on your page.
+//
+//No Modifiers
+//
+//Styleguide 4.7
+
+.footer {
+  @include padding-leader(1);
+  @include box-sizing(border-box);
+  background: #f3f3ee;
+  position: relative;
+  a {
+    color: $dark-gray;
+    &:hover {
+      color: $dark-blue;
+    }
+  }
+  h4 {
+    font-family: $header-font;
+    span {
+      font-family: $header-bold;
+    }
+  }
+}
+
+.no-space-to-footer {
+  margin-bottom: -72px;
+}
+
+// Footer Logo -----------------------------------------------------------------
+.esri-logo-footer {
+  @include retina-image-replace("tailcoat/logo-esri-footer.jpg", "tailcoat/logo-esri-footer@2x.jpg");
+  display: block;
+  margin: 1.5em auto 0;
+}
+
+// Social Links ----------------------------------------------------------------
+.footer-social-nav {
+  @include adjust-font-size-to(24px);
+  text-align: center;
+  li {
+    @extend %special-list;
+    background-image: none;
+  }
+  a {
+    color: $light-gray;
+    display: inline;
+    padding: 0 .25em 0 0;
+    &:hover {
+      color: $gray;
+    }
+  }
+}
+
+// Footer Legal Notice ---------------------------------------------------------
+.footer-legal {
+  clear: both;
+  a {
+    color: inherit;
+  }
+}

@@ -1,0 +1,449 @@
+html, body {
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.0em;
+    font-family: 'Avenir Next W01', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* Application Header properties */
+/* The application's logo in the floating panel */
+.app-logo {
+    height: 80%;
+    margin-top: 5px;
+}
+
+.app-label-container {
+    margin-top: -35px;
+    margin-left: 80px;
+    font-size: 1.2em;
+}
+
+.drought-label {
+    color: red;
+    font-size: 1.20em;
+}
+
+.tracker-label {
+    color: red;
+    font-size: 1.20em;
+}
+
+#chartNode {
+    height: 135px;
+}
+
+/* The map */
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Container that houses the selected date and floats over the map */
+.selected-date-container {
+    position: absolute;
+    left: 40%;
+    z-index: 1000;
+    background-color: #868686;
+    border-radius: 5px;
+    width: 240px;
+    top: 5px;
+    opacity: .94;
+}
+
+/* Container that floats over the map and holds the annual and monthly charts and app description */
+#floating-panel {
+    position: absolute;
+    right: 5px;
+    z-index: 100;
+    background-color: #8c8c8c;
+    display: block;
+    border-radius: 5px;
+    width: 365px;
+    opacity: 0;
+}
+
+#floating-panel-mask {
+    position: absolute;
+    right: 5px;
+    z-index: 1000;
+    background-color: #8c8c8c;
+    color: #FFFFFF;
+    width: 365px;
+    display: block;
+    border-radius: 5px;
+    opacity: 0;
+    font-size: 1.0em;
+    font-family: 'Avenir Next W01', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+#floating-panel-mask-header {
+    height: 40px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.instructions {
+    margin: 10px;
+    z-index: 1000;
+}
+
+#floating-panel-header {
+    height: 40px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* Geocoder */
+#search {
+    margin-top: 10px;
+}
+
+.simpleGeocoder .esriGeocoder {
+    background-color: #989898;
+}
+
+/* main chart container */
+.chart-container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    height: 0px;
+    /*height: 150px;*/
+    background-color: white;
+}
+
+/* */
+#annualChart {
+    width: 330px;
+    height: 150px;
+}
+
+.chart-title {
+    font-size: 0.80em;
+    color: white;
+    font-family: 'Avenir Next W01', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: -15px;
+    margin-left: 7px;
+}
+
+.chart-title-adjustment {
+    margin-bottom: -10px;
+    margin-left: 15px;
+}
+
+#selectedCounty {
+    font-size: 1.0em;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Avenir Next W01', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 5px;
+    margin-left: 7px;
+}
+
+#selectedDateContainer {
+    position: absolute;
+    margin-left: 45%;
+    z-index: 100;
+    margin-top: 25px;
+    display: none;
+}
+
+#selectedDate {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #333;
+    font-family: 'Avenir Next W01', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    width: 200px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: #999;
+    opacity: 0.85;
+    text-align: center;
+    line-height: 30px;
+}
+
+/* Month Chart */
+#monthChart {
+    width: 200px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.month-chart-legend {
+    height: 180px !important;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+/* Legend */
+.legend-label {
+    margin-top: 20px;
+    /*margin-left: 40px;*/
+    font-size: 0.80em;
+    color: white;
+    font-family: 'Avenir Next W01', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.legend-title-adjustment {
+    margin-top: -20px !important;
+    font-size: 1.0em !important;
+    margin-bottom: 5px;
+    margin-left: -10px;
+}
+
+.legend--item-label {
+    margin-bottom: -4px;
+}
+
+.legend-color {
+    height: 5px;
+    width: 25px;
+    float: left;
+    margin-top: 9px;
+}
+
+.legend-exceptional-color {
+    background-color: #9A726D;
+}
+
+.legend-extreme-color {
+    background-color: #F0787F;
+}
+
+.legend-severe-color {
+    background-color: #FED089;
+}
+
+.legend-moderate-color {
+    background-color: #FCE5BA;
+}
+
+.legend-dry-color {
+    background-color: #FFFE90;
+}
+
+.loader {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+
+#scrubber {
+    top: 5px !important;
+}
+
+#scrubber-thumb {
+    background-color: rgb(103, 103, 103);
+    border-radius: 30%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid white;
+    position: relative;
+    left: 3px;
+    top: 4px;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid white;
+    position: relative;
+    left: 12px;
+    top: -6px;
+}
+
+#dndArea {
+    height: 117px;
+    width: 1235px;
+    position: absolute;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.0);
+    bottom: 25px;
+    pointer-events: none;
+}
+
+.learn-more-link {
+    position: absolute;
+    margin-left: 15px;
+    bottom: 0px;
+    z-index: 500;
+    color: rgb(242, 242, 242);
+    font-family: 'Avenir Next W01', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.85em;
+}
+
+.learn-more-link:hover {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 1.0;
+}
+
+.save-layer-container {
+    position: absolute;
+    right: 20px;
+    bottom: 7px;
+    z-index: 500;
+    color: rgb(242, 242, 242);
+    font-family: 'Avenir Next W01', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.85em;
+}
+
+.save-lyr-btn {
+    /*font-size: 0.775em !important;*/
+}
+
+.drought-data-link {
+    text-decoration: underline;
+}
+
+.drought-data-link:hover {
+    color: #ffffff;
+
+    cursor: pointer;
+}
+
+#safeLayerDialog {
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.85em;
+    font-family: 'Avenir Next W01', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Save dialog row */
+.save-dialog-row {
+    margin-bottom: 10px;
+}
+
+.save-dialog-row-error {
+    font-size: 0.85em;
+    color: red;
+    display: none;
+    margin-left: 2px;
+    margin-top: -10px;
+}
+
+.new-layer-dialog-msg {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.field-label {
+    margin-left: 5px;
+    font-size: 0.75em;
+    color: gray;
+}
+
+.new-layer-title {
+    font-size: 0.8em;
+}
+
+.new-layer-snippet {
+    font-size: 0.8em;
+    border: 1px solid rgb(229, 229, 229);
+    padding: 2px;
+}
+
+.new-layer-description {
+    font-size: 0.8em;
+    overflow-y: hidden;
+    border: 1px solid rgb(229, 229, 229);
+    padding: 2px;
+    height: 200px !important;
+}
+
+.new-layer-description-textarea {
+    display: none;
+}
+
+.item-thumbnail-loader {
+    display: block;
+    margin-left: 60px;
+    margin-bottom: 60px;
+}
+
+.item-thumbnail {
+    display: none;
+}
+
+.item-thumbnail-placeholder {
+    opacity: 0;
+}
+
+.dijitEditorIFrameContainer > iframe {
+    height: inherit !important;
+}
+
+#legend-dry-container:hover {
+    cursor: pointer;
+}
+
+#legend-moderate-container:hover {
+    cursor: pointer;
+}
+
+#legend-severe-container:hover {
+    cursor: pointer;
+}
+
+#legend-extreme-container:hover {
+    cursor: pointer;
+}
+
+#legend-exceptional-container:hover {
+    cursor: pointer;
+}
+
+.instructions-list-item {
+    margin-left: 7px;
+}
+
+/* Create New Service loader */
+.new-service-loader-container {
+    display: none;
+    background-color: #FFFFFF;
+    height: 460px;
+    position: absolute;
+    z-index: 4000;
+    width: 650px;
+    opacity: 0.93;
+}
+
+.new-service-loader {
+    display: block;
+}
+
+.new-service-loader-text {
+    display: block !important;
+    margin-top: 50px;
+    font-size: 1.3em;
+    margin-left: -120px;
+    text-align: center;
+    width: 300px;
+}

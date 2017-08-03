@@ -1,0 +1,39 @@
+//## Panels
+//
+//Panels are used to call attention to copy, or create clear separation of content.
+//
+//```html
+//<div class="panel">
+//  <h4>Lorem Ipsum</h4>
+//  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+//</div>
+//
+//```
+//
+//
+//### Modifiers
+//
+//.primary              - Applies the primary color (set in config)
+//.white                - Applies the seconary color (set in config)
+//.drop-shadow          - Applies a subtle drop shadow for modals (set in config)
+//.compact              - Use in tight spaces when less padding is required
+//
+//Styleguide 3.11
+
+.panel {
+  @extend %panel;
+  &.primary, &.blue {
+    border: 1px solid $panel-primary-border;
+    background: $panel-primary-color;
+  }
+  &.white {
+    border: 1px solid $lightest-gray;
+    background: $white;
+  }
+  &.drop-shadow {
+    @include box-shadow($panel-shadow);
+  }
+  &.compact {
+    padding: 1em;
+  }
+}

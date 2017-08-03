@@ -1,0 +1,106 @@
+//## Accordions
+//
+//The framework includes a quick set of styles for an accordian interface pattern.
+//
+//Remember to include the sample vanilla js titled 'accordion.js' or write your own js in your framework of choice.
+//
+//.open       - opens all sections of the nav letting it behave more like a TOC
+//
+//Styleguide 6.3
+.accordion {
+  overflow: hidden;
+  margin-bottom: 0;
+  @include border-radius(4px);
+  border: 1px solid $lightest-gray;
+  background-color: $white;
+  header {
+    margin: 0;
+    padding: 0;
+    background-color: $off-white;
+    cursor: pointer;
+    @include user-select(none);
+  }
+  .section-title {
+    padding: .5em .35em .5em 1.75em;
+    margin: 0;
+    border-bottom: 1px solid $lightest-gray;
+    position: relative;
+    color: $dark-gray;
+    @include arrow("left", .35em, $light-gray, right);
+    &:after {
+      top: 50%;
+      margin-top: -.35em;
+      left: .75em;
+    }
+  }
+  .accordion-section > ul, .section-content {
+    display: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    & > li > a {
+      padding: .5em;
+      display: block;
+      border-bottom: 1px solid $lightest-gray;
+      &:hover {
+        background: $calcite-dark-blue;
+        color: $white;
+      }
+    }
+    .current {
+      color: $white;
+      background-color: $blue;
+      & > a {
+        color: $white;
+      }
+    }
+  }
+
+  .accordion-section {
+    &:last-child {
+      .section-title {
+        border-bottom: 0;
+      }
+      li:last-child a {
+        border-bottom: 0;
+      }
+    }
+    &.active {
+      .section-title {
+        border-bottom: 1px solid $lightest-gray;
+      }
+    }
+  }
+
+  .active {
+    .section-title {
+      border-bottom: 1px solid $lightest-gray;
+      @include arrow("down", .35em, $light-gray, right);
+      &:after {
+        top: 50%;
+        margin-top: -.175em;
+        left: .55em;
+      }
+    }
+    ul, .section-content {
+      display: block;
+    }
+  }
+
+  &.open {
+    header {
+      cursor: default;
+    }
+    .accordion-section > ul, .section-content {
+      display: block;
+    }
+    .section-title {
+      padding-left: .5em;
+      &:after {
+        display: none;
+      }
+    }
+    .accordion-section:last-child .section-title {
+      border-bottom: 1px solid $lightest-gray;
+    }
+  }
+}

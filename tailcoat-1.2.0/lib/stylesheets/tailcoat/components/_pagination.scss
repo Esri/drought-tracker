@@ -1,0 +1,44 @@
+//## Pagination
+//
+//Ordered lists for pagination.
+//
+//.center     - centers pagination componenent within parent element
+//
+//Styleguide 3.9
+
+.pagination {
+  list-style-type: none;
+  &.center {
+    text-align: center;
+  }
+}
+
+.pagination-page {
+  display: inline;
+  margin: 0 0.125em;
+  padding: 0.5em 0.5em 0.5em 0.83em;
+  @include border-radius($border-radius);
+  text-align: center;
+  &.active {
+    background-color: $blue;
+    a {color: white;}
+  }
+}
+
+%pagination-arrows {
+  display: inline-block;
+  font-size: 1.25em;
+  line-height: 0.75em;
+  vertical-align: -0.15em;
+  color: $light-gray;
+}
+
+.pagination-previous {
+  @extend %pagination-arrows;
+  margin-right: 0.125em;
+}
+
+.pagination-next {
+  @extend %pagination-arrows;
+  margin-left: 0.5em;
+}

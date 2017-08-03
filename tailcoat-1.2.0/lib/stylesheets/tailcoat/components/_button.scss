@@ -1,0 +1,260 @@
+//## Buttons
+//
+//Buttons are created by adding a class of ```.btn``` to either a ```<button>``` or ```<a>``` element.
+//
+//```html
+//<a href="#" class="btn"> This is a Button </a>
+//```
+//
+//or:
+//
+//```html
+//<button class="btn"> This is a Button </button>
+//```
+//
+//For more information on setting up defaults, see 13 (Default Configuration)
+//
+//### Modifiers
+//
+//:disabled             - Lightens the button to make it look disabled
+//.orange               - Applies the orange color (set in config)
+//.green                - Applies the green color (set in config)
+//.red                  - Applies the red color (set in config)
+//.gray                 - Applies the gray color (set in config)
+//.transparent          - Makes button background transparent
+//.clear                - Creates a clear button with blue border
+//.clear.white          - Creates a clear button with a white border
+//.clear.gray           - Creates a clear button with gray border
+//.small                - Smaller Size
+//.large                - Larger Size
+//.fill                 - Expands button to fill 100% of parent container
+//.success              - Uses Calcite UI Green, adds success icon
+//.cancel               - Uses Caution Light, adds cancel icon
+//.delete               - Uses Calcite UI Red adds delete icon
+//.loading              - Adds a loading spinner to the button
+//
+//Styleguide 3.3
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: .3em 1.25em .3em;
+  font-family: $button-font;
+  color: $white;
+  text-transform: uppercase;
+  text-shadow: $button-text-shadow;
+  letter-spacing: 1px;
+  -webkit-font-smoothing: antialiased;
+  @include adjust-font-size-to(14px);
+  border: none;
+  @include border-radius(3px);
+  background-color: $button-blue-background;
+  @include box-shadow($button-shadow);
+  @include box-sizing(border-box);
+  @include user-select(none);
+  @include transition(all 0.05s linear);
+  cursor: pointer;
+
+  // States --------------------------------------------------------------------
+  &:hover {
+    background-color: $button-blue-background-hover;
+    color: $white;
+  }
+
+  &:disabled, &.disabled {
+    background-color: $lightest-gray !important;
+    cursor: default !important;
+    color: $light-gray;
+    &:hover {
+      background-color: $lightest-gray !important;
+      color: $light-gray;
+    }
+  }
+
+  // Colors --------------------------------------------------------------------
+  &.orange {
+    background-color: $button-orange-background;
+    &:hover {
+      background-color: $button-orange-background-hover;
+    }
+  }
+
+  &.green {
+    background-color: $button-green-background;
+    &:hover {
+      background-color: $button-green-background-hover;
+    }
+  }
+
+  &.dark-blue {
+    background-color: $button-dark-blue-background;
+    &:hover {
+      background-color: $button-dark-blue-background-hover;
+    }
+  }
+
+  &.red {
+    background-color: $button-red-background;
+    &:hover {
+      background-color: $button-red-background-hover;
+    }
+  }
+
+  &.gray {
+    background-color: $button-gray-background;
+    &:hover {
+      background-color: $button-gray-hover-background;
+    }
+  }
+
+  &.transparent {
+    background: none;
+    color: $link-color;
+    text-shadow: none;
+    @include box-shadow(none);
+    &:hover {
+      color: $link-hover;
+      background: none;
+    }
+  }
+
+  &.clear, &.btn-clear {
+    color: $button-blue-background;
+    font-weight: 700;
+    text-shadow: none;
+    background: transparent;
+    border: 1px solid $button-blue-background;
+    @include box-shadow(none);
+    &:hover {
+      color: $white;
+      background: $button-blue-background;
+    }
+    &:disabled {
+      color: $lighter-gray;
+      border-color: $lighter-gray;
+      &:hover {
+        color: $lighter-gray;
+      }
+    }
+    &.gray {
+      text-shadow: none;
+      color: $button-gray-background;
+      border: 1px solid $button-gray-background;
+      &:hover {
+        color: $white;
+        background: $button-gray-background;
+      }
+    }
+    &.white {
+      color: $white;
+      border: 1px solid $white;
+      &:hover {
+        color: $gray;
+        background: $white;
+      }
+    }
+  }
+
+  // UI Status
+  &.ui-button {
+    padding-left: 9px;
+    &:before {
+      @extend .icon-class;
+      content: "\65";
+      font-size: 115%;
+      vertical-align: -2px;
+      padding-right: .25em;
+    }
+  }
+
+  &.success {
+    @extend .green;
+    @extend .ui-button;
+    &:before {
+      content: "\65";
+    }
+  }
+
+  &.delete {
+    @extend .red;
+    @extend .ui-button;
+    &:before {
+      content: "\3d";
+    }
+  }
+
+  &.cancel {
+    @extend .orange;
+    @extend .ui-button;
+    &:before {
+      content: "\6b";
+    }
+  }
+
+  &.loading {
+    @extend .icon-class;
+    padding-left: 1.85em;
+    &:before {
+      content: "\75";
+      -webkit-animation:spin 1.5s linear infinite;
+      -moz-animation:spin 1.5s linear infinite;
+      animation:spin 1.5s linear infinite;
+      position: absolute;
+      left: 6px;
+      top: 0.55em;
+      height: 1em;
+      width: 1em;
+    }
+  }
+
+  // Sizes ---------------------------------------------------------------------
+  &.small {
+    @include adjust-font-size-to(13px);
+    border-width:1px;
+    padding: .4125em 1.25em .1875em;
+  }
+
+  &.large {
+    @include adjust-font-size-to(18px);
+    padding: .5em 1.25em .5em;
+    font-weight: 700;
+  }
+
+  &.fill {
+    width: 100%;
+    text-align: center;
+  }
+
+  &[class*="icon-"]:before {
+    font-size: 115%;
+    vertical-align: -2px;
+    padding-right: .25em;
+  }
+
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.toolbar {
+  @include clearfix();
+  .btn, .dropdown-wrapper {
+    float: left;
+    margin-right: $column-gutter;
+  }
+  &.right {
+    .btn, .dropdown-wrapper {
+      margin-right: 0;
+      margin-left: $column-gutter;
+      .btn {
+        margin: 0;
+      }
+    }
+  }
+  .dropdown-wrapper{
+    .btn.dropdown {
+      margin-right: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,191 @@
+//## Containers
+//
+//There is a ```container``` helper class which provides a max-width for your entire gridded area. If the screen is larger than the max-width, the container will be centered in the screen.
+//
+//A typical setup for using grids is below:
+//
+//```html
+// <div class="container">
+//   <div class="row">
+//     <div class="column-12"> ... </div>
+//     <div class="column-8"> ... </div>
+//     <div class="column-2 pre-2"> ... </div>
+//   </div>
+// </div>
+//```
+//
+//No Modifiers
+//
+//Styleguide 1.1.3
+
+.container {
+  @include container($container-width, $container-max, $container-min, $container-gutter);
+}
+
+// ArcGIS JS Fix
+.map .container {
+  @include box-sizing(content-box);
+  max-width: none;
+  min-width: 0;
+  &:before,
+  &:after {
+    display: none;
+  }
+}
+
+//## Rows
+//
+//Give an html element a class of `row` to clear it and eliminate the outside gutter of the first and last column.
+//
+//You should also use the row class when nesting columns together to make sure all the edges line up.
+//
+//```html
+//<div class="row">
+//  <!-- Some Columns -->
+//  <div class="row">
+//    <!-- Nested Columns -->
+//  </div>
+//</div>
+//<div class="row">
+//  <!-- Some More Columns -->
+//</div>
+//```
+//
+//No Modifiers
+//
+//Styleguide 1.1.4
+
+.row {
+  @include clearfix();
+  position: relative;
+  .row {
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+  }
+}
+
+img, object, embed, video {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+//## Columns
+//
+//The column class makes that element span the specified number of columns. For example:
+//
+//```html
+//<div class="column-12"> ... </div>
+//```
+//
+//The above div will have a width of fifty percent of its parent as the grid system is based on twenty-four columns. Columns are always based on their parent element, so you can nest columns indefinitely. Remember to use rows and containers (see above) to wrap your column layouts.
+//
+//.center      - centers the column inside the row
+//.last-column - floats the column to the far right
+//
+//Styleguide 1.1.5
+
+@if($generate-grid) {
+  [class*="column-"] {
+    &.last-column {
+      float: right;
+    }
+    &.center {
+      @include center-column();
+    }
+  }
+
+  // static column classes
+  @for $i from 1 through $total-columns {
+    .column-#{$i} {
+      @extend %column-base;
+      @include column-width($i);
+    }
+  }
+
+  //## Pre and Post
+  //
+  //Use the ```.pre-xx``` and ```post-xx``` classes to add space before and after columns. Combined with the ```column-xx``` classes you can quickly layout pages.
+  //
+  //```html
+  //<div class="column-6 pre-4 post-8"> ... </div>
+  //```
+  //
+  //The six column div above will have four columns of space to the left of it and eight columns of space to the right.
+  //
+  //No Modifiers
+  //
+  //Styleguide 1.1.7
+
+  // static pre and post classes
+  @for $i from 0 through $total-columns {
+    .pre-#{$i} {
+      @include pre($i)
+    }
+    .post-#{$i} {
+      @include post($i)
+    }
+  }
+
+  //## Responsive Columns
+  //
+  //A number of responsive column classes are provided for quick responsive layouts as well.
+  //
+  //```html
+  //<div class="column-12 tablet-column-18 phone-column-24"> ... </div>
+  //```
+  //
+  //The above is a typical use of the phone and tablet column classes. The div will be twelve columns on large screens (desktops), eighteen columns on medium screens (tablets), and full width on small screens (phones). These can be used with [responsive show and hide](#section-1.3.2) classes for very fast and powerful responsive design and iteration. Change the size of your browser to preview the below responsive column:
+  //
+  //No Modifiers
+  //
+  //Styleguide 1.1.6
+
+  @include respond-to($tablet-mid){
+    @for $i from 1 through $total-columns {
+      .tablet-column-#{$i} {
+        @include column-width($i);
+      }
+    }
+    @for $i from 0 through $total-columns {
+      .tablet-post-#{$i} {
+        @include post($i);
+      }
+      .tablet-pre-#{$i} {
+        @include pre($i);
+      }
+    }
+  }
+
+  //## Responsive Pre and Post
+  //
+  //Much like columns, pre and post classes can be used with the ```tablet-``` and ```phone-``` prefixes to apply that pre or post only at certain screen sizes. The following html could create a twelve column div will have six columns of space to its left on desktops, two columns of space to it's left on tablets, and one column of space on phones. Resize to preview in your browser.
+  //
+  //No Modifiers
+  //
+  //Styleguide 1.1.8
+
+  @include respond-to($phone){
+    @for $i from 1 through $total-columns {
+      .phone-column-#{$i} {
+        @include column-width($i);
+      }
+    }
+    @for $i from 0 through $total-columns {
+      .phone-post-#{$i} {
+        @include post($i);
+      }
+      .phone-pre-#{$i} {
+        @include pre($i);
+      }
+    }
+  }
+
+}

@@ -1,0 +1,90 @@
+//## Header Search
+//
+//A pattern for including a site-wide search is included in Tailcoat. This search pattern expands on click to reveal a full search bar. The interactive component is handled by tailcoat.js. Common components for search pages are also included, see the [search bar](../patterns/#section-4.3) pattern. For a look at a sample search page, check out Tailcoat's [search page](../search/). To learn about extending search into mobile screen sizes look at the [drawer pattern](../javascript/#section-6.4).
+//
+//No Modifiers
+//
+//Styleguide 4.1.2
+@mixin placeholders() {
+  &::-webkit-input-placeholder { @content; }
+  &:-ms-input-placeholder      { @content; }
+  &::-moz-placeholder          { @content; }
+  &:-moz-placeholder           { @content; }
+}
+
+.site-search {
+  position: relative;
+  margin-top: .45em;
+  width: 100px;
+  .site-search-form {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    @include transition(all 200ms linear);
+  }
+  input[type="search"], input[type="text"] {
+    border: 1px solid transparent;
+    padding-right: .25em;
+    padding-left: 1.75em;
+    background-image: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: $header-font;
+    color: $blue;
+    &:focus {
+      border: 1px solid $blue;
+      text-transform: none;
+      font-family: $body-font;
+      letter-spacing: 0;
+      z-index: 2;
+      color: $dark-gray;
+    }
+  }
+  .site-search-toggle {
+    position: absolute;
+    left: .25em;
+    top: 0;
+    bottom: 0;
+    line-height: 2.2em;
+    pointer-events: none;
+    color: $link-color;
+  }
+  .site-search-button {
+    position: absolute;
+    padding-right: .5em;
+    padding-left: .5em;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include opacity(0);
+    @include transition(all 200ms linear);
+    @include border-radius(0 $border-radius $border-radius 0);
+    @include for-ie{ display: none; }
+    pointer-events: none;
+    z-index: 1;
+    &:hover {
+      color: $white;
+      background-color: $blue;
+      border-left: darken($blue, 20%);
+    }
+  }
+}
+
+.site-search.active {
+  .site-search-form {
+    width: 300px;
+    border-left: 6px solid $white;
+  }
+  input[type="search"], input[type="text"] {
+    padding-right: 4.25em;
+  }
+  .site-search-button {
+    pointer-events: auto;
+    z-index: 3;
+    @include for-ie{ display: inline-block; }
+    @include opacity(1);
+  }
+  .site-search-toggle {
+    color: $light-gray;
+  }
+}

@@ -1,0 +1,142 @@
+//## Tabs
+//
+//The framework includes a quick set of styles for a tabbed interface pattern. The full tab container will expand to fit its parent.
+//
+//As an added bonus, this component supports intelligently restricting the width of tabs if they get too long and numerous.
+//
+// <div class="tab-group">
+//   <nav class="tab-nav">
+//     <a class="tab active">Very Long Tab Section Title</a>
+//     <a class="tab">Rather Verbose Tab Section Designation</a>
+//     <a class="tab">Quite Overstated Tab Section Heading</a>
+//     <a class="tab" alt="alternate title?">There Are Too Many Words In This Section Title But I Refuse to Change It</a>
+//   </nav>
+//   <section class="tab-contents">
+//     <article class="tab-content active">
+//       <p>Tab 1 Content</p>
+//     </article>
+//     <article class="tab-content">
+//       <p>Tab 2 Content</p>
+//     </article>
+//     <article class="tab-content">
+//       <p>Tab 3 Content</p>
+//     </article>
+//     <article class="tab-content">
+//       <p>Tab 4 Content</p>
+//     </article>
+//   </section>
+// </div>
+//
+//### Modifiers
+//
+//.gray         - current tab will have a gray background
+//.transparent  - only the current tab will have a border
+//
+//Styleguide 6.2
+
+.tab-group {
+  width: 100%;
+  .tab-nav {
+    width: 100%;
+    display: block;
+    @extend %clearfix;
+    .tab {
+      float: left;
+      @include box-sizing(border-box);
+      padding: 0.5em 1em;
+      @include adjust-font-size-to(14px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background-color: $off-white;
+      border: 1px solid $lighter-gray;
+      border-left: none;
+      @include border-radius(0);
+      background-image: none;
+      &:first-child {
+        @include border-radius(3px 0 0 0);
+        border-left: 1px solid $lighter-gray;
+      }
+      &:last-child {
+        @include border-radius(0 3px 0 0);
+      }
+      &:hover {
+        background-color: mix($off-white, $white);
+      }
+      &.active {
+        border-bottom: 1px solid transparent;
+        background-color: $white;
+        &:hover {
+          background-color: $white;
+        }
+      }
+    }
+  }
+  .tab-contents {
+    width: 100%;
+    border: 1px solid $lighter-gray;
+    @include border-radius(0 0 3px 3px);
+    margin-top: -1px;
+    @include box-sizing(border-box);
+    .tab-content {
+      background-color: $white;
+      display: none;
+      width: 100%;
+      @include box-sizing(border-box);
+      @include border-radius(0 0 3px 3px);
+      padding: 1em;
+      overflow: auto;
+      &.active {
+        display: block;
+      }
+      code {
+        border: none;
+        overflow: initial;
+        background: transparent;
+      }
+      pre {
+        background: transparent;
+        margin-bottom: 0;
+      }
+    }
+  }
+  &.transparent {
+    .tab {
+      background-color: $white;
+      border: 1px solid transparent;
+      border-bottom: none;
+      &:hover {
+        background-color: $white;
+      }
+      &:first-child {
+        border-left: none;
+      }
+      &.active {
+        border: 1px solid $lighter-gray;
+        border-bottom: 1px solid transparent;
+        @include border-radius(3px 3px 0 0);
+      }
+    }
+    .tab-contents {
+      border: none;
+      border-top: 1px solid $lighter-gray;
+    }
+  }
+  &.gray {
+    .tab-nav {
+      .tab {
+        background-color: $white;
+        &:hover {
+          background-color: mix($white, $off-white);
+        }
+        &.active {
+          background-color: $off-white;
+          border-bottom: 1px solid transparent;
+        }
+      }
+    }
+    .tab-content {
+      background-color: $off-white;
+    }
+  }
+}

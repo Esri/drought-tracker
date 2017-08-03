@@ -1,0 +1,60 @@
+//## Modals
+//
+//A simple modal dialog box can be summoned by adding the `show-modal` class and a `data-modal` attribute to an element, then adding a div with the `modal-overlay` class containing the corresponding modal markup at the bottom of the page (before the closing `body` tag).
+//
+// The modal you want to bind to the button should have the same `data-modal` attribute. Note that there should only ever be one `modal-overlay` block which contains all `modal` blocks for your page.
+//
+//No Modifiers
+//
+//Styleguide 6.1
+
+.modal-overlay {
+  display: none;
+  background: $white;
+  background: rgba(255, 255, 255, 0.8);
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  &.visible {
+    display: block;
+  }
+}
+
+.modal {
+  position: relative;
+  margin: 50px auto;
+  z-index: 100;
+  background: $off-white;
+  border: 1px solid $lightest-gray;
+  @include border-radius(3px);
+  @include box-sizing(border-box);
+  @include box-shadow(0 0 45px rgba(0,0,0,.1));
+  padding: 1em;
+  width: 380px;
+  opacity: 1;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  &.vertically-centered {
+    margin: 0 0 0 -190px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  &.visible {
+    display: block;
+  }
+
+  @include respond-to($phone) {
+    &.vertically-centered {
+      margin: 0 0 0 -140px;
+      width: 280px;
+    }
+  }
+}
