@@ -1,0 +1,49 @@
+//## Button Group
+//
+//Buttons are created by adding a class of ```.btn``` to either a ```<button>``` or ```<a>``` element.
+//
+//.blue         - makes the button group blue
+//
+//Styleguide 3.4
+
+.btn-group {
+  a {
+    float: left;
+    @include box-sizing(border-box);
+    padding: 0.5em 1em;
+    @include adjust-font-size-to(14px);
+    line-height: 1.8em;
+    background-color: $white;
+    border: 1px solid $lighter-gray;
+    border-left: none;
+    @include border-radius(0);
+    @include transition(background-color 200ms linear);
+    text-align: center;
+    &:first-child {
+      @include border-radius(3px 0 0 3px);
+      border-left: 1px solid $lighter-gray;
+    }
+    &:last-child {
+      @include border-radius(0 3px 3px 0);
+    }
+    &:hover, &.active {
+      background-color: mix($lightest-gray, $off-white);
+      color: $blue;
+    }
+  }
+  &.blue {
+    a {
+      background-color: $blue;
+      border: 1px solid $dark-blue;
+      border-left: none;
+      color: $white;
+      &:first-child {
+        border-left: 1px solid $dark-blue;
+      }
+      &:hover, &.active {
+        color: $white;
+        background-color: mix($dark-blue, $blue);
+      }
+    }
+  }
+}

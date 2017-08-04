@@ -1,0 +1,668 @@
+@font-face {
+  font-family: 'icomoon';
+  src: font-url('tailcoat/tailcoat.eot');
+  src: font-url('tailcoat/tailcoat.eot?#iefix') format('embedded-opentype'),
+       font-url('tailcoat/tailcoat.woff') format('woff'),
+       font-url('tailcoat/tailcoat.ttf') format('truetype'),
+       font-url('tailcoat/tailcoat.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+%icon {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+}
+
+[data-icon]:before {
+  @extend %icon;
+}
+
+.icon-class {
+  &:before {
+    @extend %icon;
+  }
+}
+
+// Instead of a list of all class selectors,
+// you can use the generic selector below, but it's slower:
+[class*="icon-"]{
+  @extend .icon-class;
+}
+
+//## Icons
+//
+//Icons are created with an icon font. Giving an html element of icon-example will put the "example" icon in a pseudo element before the html element.
+//A simple example might look something like:
+//
+//```html
+//<h3 class="icon-globe"> Around the World </h3>
+//```
+//
+//.icon-green     - Makes the icon green
+//.icon-blue      - Makes the icon blue
+//.icon-purple    - Makes the icon purple
+//.icon-orange    - Makes the icon orange
+//.icon-gray      - Makes the icon gray
+//
+//Styleguide 3.2
+
+.icon-green {
+  &:before {
+    color: $green;
+  }
+}
+
+.icon-blue {
+  &:before {
+    color: $blue;
+  }
+}
+
+.icon-purple {
+  &:before {
+    color: $purple;
+  }
+}
+
+.icon-orange {
+  &:before {
+    color: $orange;
+  }
+}
+
+.icon-gray {
+  &:before {
+    color: $gray;
+  }
+}
+
+.icon-red {
+  &:before {
+    color: $red;
+  }
+}
+
+//## Available Icons
+//
+//Use the icon class of the particular icon you'd like to show with it's specific class. You can also add one of the color helper classes outlined above in conjunction with the icon like this:
+//
+// ```html
+// <h3 class="icon-globe icon-green"> Green Globe </h3>
+// ```
+//
+// This will create a green globe icon.
+//
+// All available icon classes are outlined below:
+//
+//.icon-gauge              - Gauge Icon
+//.icon-announcement       - Announcement Icon
+//.icon-caution-cone       - Caution cone Icon
+//.icon-light-bulb         - Light-bulb Icon
+//.icon-lightbulb          - Lightbulb with fill
+//.icon-comment            - Comment Icon
+//.icon-battery            - Battery Icon
+//.icon-laptop             - Laptop Icon
+//.icon-globe              - Globe Icon
+//.icon-graph-bar          - Graph bar Icon
+//.icon-window-alert       - Window alert Icon
+//.icon-search             - Search Icon
+//.icon-tags               - Tags Icon
+//.icon-refresh            - Refresh Icon
+//.icon-window-lines       - Window lines Icon
+//.icon-book               - Book Icon
+//.icon-open-book          - Open Book
+//.icon-refresh-2          - Refresh Icon
+//.icon-search-2           - Search Icon
+//.icon-bookmark           - Bookmark Icon
+//.icon-phone              - Phone Icon
+//.icon-tag                - Tag Icon
+//.icon-support            - Support Icon
+//.icon-settings-2         - Settings Icon
+//.icon-rss                - Rss Icon
+//.icon-email              - Email Icon
+//.icon-pin-user           - Pin user Icon
+//.icon-pin-geonote        - Pin geonote Icon
+//.icon-star               - Star Icon
+//.icon-delete             - Delete Icon
+//.icon-data               - Data Icon
+//.icon-data-alt           - Data Icon (alt)
+//.icon-unlocked           - Unlocked Icon
+//.icon-locked             - Locked Icon
+//.icon-code               - Code Icon
+//.icon-find               - Find Icon
+//.icon-building           - Building Icon
+//.icon-bug                - Bug Icon
+//.icon-grid               - Grid Icon
+//.icon-grid-alt           - Grid Icon (alt)
+//.icon-help               - Help Icon
+//.icon-gear               - Gear Icon
+//.icon-gears              - Gears Icon
+//.icon-map-pin            - Map-pin Icon
+//.icon-window-cursor      - Window-cursor Icon
+//.icon-list-2             - List Icon
+//.icon-window-close       - Window-close Icon
+//.icon-alert              - Alert Icon
+//.icon-compass            - Compass Icon
+//.icon-edit               - Edit Icon
+//.icon-share              - Share Icon
+//.icon-camera             - Camera Icon
+//.icon-exit               - Exit Icon
+//.icon-clock              - Clock Icon
+//.icon-locate-2           - Locate Icon
+//.icon-graph-pie          - Graph-pie Icon
+//.icon-analytics          - Analytics Icon
+//.icon-eye-open           - Eye-open Icon
+//.icon-list               - List Icon
+//.icon-map-trail          - Map-trail Icon
+//.icon-airplane           - Airplane Icon
+//.icon-star-2             - Star Icon
+//.icon-window-console     - Window-console Icon
+//.icon-iphone             - iPhone Icon
+//.icon-heart              - Heart Icon
+//.icon-user               - User Icon
+//.icon-community          - Community Icon
+//.icon-home               - Home Icon
+//.icon-google-plus        - Google Plus Icon
+//.icon-linked-in          - Linked-in Icon
+//.icon-play               - Play Icon
+//.icon-twitter            - Twitter Icon
+//.icon-check              - Check Icon
+//.icon-apple              - Apple Icon
+//.icon-locate             - Locate Icon
+//.icon-tag-2              - Tag Icon
+//.icon-plus               - Plus Icon
+//.icon-cancel             - Cancel Icon
+//.icon-close              - Close Icon
+//.icon-minus              - Minus Icon
+//.icon-github             - GitHub Icon
+//.icon-android            - Android Icon
+//.icon-facebook           - Facebook Icon
+//.icon-polyline           - Polyline Icon
+//.icon-polygon            - Polygon Icon
+//.icon-pin-add            - Pin-add Icon
+//.icon-pin-user-add       - Pin-user-add Icon
+//.icon-pin-geonote-add    - Pin-geonote-add Icon
+//.icon-pin                - Pin Icon
+//.icon-windows-8          - Windows-8 Icon
+//.icon-windows-classic    - Windows-classic Icon
+//.icon-stack-exchange     - Stack-exchange Icon
+//.icon-java               - Java Icon
+//.icon-flex               - Flex Icon
+//.icon-list-view          - List-view Icon
+//.icon-storage            - Storage Icon
+//.icon-cloud              - Cloud Icon
+//.icon-geotrigger         - Geotrigger Icon
+//.icon-directions         - Directions Icon
+//.icon-geo                - Geo Icon
+//.icon-select-toggle      - Select-toggle Icon
+//.icon-javascript         - Javascript Icon
+//.icon-location-context   - Location-context Icon
+//.icon-rest               - REST Icon
+//.icon-left-arrow         - Left-arrow Icon
+//.icon-right-arrow        - Right-arrow Icon
+//.icon-loading            - Loading Icon
+//.icon-jquery             - jQuery Icon
+//.icon-external-link      - External Link Icon
+//.icon-html5              - HTML5 Icon
+//.icon-html5-alt          - HTML5 Icon (alt)
+//.icon-map                - Simple Map Outline
+//.icon-video              - Video Camera Icon
+//.icon-stopwatch          - Stopwatch Icon
+//.icon-link               - Link Icon
+//.icon-stack              - Layers Icon
+//.icon-paint-format	     - Format Icon
+//.icon-arrow-down		     - Down-arrow Icon
+//.icon-arrow-up	         - Up-arrow Icon
+//.icon-push-right         - Push-right Icon
+//.icon-push-left		       - Push-left Icon
+//.icon-checked            - Checked-box Icon
+//.icon-unchecked          - Unchecked-box Icon
+//.icon-table              - Table Icon
+//.icon-sort-down-2	 	     - Sort-Down Icon
+//.icon-sort-up-2          - Sort-Up Icon
+//.icon-notebook           - Notebook Icon
+//.icon-legacy             - Legacy Icon
+//.icon-key                - Key
+//.icon-beaker             - Lab Beaker
+//.icon-more               - Ellipsis Icon
+//.icon-filter             - Filter Icon
+//.icon-navigation         - Navigation Icon
+//.icon-la-point           - LA Point Icon
+//.icon-fork               - GitHub Fork or Branch
+//.icon-heart-outline      - Heart Icon (just stroke)
+//.icon-download           - Download Icon
+//.icon-browser            - Browser Icon
+//.icon-copy               - Copy to Clipboard Icon
+//.icon-cart               - Cart Icon
+//
+//Styleguide 3.2.1
+
+.icon-loading:before {
+  content: "\75";
+}
+.icon-right-arrow:before {
+  content: "\74";
+}
+.icon-left-arrow:before {
+  content: "\73";
+}
+.icon-gauge:before {
+  content: "\21";
+}
+.icon-announcement:before {
+  content: "\22";
+}
+.icon-caution-cone:before {
+  content: "\23";
+}
+.icon-light-bulb:before {
+  content: "\24";
+}
+.icon-lightbulb:before {
+  content: "\24";
+}
+.icon-comment:before {
+  content: "\25";
+}
+.icon-battery:before {
+  content: "\26";
+}
+.icon-laptop:before {
+  content: "\27";
+}
+.icon-globe:before {
+  content: "\28";
+}
+.icon-graph-bar:before {
+  content: "\29";
+}
+.icon-window-alert:before {
+  content: "\2a";
+}
+.icon-search:before {
+  content: "\2b";
+}
+.icon-tags:before {
+  content: "\2c";
+}
+.icon-refresh:before {
+  content: "\2d";
+}
+.icon-window-lines:before {
+  content: "\2e";
+}
+.icon-book:before {
+  content: "\2f";
+}
+.icon-refresh-2:before {
+  content: "\30";
+}
+.icon-search-2:before {
+  content: "\31";
+}
+.icon-bookmark:before {
+  content: "\32";
+}
+.icon-phone:before {
+  content: "\33";
+}
+.icon-tag:before {
+  content: "\34";
+}
+.icon-support:before {
+  content: "\35";
+}
+.icon-settings-2:before {
+  content: "\36";
+}
+.icon-rss:before {
+  content: "\37";
+}
+.icon-email:before {
+  content: "\38";
+}
+.icon-pin-user:before {
+  content: "\39";
+}
+.icon-pin-geonote:before {
+  content: "\3a";
+}
+.icon-star:before {
+  content: "\3b";
+}
+.icon-delete:before {
+  content: "\3d";
+}
+.icon-unlocked:before {
+  content: "\3f";
+}
+.icon-locked:before {
+  content: "\40";
+}
+.icon-code:before {
+  content: "\41";
+}
+.icon-find:before {
+  content: "\42";
+}
+.icon-building:before {
+  content: "\43";
+}
+.icon-bug:before {
+  content: "\44";
+}
+.icon-grid:before {
+  content: "\45";
+}
+.icon-help:before {
+  content: "\46";
+}
+.icon-gears:before {
+  content: "\47";
+}
+.icon-map-pin:before {
+  content: "\48";
+}
+.icon-window-cursor:before {
+  content: "\49";
+}
+.icon-list-2:before {
+  content: "\4a";
+}
+.icon-window-close:before {
+  content: "\4b";
+}
+.icon-alert:before {
+  content: "\4c";
+}
+.icon-compass:before {
+  content: "\4d";
+}
+.icon-edit:before {
+  content: "\4e";
+}
+.icon-share:before {
+  content: "\4f";
+}
+.icon-camera:before {
+  content: "\50";
+}
+.icon-exit:before {
+  content: "\51";
+}
+.icon-clock:before {
+  content: "\52";
+}
+.icon-locate-2:before {
+  content: "\53";
+}
+.icon-graph-pie:before {
+  content: "\54";
+}
+.icon-analytics:before {
+  content: "\56";
+}
+.icon-eye-open:before {
+  content: "\57";
+}
+.icon-list:before {
+  content: "\58";
+}
+.icon-map-trail:before {
+  content: "\59";
+}
+.icon-airplane:before {
+  content: "\5a";
+}
+.icon-star-2:before {
+  content: "\5b";
+}
+.icon-window-console:before {
+  content: "\5c";
+}
+.icon-iphone:before {
+  content: "\5d";
+}
+.icon-heart:before {
+  content: "\5e";
+}
+.icon-user:before {
+  content: "\5f";
+}
+.icon-home:before {
+  content: "\60";
+}
+.icon-google-plus:before {
+  content: "\61";
+}
+.icon-linked-in:before {
+  content: "\62";
+}
+.icon-play:before {
+  content: "\63";
+}
+.icon-twitter:before {
+  content: "\64";
+}
+.icon-check:before {
+  content: "\65";
+}
+.icon-apple:before {
+  content: "\66";
+  color: #cccccc;
+}
+.icon-locate:before {
+  content: "\67";
+}
+.icon-tag-2:before {
+  content: "\68";
+}
+.icon-plus:before {
+  content: "\69";
+}
+.icon-cancel:before,.icon-close:before {
+  content: "\6b";
+}
+.icon-minus:before {
+  content: "\6c";
+}
+.icon-github:before {
+  content: "\f00a";
+}
+.icon-android:before {
+  content: "\6e";
+  color: #A4C639;
+}
+.icon-facebook:before {
+  content: "\6f";
+}
+.icon-polyline:before {
+  content: "\70";
+}
+.icon-polygon:before {
+  content: "\71";
+}
+.icon-pin-add:before {
+  content: "\6a";
+}
+.icon-pin-user-add:before {
+  content: "\72";
+}
+.icon-pin-geonote-add:before {
+  content: "\55";
+}
+.icon-pin:before {
+  content: "\3c";
+}
+.icon-windows-8:before {
+  content: "\79";
+}
+.icon-windows-classic:before {
+  content: "\7a";
+}
+.icon-stack-exchange:before {
+  content: "\7c";
+}
+.icon-java:before {
+  content: "\7d";
+}
+.icon-flex:before {
+  content: "\e000";
+}
+.icon-list-view:before {
+  content: "\e001";
+}
+.icon-light-bulb:before {
+  content: "\e003";
+}
+.icon-storage:before {
+  content: "\e004";
+}
+.icon-cloud:before {
+  content: "\e005";
+}
+.icon-geotrigger:before {
+  content: "\e006";
+}
+.icon-directions:before {
+  content: "\e009";
+}
+.icon-select-toggle:before {
+  content: "\e002";
+}
+.icon-javascript:before {
+  content: "\e007";
+}
+.icon-location-context:before {
+  content: "\e008";
+}
+.icon-geo:before {
+  content: "\e00a";
+}
+.icon-community:before {
+  content: "\e00e";
+}
+.icon-external-link:before {
+  content: "\e00f";
+}
+.icon-jquery:before {
+  content: "\e010";
+  color: #0b50a0;
+}
+.icon-gear:before {
+  content: "\e011";
+}
+.icon-html5:before {
+  content: "\e00b";
+}
+.icon-html5-alt:before {
+  content: "\e00c";
+}
+.icon-data:before {
+  content: "\3e";
+}
+.icon-rest:before {
+  content: "\76";
+}
+.icon-data-alt:before {
+  content: "\e00d";
+}
+.icon-grid-alt:before {
+  content: "\e012";
+}
+.icon-map:before {
+  content: "\e013";
+}
+.icon-video:before {
+  content: "\e014";
+}
+.icon-stopwatch:before {
+  content: "\e015";
+}
+.icon-link:before {
+  content: "\e016";
+}
+.icon-stack:before {
+  content: "\e017";
+}
+.icon-paint-format:before {
+	content: "\e018";
+}
+.icon-arrow-down:before {
+	content: "\e01a";
+}
+.icon-arrow-up:before {
+	content: "\e01b";
+}
+.icon-push-right:before {
+	content: "\e01c";
+}
+.icon-push-left:before {
+	content: "\e01d";
+}
+.icon-checked:before {
+	content: "\e01e";
+}
+.icon-unchecked:before {
+	content: "\e01f";
+}
+.icon-table:before {
+	content: "\e020";
+}
+.icon-sort-down-2:before {
+	content: "\e021";
+}
+.icon-sort-up-2:before {
+	content: "\e022";
+}
+.icon-notebook:before {
+  content: "\77";
+}
+.icon-legacy:before {
+  content: "\78";
+}
+.icon-open-book:before {
+  content: "\7b";
+}
+.icon-key:before {
+  content: "\7e";
+}
+.icon-beaker:before {
+  content: "\f0c3";
+}
+.icon-more:before {
+  content: "\e601";
+}
+.icon-la-point:before {
+  content: "\e602";
+}
+.icon-navigation:before {
+  content: "\e603";
+}
+.icon-filter:before {
+  content: "\e600";
+}
+.icon-fork:before {
+  content: "\f020";
+}
+.icon-heart-outline:before {
+  content: "\e604";
+}
+.icon-download:before {
+  content: "\e605";
+}
+.icon-browser:before {
+  content: "\e606";
+}
+.icon-copy:before {
+  content: "\e607";
+}
+.icon-cart:before {
+  content: "\e608";
+}

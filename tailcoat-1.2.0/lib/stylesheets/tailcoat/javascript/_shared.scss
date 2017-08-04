@@ -1,0 +1,11 @@
+// shared styles for javascript components
+
+// temporarily lock scrolling on body
+html.scroll-lock {
+  overflow: hidden;
+  height: auto;
+  body {
+    overflow: hidden;
+    height: auto;
+  }
+}

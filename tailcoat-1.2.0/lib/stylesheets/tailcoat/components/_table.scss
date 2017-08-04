@@ -1,0 +1,150 @@
+//## Tables
+//
+//Tailcoat provides some default styles for well-structured tables.
+//
+//.blue    - a blue table theme
+//.striped - striped table rows
+//
+//Styleguide 3.12
+
+table {
+  width: 100%;
+  @include trailer(1, 14px);
+  @include adjust-font-size-to(14px);
+  font-family: $body-font;
+  background-color: $white;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid mix($lightest-gray, $lighter-gray);
+  text-align: left;
+
+  > thead {
+    background-color: mix($off-white, $lightest-gray);
+    border-bottom: 1px solid mix($lightest-gray, $lighter-gray);
+  }
+
+  > tfoot {
+    background-color: #F2F2F2;
+    border-top: 1px solid mix($lightest-gray, $lighter-gray);
+  }
+
+  th, td {
+    border-left: 1px solid mix($lightest-gray, $lighter-gray);
+    border-right: 1px solid mix($lightest-gray, $lighter-gray);
+    padding: 12px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  tr {
+    border-bottom: 1px solid mix($lightest-gray, $lighter-gray);
+    text-align: left;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  thead, tfoot, tr.divider {
+    @include adjust-font-size-to(15px);
+    font-weight: bold;
+  }
+
+  caption {
+    @include adjust-font-size-to(11px);
+    color: $gray;
+    caption-side: bottom;
+    line-height: 1.5em;
+    padding: 0.25em 1em;
+  }
+
+  &.blue {
+    border: 1px solid $blue;
+
+    > thead {
+      background-color: $blue;
+      border: none;
+      border-bottom: 1px solid $blue;
+      color: $white;
+      tr:nth-child(even) {
+        color: $dark-gray;
+      }
+    }
+
+    > tfoot {
+      border-top: 1px solid $blue;
+    }
+
+    th, td {
+      border-left: 1px solid $blue;
+      border-right: 1px solid $blue;
+    }
+
+    tr {
+      border-bottom: 1px solid $blue;
+      &:last-child {
+        border-bottom: none;
+      }
+      &:nth-child(even){
+          background-color: $lightest-blue;
+        td {
+          background-color: $lightest-blue;
+        }
+      }
+    }
+  }
+
+  &.plain {
+    border: none;
+
+    > thead, > tfoot, th, td {
+      background-color: transparent;
+      border: none;
+    }
+
+    tr {
+      border: none;
+      &:nth-child(even){
+          background-color: transparent;
+        td {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &.striped {
+    tr {
+      &:nth-child(even){
+          background-color: $off-white;
+        td {
+          background-color: $off-white;
+        }
+      }
+    }
+  }
+
+}
+
+//## Table Cells
+//
+//A number of helper classes are provided for cells within a table to quickly alter their appearance. Simply add a helper class to a ```<td>``` or ```<th>``` element.
+//
+//.align-center    - aligns text right
+//.align-right     - aligns text left
+//.align-top       - vertical align text in a cell
+//
+//Styleguide 3.12.1
+
+table {
+  .align-center {
+    text-align: center;
+  }
+  .align-right {
+    text-align: right;
+  }
+  .align-top {
+    vertical-align: top;
+  }
+}

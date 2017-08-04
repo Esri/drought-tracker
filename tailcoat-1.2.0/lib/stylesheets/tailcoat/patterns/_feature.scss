@@ -1,0 +1,78 @@
+//## Feature Block
+//
+//The ```feature``` class provides a typical pattern of graphic and text side by side (graphic on the right and text on the left).
+//
+//The ```feature``` class can be extended with both ```vertical align``` and ```flip``` . You must reverse the order of the blocks in the pattern, so feature block leads feature text.
+//
+//.flip                  - Displays graphic on the left and text on the right
+//.vertical-center       - Centers the text vertically in the feature's height
+//.flip.vertical-center  - Centers the text vertically in the feature's height
+//
+//Styleguide 4.5
+
+.feature {
+  @extend .row;
+  .feature-text {
+    @include column(9);
+    h2 {
+      a, a:hover {
+        color: $body-text-color;
+      }
+    }
+    @include respond-to($tablet-mid){
+      @include leader(2);
+      @include trailer(2);
+      @include column-width(24);
+      padding: 0 1.5em;
+    }
+  }
+  .feature-block {
+    @include column(14);
+    @include pre(1);
+    position: relative;
+    @include respond-to($tablet-mid){
+      @include column-width(24);
+      @include pre(0);
+    }
+  }
+  .call-to-action {
+    font-family: $header-font;
+    @include adjust-font-size-to(20px, 1);
+    a {
+      font-weight: bold;
+    }
+  }
+  &.flip {
+    .feature-text {
+      @include last-column();
+      @include pre(1);
+    }
+    .feature-block {
+      @include pre(0);
+    }
+    &.vertical-center {
+      .feature-block {
+        @include pre(0);
+        @include post(1);
+      }
+    }
+  }
+  &.vertical-center {
+    margin-right: 0;
+    @media screen and (min-width: $tablet-mid) {
+      display: table;
+      .feature-text {
+        display: table-cell;
+        vertical-align: middle;
+        float: none;
+      }
+      .feature-block{
+        float: none;
+        // padding-right: 8.31%;
+        padding-right: 2em;
+        width: 100%;
+        margin-left: 6.25%;
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+//## Tooltips
+//
+//Use the tooltip class for pure CSS tooltips. No javascript needed. The following markup will produce an icon which when hovered over shows a tooltip:
+//
+//```html
+//<div class="tooltip">
+//  <span class="icon-help"></span>
+//  <div class="tooltip-wrapper">
+//    <p class="tooltip-content">Text to appear in the tooltip.</p>
+//  </div>
+//</div>
+//```
+//
+// Tooltips will show on hover. If you'd like to show a tooltip by default, just use the ```show-tooltip``` class. Tooltips appear below their items be default.
+//
+//.above        - places the tooltip above the icon
+//.before       - places tooltip to the left
+//.after        - places tooltip to the right
+//.animate      - animates the tooltip into place
+//
+//Styleguide 3.5
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  .tooltip-wrapper {
+    position: absolute;
+    top: 115%;
+    left: 50%;
+    pointer-events: none;
+  }
+  .tooltip-content {
+    position: relative;
+    left: -50%;
+    display: none;
+    padding: 0 .5em;
+    margin: 0;
+    @include adjust-font-size-to(13px);
+    white-space: nowrap;
+    text-align: center;
+    color: $white;
+    @include box-sizing(border-box);
+    @include border-radius(3px);
+    background: $darker-gray;
+    z-index: 99;
+    &:after {
+      @include arrow-base();
+      @include arrow-position(5px, "above");
+      @include arrow-direction("up", 5px, $darker-gray);
+    }
+  }
+  &:hover, &.show-tooltip {
+    .tooltip-content {
+      display: block;
+    }
+  }
+
+  //Use css3 animation on the tooltip
+  &.animate {
+    .tooltip-content {
+      display: block;
+      opacity: 0;
+      pointer-events: none;
+      @include transform(translate3d(0,10px,0));
+      -webkit-transition: opacity .2s linear,-webkit-transform .2s;
+         -moz-transition: opacity .2s linear,-moz-transform .2s;
+           -o-transition: opacity .2s linear,-o-transform .2s;
+              transition: opacity .2s linear,-webkit-transform .2s, -moz-transform .2s, -o-transform .2s, transform .2s;
+    }
+    &:hover, &.show-tooltip {
+      .tooltip-content {
+        @include transform(translate3d(0,0,0));
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  // Place tooltips above content
+  &.above {
+    .tooltip-content {
+      &:after {
+        @include arrow-position(5px, "below");
+        @include arrow-direction("down", 5px, $darker-gray);
+      }
+    }
+    .tooltip-wrapper {
+      bottom: 115%;
+      top: auto;
+    }
+  }
+
+  // Place tooltips to the left or right of content
+  &.before, &.after {
+    float: none;
+    .tooltip-wrapper {
+      top: 50%;
+      left: auto;
+    }
+    .tooltip-content {
+      left: auto;
+    }
+    .tooltip-content {
+      margin-top: -1em;
+    }
+  }
+
+  // left specific
+  &.before {
+    .tooltip-wrapper {
+      right: 135%;
+    }
+    .tooltip-content {
+      &:after {
+        @include arrow-position(5px, "right");
+        @include arrow-direction("left", 5px, $darker-gray);
+      }
+    }
+  }
+
+  // right specific
+  &.after {
+    .tooltip-wrapper {
+      left: 135%;
+    }
+    .tooltip-content {
+      &:after {
+        @include arrow-position(5px, "left");
+        @include arrow-direction("right", 5px, $darker-gray);
+        left: 0;
+      }
+    }
+  }
+
+}
+
+// Don't show tooltips for touch devices
+.tailcoat-touch {
+  &:hover, &.show-tooltip {
+    .tooltip-content {
+      display: none;
+    }
+  }
+}
+
+// ArcGIS JS Fix
+.map .tooltip {
+  display: static;
+}

@@ -1,0 +1,342 @@
+//## Full
+//
+//```@extend %full``` applies a common set of styles for elements that need to be name fullscreen but have no content (maps, modals, etc). It gives you the following css:
+//
+//```css
+//#styled-element {
+//  position: absolute;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  left: 0;
+//}
+//```
+//
+//No Modifiers
+//
+//Styleguide 5.6.3
+%full {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+%visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  &.focusable:active,
+  &.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+%invisible {
+  visibility: hidden;
+}
+
+//## Clearfix
+//
+//```@extend %clearfix``` will apply the clearfix class to the item. See [the static clearfix class](./layouts/#section-1.3.10) for more information.
+//
+//No Modifiers
+//
+//Styleguide 5.6.4
+%clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+%alert {
+  @include border-radius(4px);
+  @include box-shadow(inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.05));
+  @include trailer(1);
+  @include rhythm-borders(1px, 0, 12px, solid);
+  position: relative;
+  text-align: center;
+  @include padding-leader(.5);
+  @include padding-trailer(.5);
+  @include adjust-font-size-to(12px);
+  a {
+    color: inherit;
+    &:hover {
+      @include opacity(0.8);
+    }
+  }
+}
+
+//## Panels
+//
+//"Panel" is a generic class that can be extended with colors and borders by using the ```@extend``` directive.
+//
+//```css
+//#styled-element{
+//  @extend %panel;
+//}
+//```
+//
+//The banner class can also be added to an html element by giving it a class of "panel":
+//
+//
+//### Modifiers
+//
+//.primary              - Applies the primary color (set in config)
+//.white                - Applies the seconary color (set in config)
+//.drop-shadow          - Applies a subtle drop shadow for modals (set in config)
+//
+//Styleguide 5.6.2
+
+%panel {
+  @include rhythm-borders(0px, 1);
+  padding-left: 1.75em;
+  @include border-radius(3px);
+  border: 1px solid darken($off-white, 5%);
+  background: $off-white;
+  > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+%fields {
+  @include clearfix();
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+  label {
+    @include column-style();
+  }
+}
+
+%special-list {
+  @extend %clearfix;
+  padding: 0;
+  &:before {
+    display: none;
+  }
+}
+
+// Bulleted List
+%bulleted-list {
+  position: relative;
+  padding-left: 1em;
+  &:before {
+    content: "";
+    width: .5em;
+    height: .5em;
+    margin-left: -1em;
+    background-color: #A8C9E3;
+    position: absolute;
+    top: 0.6em;
+  }
+  ol {
+    li:before {
+      background-color: transparent;
+    }
+  }
+}
+
+// Numbered list used in <ol> modifier
+%numbered-list {
+  counter-reset: li;
+  list-style: none;
+  position: relative;
+  padding-bottom: 1em;
+  & > li {
+    padding: 0.3em .25em .25em 2.5em;
+    position: relative;
+    margin-bottom: 0.75em;
+    &:before {
+      content: counter(li);
+      counter-increment: li;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0.75em;
+      padding: 0 .5em 0 0;
+      font-family: $header-light;
+      color: $light-gray;
+      font-size: 1.25em;
+      line-height: 2em;
+      text-align: right;
+      border-right: 1px solid $lighter-gray;
+    }
+    &:after {
+      content: ".";
+      display: block;
+      clear: left;
+      visibility: hidden;
+      line-height: 0;
+      height: 0;
+    }
+  }
+}
+
+//### Content Area
+//
+//Adding a content area class to your container will help style the header elements within your content, adding leader and trailer, and helping preserve vertical rhythm and baseline.
+//
+//```css
+//.container{
+//  @extend %content-area;
+//}
+//```
+//
+//For styles generated with content area, see the [content area pattern](./patterns/#section4.3) documentation.
+//
+//No modifications
+//
+//Styleguide 5.6.1
+
+%content-area {
+  max-width: 48em;
+
+  h1 {
+    @include leader($h1-lines, $h1-size);
+    @include trailer($h1-lines/2, $h1-size);
+    @include rem-font-size($h1-size);
+  }
+
+  h2 {
+    @include leader($h1-lines, $h1-size);
+    @include trailer($h1-lines/2, $h1-size);
+    @include rem-font-size($h2-size);
+  }
+
+  h3 {
+    @include leader($h1-lines, $h1-size);
+    @include trailer($h1-lines/2, $h1-size);
+    @include rem-font-size($h3-size);
+  }
+
+  h4 {
+    @include leader($h1-lines, $h1-size);
+    @include trailer($h1-lines/2, $h1-size);
+    @include rem-font-size($h4-size);
+  }
+
+  h5 {
+    @include leader($h1-lines, $h1-size);
+    @include trailer($h1-lines/2, $h1-size);
+    @include rem-font-size($h5-size);
+  }
+
+  h6 {
+    @include leader($h1-lines, $h1-size);
+    @include trailer($h1-lines/2, $h1-size);
+    @include rem-font-size($h6-size);
+  }
+
+  p {
+    @include rem-font-size($small-font-size);
+  }
+
+  li {
+    @include rem-font-size($small-font-size);
+  }
+
+  table {
+    @include trailer(1);
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  ul li {
+    @extend %bulleted-list;
+  }
+
+  ol {
+    @extend %numbered-list;
+  }
+
+  code {
+    padding: 4px 2px 1px;
+  }
+
+  pre {
+    margin-top: 1em;
+  }
+
+  table {
+    @include trailer(1);
+  }
+}
+
+%media {
+  overflow:hidden;
+  > :last-child {
+    padding-top: 3px;
+    overflow:hidden;
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  > :first-child {
+    float:left;
+    margin-right: $column-gutter;
+    img {
+      display: block;
+    }
+  }
+}
+
+// Bar class used by Navigation Bar and Search Bar
+%bar {
+  @include clearfix;
+  color: $white;
+  background: image-url("tailcoat/navigation-bar-background.jpg") repeat top center $purple;
+  input {
+    color: $dark-gray;
+    border: none;
+    @include opacity(.75);
+    @include box-shadow(0 0 12px rgba(0,0,0,.25));
+    &:focus {
+      border: none;
+      @include opacity(.9);
+    }
+  }
+}
+
+// Icon class used by all icons
+%icon {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+}
+
+// Float classes
+%right {
+  float: right !important;
+}
+
+%left {
+  float: left !important;
+}
+
+%clear {
+  clear: both;
+}

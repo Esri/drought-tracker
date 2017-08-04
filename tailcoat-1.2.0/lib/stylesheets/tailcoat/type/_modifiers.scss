@@ -1,0 +1,75 @@
+//## Font Family Classes
+//
+//You can also use the these static classes to give elements a specific typeface:
+//
+//.body-font    - Lucida Grande
+//.header-light - Avenir LT W01 35 Light
+//.header-font  - Avenir LT W01 65 Medium
+//.header-bold  - Avenir LT W01 85 Heavy
+//
+//Styleguide 2.11
+.body-font {
+  font-family: $body-font;
+}
+
+.header-light {
+  font-family: $header-light;
+}
+
+.header-font {
+  font-family: $header-font;
+}
+
+.header-bold {
+  font-family: $header-bold;
+}
+
+//## Simple Type Modifiers
+//
+//There are also a few static classes that can help you quickly style the text.
+//
+//.center-text         - center the text of that element and all elements inside it
+//.white-text          - makes the text of that element and all nested elements white
+//.red-text            - adds the "caution" color to that text element
+//.error-text          - adds the "caution" color to that text element
+//.green-text          - adds the "success" color to that text element
+//.success-text        - adds the "success" color to that text element
+//.show-visited-links  - makes all anchors inside purple if visited
+//.overflow-ellipsis   - force no-wrap on an element, and apply overlfow ellipsis
+//
+//Styleguide 2.12
+.center-text {
+  text-align: center;
+}
+
+.red-text {
+  color: $caution;
+}
+
+.error-text {
+  @extend .red-text;
+}
+
+.green-text {
+  color: $green;
+}
+
+.success-text {
+  @extend .green-text;
+}
+
+.white-text {
+  color: $white;
+}
+
+.show-visited-links {
+  a:visited {
+    color: $purple;
+  }
+}
+
+.overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

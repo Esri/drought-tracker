@@ -1,0 +1,78 @@
+//## Site Dropdown
+//
+//This pattern is meant to be used as an inter-site dropdown menu for related ArcGIS sites.
+//
+//No Modifiers
+//
+//Styleguide 6.6
+
+.site-brand {
+  &:hover, &.expanded {
+    .site-dropdown-toggle {
+      background-color: $lightest-gray;
+    }
+  }
+  .site-dropdown-toggle {
+    @include arrow("down", 5px, $light-gray);
+    @include border-radius(18px);
+    background-position: center 1px;
+    background-color: $white;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    height: 18px;
+    vertical-align: -4px;
+    overflow: hidden;
+    width: 18px;
+    margin-left: -2px;
+    &:after {
+      top: 7px;
+      left: 4px;
+    }
+  }
+}
+
+.site-dropdown {
+  position: absolute;
+  top: 2em;
+  left: -3%;
+  width: 106%;
+  max-width: 320px;
+  display: none;
+  background: white;
+  @include box-shadow(0px 3px 4px rgba(0, 0, 0, 0.25));
+  @include border-radius(0 0 3px 3px);
+  z-index: 1000;
+  &.visible {
+    display: block;
+  }
+  a {
+    display: block;
+    padding: 12px;
+    &:hover {
+      background: #e5f1f9;
+    }
+    &.selected{
+      padding-left: 9px;
+      border-left: 3px solid $blue;
+    }
+    &.selected:last-child, a:hover:last-child {
+      border-radius: 0 0 3px 3px;
+    }
+    p {
+      color: #888888;
+      font-size: 0.7em;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      text-transform: none;
+    }
+    h4 {
+      color: #4D4D4D;
+      font-size: 0.9em;
+      margin-bottom: 0.4em;
+      font-family: $header-font;
+      text-transform:none;
+    }
+  }
+}

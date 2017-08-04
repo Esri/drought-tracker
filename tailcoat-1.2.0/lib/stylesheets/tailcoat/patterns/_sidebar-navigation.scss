@@ -1,0 +1,65 @@
+//## Sidebar Navigation
+//
+//A sidebar navigation pattern is provided for a short list of links in a sidebar. If you have a lot of links, the [accordian javascript pattern](../javascript/#section-6.3). This will fill the parent container. We recommend using an aside as the parent with the column classes applied to that.
+//
+//.current   - add a current class to the list-item of the page you're on
+//
+//Styleguide 4.6
+
+.sidebar-navigation {
+  overflow: hidden;
+  margin-bottom: 0;
+  @include trailer(1);
+  @include border-radius(4px);
+  border: 1px solid $lightest-gray;
+  header {
+    @include clearfix();
+    background: $off-white;
+    border-bottom: 1px solid $lightest-gray;
+    padding: 11px 8px 8px;
+    h1, h2, h3, h4, h5, h6 {
+      padding: 0 1em 0 0 ;
+      margin-bottom:0;
+    }
+  }
+  ul {
+    margin-bottom: 0;
+  }
+  li {
+    @extend %special-list;
+    background-color: $white;
+    border-bottom: 1px solid $lightest-gray;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  a {
+    display: block;
+    padding: .5em;
+    position: relative;
+    &:before {
+      color: $lighter-gray;
+      position: absolute;
+      top: 12px;
+      right: 3px;
+    }
+  }
+  li.current {
+    background: $blue;
+    a {
+      color: $white;
+      &:before {
+        color: $white;
+      }
+    }
+  }
+  li:hover {
+    background: $calcite-dark-blue;
+    a {
+      color: $white;
+      &:before {
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,468 @@
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: true;
+$legacy-support-for-ie9: true;
+$legacy-support-for-mozilla: false;
+
+//## Responsive Break Points
+//
+//Responsive helper classes use three basic breakpoints:
+//
+//| Name          | Size in Pixels |
+//| ------------- | -------------- |
+//|   phone       | 480px or less  |
+//|   tablet      | 481px - 960px  |
+//|   desktop     | 961px and up   |
+//
+//If you're using SASS, you can use the following breakpoint variables in your sass files:
+//
+//$desktop       - 1280px
+//$laptop-large  - 1180px
+//$laptop        - 1080px
+//$tablet-wide   - 1024px
+//$tablet-mid    - 960px
+//$tablet-tall   - 768px
+//$phone-large   - 662px
+//$phone         - 480px
+//$phone-tall    - 320px
+//
+//Styleguide 1.1.2
+
+$desktop:       1280px !default;
+$laptop-large:  1180px !default;
+$laptop:        1080px !default;
+$tablet-wide:   1024px !default;
+$tablet-mid:    960px  !default;
+$tablet-tall:   768px  !default;
+$phone-large:   662px  !default;
+$phone:         480px  !default;
+$phone-tall:    320px  !default;
+
+//## Font Sizes
+//
+//Base font-size and line-height can be set in this config section. Default is 16px/24px.
+//
+//Defaults
+//
+//$relative-font-sizing - true
+//$base-font-size       - 16px
+//$base-line-height     - 24px
+//
+//Styleguide 2.1.1
+
+$relative-font-sizing:  true !default;
+$small-font-size:       14px !default;
+$base-font-size:        16px !default;
+$base-line-height:      24px !default;
+
+$small-rem-size:        0.875rem !default;
+$base-rem-size:         1rem !default;
+
+//## Grid Settings
+//
+//This set of variables is used to generate the site's grid. If you'd like a 12 column grid instead of a 24, simply change the ```$total-columns``` variable to 12.
+//
+//Current Defaults
+//
+//$total-columns     - 24
+//$container-width   - 100%
+//$container-max     - 1280px
+//$column-gutter     - 1em
+//$container-gutter  - 1em
+//$footer-height     - 262px
+//$generate-grid     - true
+//
+//Styleguide 1.1.1
+
+$total-columns:     24 !default;
+$container-width:   100% !default;
+$container-max:     1280px !default;
+$container-min:     0 !default;
+$column-gutter:     1em !default;
+$container-gutter:  1em !default;
+$footer-height:     262px !default;
+$generate-grid:     true !default;
+
+//## Font Families
+//
+//Tailcoat uses two main font stacks:
+//
+//```
+//$body-font:    "Lucida Grande", "Segoe UI", "Arial", sans-serif !default;
+//$header-font:  "Avenir LT W01 65 Medium", Arial, Helvetica, sans-serif !default;
+//```
+//
+//The "body" font stack is made up of the default fonts from several different devices, giving body text a "native" look on most devices and saving on rendering time by avoiding a web font. The "header" font stack has variations is weight, and is provided through a fast fonts subscription.
+//
+//There are multiple sass variables that represent these font stacks (set in the config):
+//
+//```
+//$body-font
+//$header-light
+//$header-font
+//$header-bold
+//```
+//
+//You can also use the these variables as static classes to give elements a specific font-stack, see [Font Family Classes](#section-2.11) for more.
+//
+//.body-font    - Lucida Grande
+//.header-light - Avenir LT W01 35 Light
+//.header-font  - Avenir LT W01 65 Medium
+//.header-bold  - Avenir LT W01 85 Heavy
+//
+//Styleguide 2.1
+
+$header-style: normal !default;
+$header-weight: 500 !default;
+$header-trailer: 0.25 !default;
+$header-leader: 0 !default;
+
+$h1-size: 38px !default;
+$h1-lines: 2 !default;
+
+$h2-size: 32px !default;
+$h2-lines: 1.6 !default;
+
+$h3-size: 24px !default;
+$h3-lines: 1.6 !default;
+
+$h4-size: 18px !default;
+$h4-lines: 1 !default;
+
+$h5-size: 16px !default;
+$h5-lines: 1 !default;
+
+$h6-size: 14px !default;
+$h6-lines: 1 !default;
+
+$body-font:             "Lucida Grande", "Segoe UI", "Arial", sans-serif !default;
+$header-light:          "Avenir LT W01 35 Light", Arial, Helvetica, sans-serif !default;
+$header-font:           "Avenir LT W01 65 Medium", Arial, Helvetica, sans-serif !default;
+$header-bold:           "Avenir LT W01 85 Heavy", Arial, Helvetica, sans-serif !default;
+$button-font:           $header-font !default;
+$table-header-font:     $body-font !default;
+$definition-title-font: $header-font !default;
+$code-font:             "Consolas", "Andale Mono", "Lucida Console", "Monaco", "Courier New", Courier, monospace !default;
+
+// body
+$body-text-color:      #4d4d4d !default;
+$body-background:      #fefefe !default;
+
+//## Esri Brand Color Pallete
+//
+//An extensive set of color variables are set up inside of config. Color names are generally semantic and simple, making them very easy to remember. Color variables are references like any other sass variable:
+//
+//```css
+//.element-to-style{
+//  color: $gray;
+//}
+//```
+//<div class='column-8'>
+//<h3 class="leader-1">Greens</h3>
+//
+//<h4> <div class="color-swatch" style="background-color:#CCDE91"> </div> <span class="no-leader"> lightest-green </span> </h4> <h4> <div class="color-swatch" style="background-color:#CCDF8D"> </div> <span class="no-leader"> lighter-green </span> </h4> <h4> <div class="color-swatch" style="background-color:#A2C950"> </div> <span class="no-leader"> light-green </span> </h4> <h4> <div class="color-swatch" style="background-color:#35AC46"> </div> <span class="no-leader"> green </span> </h4> <h4> <div class="color-swatch" style="background-color:#296A32"> </div> <span class="no-leader"> dark-green </span> </h4>
+//</div>
+//<div class='column-8'>
+//<h3 class="leader-1">Brights</h3>
+//
+//<h4> <div class="color-swatch" style="background-color: #F89927"> </div> <span class="no-leader"> orange </span></h4> <h4> <div class="color-swatch" style="background-color: #FFEC4F"> </div> <span class="no-leader"> yellow </span></h4> <h4> <div class="color-swatch" style="background-color: #DA4D1E"> </div> <span class="no-leader"> red </span></h4> <h4> <div class="color-swatch" style="background-color: #B9392F"> </div> <span class="no-leader"> caution </span></h4> <h4> <div class="color-swatch" style="background-color: #D6564D"> </div> <span class="no-leader"> caution-light </span></h4>
+//</div>
+//<div class='column-8'>
+//<h3 class="leader-1">Purples</h3>
+//
+//<h4> <div class="color-swatch" style="background-color:#DFCCE3"> </div> <span class="no-leader"> lightest-purple </span> </h4> <h4> <div class="color-swatch" style="background-color:#B279B4"> </div> <span class="no-leader"> lighter-purple </span> </h4> <h4> <div class="color-swatch" style="background-color:#8F499C"> </div> <span class="no-leader"> light-purple </span> </h4> <h4> <div class="color-swatch" style="background-color:#762783"> </div> <span class="no-leader"> purple </span> </h4> <h4> <div class="color-swatch" style="background-color:#6B1978"> </div> <span class="no-leader"> dark-purple </span> </h4>
+//</div>
+//
+//<div class='column-8'>
+//<h3 class="leader-1">Blues</h3>
+//
+//<h4> <div class="color-swatch" style="background-color:#E5F1F9"> </div> <span class="no-leader"> lightest-blue </span> </h4> <h4> <div class="color-swatch" style="background-color:#B9E0F7"> </div> <span class="no-leader"> lighter-blue </span> </h4> <h4> <div class="color-swatch" style="background-color:#00B9F2"> </div> <span class="no-leader"> light-blue </span> </h4> <h4> <div class="color-swatch" style="background-color:#007AC2"> </div> <span class="no-leader"> blue </span> </h4> <h4> <div class="color-swatch" style="background-color:#003C60"> </div> <span class="no-leader"> dark-blue </span> </h4> <h4> <div class="color-swatch" style="background-color:#004575"> </div> <span class="no-leader"> darker-blue </span> </h4>
+//</div>
+//
+//<div class='column-8'>
+//<h3 class="leader-1">Earth Tones</h3>
+//
+//<h4> <div class="color-swatch" style="background-color:#F3F3EF"> </div> <span class="no-leader"> light-tan </span> </h4> <h4> <div class="color-swatch" style="background-color:#F1F1F1"> </div> <span class="no-leader"> tan </span> </h4> <h4> <div class="color-swatch" style="background-color:#D3D3CF"> </div> <span class="no-leader"> dark-tan </span> </h4> <h4> <div class="color-swatch" style="background-color:#ECDCB9"> </div> <span class="no-leader"> lighter-brown </span> </h4> <h4> <div class="color-swatch" style="background-color:#BE9969"> </div> <span class="no-leader"> light-brown </span> </h4> <h4> <div class="color-swatch" style="background-color:#7B4F1C"> </div> <span class="no-leader"> brown </span> </h4> <h4> <div class="color-swatch" style="background-color:#523B20"> </div> <span class="no-leader"> dark-brown </span> </h4>
+//</div>
+//
+//<div class='column-8'>
+//<h3 class="leader-1"> Neutrals </h3>
+//<h4> <div class="color-swatch" style="background-color:#FFFFFF"> </div> <span class="no-leader"> white </span> </h4> <h4> <div class="color-swatch" style="background-color:#F9F9F9"> </div> <span class="no-leader"> off-white </span> </h4> <h4> <div class="color-swatch" style="background-color:#EDEDED"> </div> <span class="no-leader"> lightest-gray </span> </h4> <h4> <div class="color-swatch" style="background-color:#CCCCCC"> </div> <span class="no-leader"> lighter-gray </span> </h4> <h4> <div class="color-swatch" style="background-color:#A6A6A6"> </div> <span class="no-leader"> light-gray </span> </h4> <h4> <div class="color-swatch" style="background-color:#808080"> </div> <span class="no-leader"> gray </span> </h4> <h4> <div class="color-swatch" style="background-color:#595959"> </div> <span class="no-leader"> dark-gray </span> </h4> <h4> <div class="color-swatch" style="background-color:#333333"> </div> <span class="no-leader"> darker-gray </span> </h4> <h4> <div class="color-swatch" style="background-color:#1F1F1F"> </div> <span class="no-leader"> darkest-gray </span> </h4> <h4> <div class="color-swatch" style="background-color:#050505"> </div> <span class="no-leader"> off-black </span> </h4> <h4> <div class="color-swatch" style="background-color:#000000"> </div> <span class="no-leader"> black </span> </h4>
+//</div>
+//
+//No modifiers
+//
+//Styleguide 3.1
+
+// Esri Brand Colors
+
+// Neutrals
+$white:                 hsl(0, 0, 100); //#FFFFFF
+$off-white:             hsl(0, 0, 98); //#F9F9F9
+$lightest-gray:         hsl(0, 0, 93); //#EDEDED
+$lighter-gray:          hsl(0, 0, 80); //#CCCCCC
+$light-gray:            hsl(0, 0, 65); //#A6A6A6
+$gray:                  hsl(0, 0, 50); //#808080
+$dark-gray:             hsl(0, 0, 35); //#595959
+$darker-gray:           hsl(0, 0, 20); //#333333
+$darkest-gray:          hsl(0, 0, 12); //#1F1F1F
+$off-black:             hsl(0, 0, 2);  //#050505
+$black:                 hsl(0, 0, 0);  //#000000
+
+// Blues
+$lightest-blue:   #E5F1F9;
+$lighter-blue:    #B9E0F7; // $esri-colors-blue-14 (was #B7DDEB)
+$light-blue:      #00B9F2; // $esri-colors-blue-13 (was #00B0DF)
+$blue:            #007AC2; // $esri-colors-blue-12
+$dark-blue:       #003C60;
+$darker-blue:     #004575; // $esri-colors-blue-11
+
+// Greens
+$lightest-green:  #CCDE91; //$esri-colors-green-18
+$lighter-green:   #CCDF8D;
+$light-green:     #A2C950;
+$green:           #35AC46; //$esri-colors-green-16 (was #37A344)
+$dark-green:      #296A32;
+
+// Brights
+$orange:          #F89927; //$esri-colors-orange-21
+$yellow:          #FFEC4F; //$esri-colors-yellow-22
+$red:             #D94C1D; //$esri-colors-red (was #CC0006)
+$caution:         #B9392F;
+$caution-light:   #D6564D;
+
+// Purple
+$lightest-purple: #DFCCE3;
+$lighter-purple:  #B279B4;
+$light-purple:    #8F499C;
+$purple:          #762783;
+$dark-purple:     #6B1978;
+
+// Earth Tones
+$light-tan:       #F3F3EF;
+$tan:             #F1F1F1;
+$dark-tan:        #D3D3CF;
+$lighter-brown:   #ECDCB9;
+$light-brown:     #BE9969;
+$brown:           #7B4F1C;
+$dark-brown:      #523B20;
+
+// buttons
+$button-shadow:      0px 1px 2px rgba(0, 0, 0, 0.125) !default;
+$button-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.125) !default;
+$border-radius:      3px !default;
+
+// gray button
+$button-gray-background:            $light-gray !default;
+$button-gray-hover-background:      $gray !default;
+
+// orange button
+$button-orange-background:          #e98d32 !default;
+$button-orange-background-hover:    #e16b17 !default;
+
+// blue button
+$button-blue-background:            #5daddd !default;
+$button-blue-background-hover:      #4997d2 !default;
+
+// green button
+$button-green-background:           #6aa23f !default;
+$button-green-background-hover:     #4b8d2c !default;
+
+// dark blue button
+$button-dark-blue-background:       $blue !default;
+$button-dark-blue-background-hover: #0065a1 !default;
+
+// red button
+$button-red-background:             $red !default;
+$button-red-background-hover:       darken($red, 5) !default;
+
+// delete button
+$button-delete:                     #D94C1D !default;
+$button-delete-hover:               darken(#D94C1D, 5) !default;
+
+// cancel button
+$button-cancel:                     $caution-light;
+$button-cancel-hover:               darken($caution-light, 5) !default;
+
+// success button
+$button-success:                    #67A966 !default;
+$button-success-hover:              darken(#67A966, 5) !default;
+
+// links
+$link-color:              $blue !default;
+$link-hover:              $light-blue !default;
+$disable-text-decoration: true !default;
+
+// alerts
+$alert-success-background:   #EFF7E2 !default;
+$alert-success-border-color: #ADCA7E !default;
+$alert-success-text-color:   #4F8A10 !default;
+
+$alert-info-background:      #E6F2F8 !default;
+$alert-info-border-color:    #9FC7DB !default;
+$alert-info-text-color:      #00529B !default;
+
+$alert-warning-background:   #D6564D !default;
+$alert-warning-border-color: #B9392F !default;
+$alert-warning-text-color:   #ffffff !default;
+
+$alert-error-background:     #F8E1E1 !default;
+$alert-error-border-color:   #E4A5A5 !default;
+$alert-error-text-color:     #D8000C !default;
+
+
+//## Calcite Colors
+//
+//A preliminary set of colors from the new Calcite theme.
+//
+//<div class='row'>
+//
+//<div class='column-8'>
+//<h3> Grays</h3>
+//<h4> <div class="color-swatch" style="background-color: #F7F8F8"> </div> <span class="no-leader"> gray1 </span> </h4> <h4> <div class="color-swatch" style="background-color: #F2F3F3"> </div> <span class="no-leader"> gray2 </span> </h4> <h4> <div class="color-swatch" style="background-color: #EFEEEF"> </div> <span class="no-leader"> gray3 </span> </h4> <h4> <div class="color-swatch" style="background-color: #E5E6E7"> </div> <span class="no-leader"> gray4 </span> </h4> <h4> <div class="color-swatch" style="background-color: #E0E0DF"> </div> <span class="no-leader"> gray5 </span> </h4> <h4> <div class="color-swatch" style="background-color: #CBCBCB"> </div> <span class="no-leader"> gray6 </span> </h4> <h4> <div class="color-swatch" style="background-color: #A6A8AB"> </div> <span class="no-leader"> gray7 </span> </h4> <h4> <div class="color-swatch" style="background-color: #929497"> </div> <span class="no-leader"> gray8 </span> </h4> <h4> <div class="color-swatch" style="background-color: #7F8183"> </div> <span class="no-leader"> gray9 </span> </h4> <h4> <div class="color-swatch" style="background-color: #6C6D70"> </div> <span class="no-leader"> gray10 </span> </h4> <h4> <div class="color-swatch" style="background-color: #57585A"> </div> <span class="no-leader"> gray11 </span> </h4> <h4> <div class="color-swatch" style="background-color: #323232"> </div> <span class="no-leader"> gray12 </span> </h4>
+//</div>
+//
+//<div class='column-8'>
+//<h3> UI Colors</h3>
+//<h4> <div class="color-swatch" style="background-color:#E1F0FB"> </div> <span class="no-leader"> calcite-ui-blue-1 </span> </h4> <h4> <div class="color-swatch" style="background-color:#D1E9F9"> </div> <span class="no-leader"> calcite-ui-blue-2 </span> </h4> <h4> <div class="color-swatch" style="background-color:#7FBBDF"> </div> <span class="no-leader"> calcite-esri-blue-light </span> </h4> <h4> <div class="color-swatch" style="background-color:#0079C1"> </div> <span class="no-leader"> calcite-esri-blue </span> </h4> <h4> <div class="color-swatch" style="background-color:#005E95"> </div> <span class="no-leader"> calcite-esri-blue-dark </span> </h4> <h4> <div class="color-swatch" style="background-color:#67A966"> </div> <span class="no-leader"> calcite-green </span> </h4> <h4> <div class="color-swatch" style="background-color:#D94C1D"> </div> <span class="no-leader"> calcite-red </span> </h4>
+//</div>
+//
+//<div class='column-8'>
+//<h3> Ribbons</h3>
+//<h4> <div class="color-swatch" style="background-color:#EDA959"> </div> <span class="no-leader"> ribbon-orange </span> </h4> <h4> <div class="color-swatch" style="background-color:#FBE1C2"> </div> <span class="no-leader"> ribbon-orange-light </span> </h4> <h4> <div class="color-swatch" style="background-color:#67A966"> </div> <span class="no-leader"> ribbon-green </span> </h4> <h4> <div class="color-swatch" style="background-color:#DCEDDA"> </div> <span class="no-leader"> ribbon-green-light </span> </h4> <h4> <div class="color-swatch" style="background-color:#C86A4A"> </div> <span class="no-leader"> ribbon-red </span> </h4> <h4> <div class="color-swatch" style="background-color:#F3DED7"> </div> <span class="no-leader"> ribbon-red-light </span> </h4> <h4> <div class="color-swatch" style="background-color:#9081BC"> </div> <span class="no-leader"> ribbon-purple </span> </h4> <h4> <div class="color-swatch" style="background-color:#E5E1EF"> </div> <span class="no-leader"> ribbon-purple-light </span> </h4> <h4> <div class="color-swatch" style="background-color:#B78A54"> </div> <span class="no-leader"> ribbon-brown </span> </h4> <h4> <div class="color-swatch" style="background-color:#E8DDD3"> </div> <span class="no-leader"> ribbon-brown-light </span> </h4>
+//</div>
+//
+//</div>
+//<div class="row">
+//
+//<h3> Icons</h3>
+//<div class='column-8'>
+//<h4> <div class="color-swatch" style="background-color:#57A6D9"> </div> <span class="no-leader"> icon-blue </span> </h4><h4> <div class="color-swatch" style="background-color:#6DB5E3"> </div> <span class="no-leader"> icon-blue-light </span> </h4><h4> <div class="color-swatch" style="background-color:#BDDBEE"> </div> <span class="no-leader"> icon-blue-lighter </span> </h4><h4> <div class="color-swatch" style="background-color:#D3EAF9"> </div> <span class="no-leader"> icon-blue-lightest </span> </h4>
+//</div>
+//
+//<div class='column-8'>
+//<h4> <div class="color-swatch" style="background-color:#D9C44C"> </div> <span class="no-leader"> icon-yellow </span> </h4><h4> <div class="color-swatch" style="background-color:#E5D255"> </div> <span class="no-leader"> icon-yellow-light </span> </h4><h4> <div class="color-swatch" style="background-color:#EFE498"> </div> <span class="no-leader"> icon-yellow-lighter </span> </h4><h4> <div class="color-swatch" style="background-color:#F4EEC8"> </div> <span class="no-leader"> icon-yellow-lightest </span> </h4>
+//</div>
+//
+//<div class='column-8'>
+//<h4> <div class="color-swatch" style="background-color:#E89D48"> </div> <span class="no-leader"> icon-orange </span> </h4><h4> <div class="color-swatch" style="background-color:#EEAA5A"> </div> <span class="no-leader"> icon-orange-light </span> </h4><h4> <div class="color-swatch" style="background-color:#F7CB92"> </div> <span class="no-leader"> icon-orange-lighter </span> </h4><h4> <div class="color-swatch" style="background-color:#FBE2C3"> </div> <span class="no-leader"> icon-orange-lightest </span> </h4>
+//</div>
+//
+//
+//<div class='column-8'>
+//<h4> <div class="color-swatch" style="background-color:#5B945A"> </div> <span class="no-leader"> icon-green </span> </h4><h4> <div class="color-swatch" style="background-color:#68AA67"> </div> <span class="no-leader"> icon-green-light </span> </h4><h4> <div class="color-swatch" style="background-color:#9BC29D"> </div> <span class="no-leader"> icon-green-lighter </span> </h4><h4> <div class="color-swatch" style="background-color:#DDEEDB"> </div> <span class="no-leader"> icon-green-lightest </span> </h4>
+//</div>
+//
+//
+//<div class='column-8'>
+//<h4> <div class="color-swatch" style="background-color:#C7552E"> </div> <span class="no-leader"> icon-red </span> </h4><h4> <div class="color-swatch" style="background-color:#C96B4B"> </div> <span class="no-leader"> icon-red-light </span> </h4><h4> <div class="color-swatch" style="background-color:#E5A894"> </div> <span class="no-leader"> icon-red-lighter </span> </h4><h4> <div class="color-swatch" style="background-color:#F5DFD8"> </div> <span class="no-leader"> icon-red-lightest </span> </h4>
+//</div>
+//
+//
+//<div class='column-8'>
+//<h4> <div class="color-swatch" style="background-color:#7C6CA8"> </div> <span class="no-leader"> icon-purple </span> </h4><h4> <div class="color-swatch" style="background-color:#9182BD"> </div> <span class="no-leader"> icon-purple-light </span> </h4><h4> <div class="color-swatch" style="background-color:#C5BDDD"> </div> <span class="no-leader"> icon-purple-lighter </span> </h4><h4> <div class="color-swatch" style="background-color:#E6E2EF"> </div> <span class="no-leader"> icon-purple-lightest </span> </h4>
+//</div>
+//
+//
+//<div class='column-8'>
+//<h4> <div class="color-swatch" style="background-color:#A67947"> </div> <span class="no-leader"> icon-brown </span> </h4><h4> <div class="color-swatch" style="background-color:#B88A55"> </div> <span class="no-leader"> icon-brown-light </span> </h4><h4> <div class="color-swatch" style="background-color:#D3B490"> </div> <span class="no-leader"> icon-brown-lighter </span> </h4><h4> <div class="color-swatch" style="background-color:#D3B490"> </div> <span class="no-leader"> icon-brown-lightest </span> </h4>
+//</div>
+//
+//</div>
+//
+//No modifiers
+//
+//Styleguide 3.1.2
+
+// Grays
+$gray1:    #F7F8F8;
+$gray2:    #F2F3F3;
+$gray3:    #EFEEEF;
+$gray4:    #E5E6E7;
+$gray5:    #E0E0DF;
+$gray6:    #CBCBCB;
+$gray7:    #A6A8AB;
+$gray8:    #929497;
+$gray9:    #7F8183;
+$gray10:   #6C6D70;
+$gray11:   #57585A;
+$gray12:   #323232;
+
+// UI Active Colors
+$calcite-lightest-blue:  #E1F0FB;
+$calcite-lighter-blue:   #D1E9F9;
+$calcite-light-blue:     #7FBBDF;
+$calcite-blue:           #0079C1;
+$calcite-dark-blue:      #005E95;
+
+// UI Active Colors
+$calcite-ui-blue-1:        $calcite-lightest-blue;
+$calcite-ui-blue-2:        $calcite-lighter-blue;
+$calcite-esri-blue-light:  $calcite-light-blue;
+$calcite-esri-blue:        $calcite-blue;
+$calcite-esri-blue-dark:   $calcite-dark-blue;
+
+// Links
+$calcite-green:        #67A966;
+
+// Special Use
+$calcite-red:          #D94C1D;
+
+// Ribbon
+$ribbon-orange:        #EDA959;
+$ribbon-orange-light:  #FBE1C2;
+
+$ribbon-green:         #67A966;
+$ribbon-green-light:   #DCEDDA;
+
+$ribbon-red:           #C86A4A;
+$ribbon-red-light:     #F3DED7;
+
+$ribbon-purple:        #9081BC;
+$ribbon-purple-light:  #E5E1EF;
+
+$ribbon-brown:         #B78A54;
+$ribbon-brown-light:   #E8DDD3;
+
+// Icon Colors
+$icon-blue:            #57A6D9;
+$icon-blue-light:      #6DB5E3;
+$icon-blue-lighter:    #BDDBEE;
+$icon-blue-lightest:   #D3EAF9;
+
+$icon-yellow:          #D9C44C;
+$icon-yellow-light:    #E5D255;
+$icon-yellow-lighter:  #EFE498;
+$icon-yellow-lightest: #F4EEC8;
+
+$icon-orange:          #E89D48;
+$icon-orange-light:    #EEAA5A;
+$icon-orange-lighter:  #F7CB92;
+$icon-orange-lightest: #FBE2C3;
+
+$icon-green:           #5B945A;
+$icon-green-light:     #68AA67;
+$icon-green-lighter:   #9BC29D;
+$icon-green-lightest:  #DDEEDB;
+
+$icon-red:             #C7552E;
+$icon-red-light:       #C96B4B;
+$icon-red-lighter:     #E5A894;
+$icon-red-lightest:    #F5DFD8;
+
+$icon-purple:          #7C6CA8;
+$icon-purple-light:    #9182BD;
+$icon-purple-lighter:  #C5BDDD;
+$icon-purple-lightest: #E6E2EF;
+
+$icon-brown:           #A67947;
+$icon-brown-light:     #B88A55;
+$icon-brown-lighter:   #D3B490;
+$icon-brown-lightest:  #D3B490;
+
+// panels
+$panel-primary-color: $calcite-lightest-blue;
+$panel-primary-border: $calcite-lighter-blue;
+$panel-shadow:      0px 1px 2px rgba(0, 0, 0, 0.125) !default;
+
+// all text inputs shortcut variable
+$all-text-inputs: "input[type='email'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='text'], input[type='url'], input[type='color'], input[type='date'], input[type='datetime'], input[type='datetime-local'], input[type='month'], input[type='time'], input[type='week'], input:not([type]), select, textarea";

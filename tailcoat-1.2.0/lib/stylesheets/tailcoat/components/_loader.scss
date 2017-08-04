@@ -1,0 +1,132 @@
+//## Loader
+//
+//Tailcoat has a built in animated pure-css loader for providing feedback in web apps. It is forked from [ui-spinner](https://github.com/tomgenoni/ouroboros).
+//
+//No Modifiers
+//
+//Styleguide 3.10
+
+.loader {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  background: $lightest-blue;
+  border-radius: 100%;
+  @include box-shadow(inset 0 0 2px rgba(0,0,0,.1));
+  .side {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    .fill {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: $light-blue;
+      border-radius: 999px;
+      opacity: 1;
+      @include experimental(animation-duration, 3s);
+      @include experimental(animation-iteration-count, infinite);
+      @include experimental(animation-timing-function, linear);
+    }
+  }
+  .side-left {
+    left: 0;
+    .fill {
+      left: 100%;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      @include experimental(animation-name, ui-spinner-rotate-left);
+      @include experimental(transform-origin, 0 50%);
+    }
+  }
+  .side-right {
+    left: 50%;
+    .fill {
+      left: -100%;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      @include experimental(animation-name, ui-spinner-rotate-right);
+      @include experimental(transform-origin, 100% 50%);
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    display: block;
+    width: 28px;
+    height: 28px;
+    background: $white;
+    border-radius: 50%;
+    @include box-shadow(0 0 2px rgba(0,0,0,.1));
+  }
+}
+
+// For IE, Just show the word "loading"
+.loading-word {
+  display: none;
+}
+
+.ie {
+  .loader {
+    background: transparent;
+    @include box-shadow(none);
+    &:after, .side {
+      display: none;
+    }
+    .loading-word {
+      display: block;
+    }
+  }
+}
+
+// Spinning Animations for each browser
+@-webkit-keyframes ui-spinner-rotate-right {
+  0% {    -webkit-transform: rotate(0deg); }
+  25% {   -webkit-transform: rotate(180deg); }
+  50% {   -webkit-transform: rotate(180deg); }
+  75% {   -webkit-transform: rotate(360deg); }
+  100% {  -webkit-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes ui-spinner-rotate-left {
+  0% {    -webkit-transform: rotate(0deg); }
+  25% {   -webkit-transform: rotate(0deg); }
+  50% {   -webkit-transform: rotate(180deg); }
+  75% {   -webkit-transform: rotate(180deg); }
+  100% {  -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes ui-spinner-rotate-right {
+  0% {    -moz-transform: rotate(0deg); }
+  25% {   -moz-transform: rotate(180deg); }
+  50% {   -moz-transform: rotate(180deg); }
+  75% {   -moz-transform: rotate(360deg); }
+  100% {  -moz-transform: rotate(360deg); }
+}
+
+@-moz-keyframes ui-spinner-rotate-left {
+  0% {    -moz-transform: rotate(0deg); }
+  25% {   -moz-transform: rotate(0deg); }
+  50% {   -moz-transform: rotate(180deg); }
+  75% {   -moz-transform: rotate(180deg); }
+  100% {  -moz-transform: rotate(360deg); }
+}
+
+@keyframes ui-spinner-rotate-right {
+  0% {    transform: rotate(0deg); }
+  25% {   transform: rotate(180deg); }
+  50% {   transform: rotate(180deg); }
+  75% {   transform: rotate(360deg); }
+  100% {  transform: rotate(360deg); }
+}
+
+@keyframes ui-spinner-rotate-left {
+  0% {    transform: rotate(0deg); }
+  25% {   transform: rotate(0deg); }
+  50% {   transform: rotate(180deg); }
+  75% {   transform: rotate(180deg); }
+  100% {  transform: rotate(360deg); }
+}
