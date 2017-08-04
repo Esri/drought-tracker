@@ -6,7 +6,7 @@ This [Drought Tracking Application] provides access to current and historical dr
 
 Click on the [map] to get a graph of historical drought conditions for any county. The slider bar on the time series at the bottom of the app allows you to change the time period displayed on the map. Login to the application with your ArcGIS Online credentials and save a view of the map. ArcGIS Online creates a new hosted feature service in your account. You can use the feature service to create and share your own drought maps.
 
-Additional drought content is available to the GIS community for custom mapping or analysis in the Living Atlas of the World. To access the full set of historical content Jan-2000 to present go to USA Drought Intensity 2000 - Present. To see only most current weekly map go to USA Drought Intensity (Current Conditions). 
+Additional drought content is available to the GIS community for custom mapping or analysis in the [Living Atlas of the World](https://livingatlas.arcgis.com/en/#s=0). To access the full set of historical content Jan-2000 to present go to [USA Drought Intensity 2000 - Present](https://www.arcgis.com/home/item.html?id=0c3d6a407c7e48f991821c1cfea0c8fa). To see only most current weekly map go to [USA Drought Intensity (Current Conditions)](https://www.arcgis.com/home/item.html?id=6a2386abbddb403285ebafd753c00461). 
 
 ### Additional Links
 [Drought Tracking Application]
