@@ -149,7 +149,8 @@ define({
             {value: 728, text: "2014"},
             {value: 780, text: "2015"},
             {value: 832, text: "2016"},
-            {value: 884, text: "2017"}
+            {value: 884, text: "2017"},
+            {value: 936, text: "2018"}
         ],
         stroke: {
             color: "#333"
@@ -248,7 +249,8 @@ define({
         {value: 14, text: "14"},
         {value: 15, text: "2015"},
         {value: 16, text: "16"},
-        {value: 17, text: "17"}
+        {value: 17, text: "17"},
+        {value: 18, text: "18"}
     ],
 
     /* annual chart y axis */
