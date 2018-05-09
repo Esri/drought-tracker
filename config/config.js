@@ -30,7 +30,7 @@ define({
 
     BOUNDARY_URL: window.location.protocol + "//" + "server.arcgisonline.com/arcgis/rest/services/Demographics/USA_1990-2000_Population_Change/MapServer",
     DROUGHT_BY_COUNTY_FS_SECURE: window.location.protocol + "//" + "earthobs1.arcgis.com/arcgis/rest/services/US_Drought_by_County/FeatureServer/0",
-    DROUGHT_BY_COUNTY_FS_UNSECURE: window.location.protocol + "//" + "utility.arcgis.com/usrsvcs/servers/c19e19a458e04472a709cc045124ff4c/rest/services/US_Drought_by_County/FeatureServer/0",
+    DROUGHT_BY_COUNTY_FS_UNSECURE: window.location.protocol + "//" + "utility.arcgis.com/usrsvcs/servers/6a9a3b41c17b4ccc93feebaa2b0b1fa1/rest/services/US_Drought_by_County/FeatureServer/0",
     DROUGHT_FS: window.location.protocol + "//" + "earthobs1.arcgis.com/arcgis/rest/services/US_Drought/FeatureServer",
     PRINT_URL: location.protocol + "//utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
 
