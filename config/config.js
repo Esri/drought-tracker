@@ -123,7 +123,7 @@ define({
 
     MONTH_NAMES: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 
-    LEARN_MORE_LINK_1: "http://droughtmonitor.unl.edu/AboutUs/ClassificationScheme.aspx",
+    LEARN_MORE_LINK_1: "https://droughtmonitor.unl.edu/AboutUSDM/AbouttheData/DroughtClassification.aspx",
     DROUGHT_DATA_LINK: "http://www.drought.gov/drought/",
 
     /* Charts */
