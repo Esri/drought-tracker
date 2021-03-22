@@ -34,7 +34,7 @@ define({
     DROUGHT_FS: window.location.protocol + "//" + "earthobs1.arcgis.com/arcgis/rest/services/US_Drought/FeatureServer",
     PRINT_URL: location.protocol + "//utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
 
-    APP_ID: /*"DroughtTracker",*/"xBKF2uVkEN2cxJyT",
+    APP_ID: "DroughtTracker",
 
     NEW_ITEM_TITLE: "US Drought Map | ",
     FADE_DURATION: 800,
@@ -123,7 +123,7 @@ define({
 
     MONTH_NAMES: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 
-    LEARN_MORE_LINK_1: "https://droughtmonitor.unl.edu/AboutUSDM/AbouttheData/DroughtClassification.aspx",
+    LEARN_MORE_LINK_1: "https://droughtmonitor.unl.edu/About/AbouttheData/DroughtClassification.aspx",
     DROUGHT_DATA_LINK: "http://www.drought.gov/drought/",
 
     /* Charts */
@@ -150,7 +150,10 @@ define({
             {value: 780, text: "2015"},
             {value: 832, text: "2016"},
             {value: 884, text: "2017"},
-            {value: 936, text: "2018"}
+            {value: 936, text: "2018"},
+            {value: 988, text: "2019"},
+            {value: 1040, text: "2020"},
+{value: 1092, text: "2021"}
         ],
         stroke: {
             color: "#333"
@@ -250,7 +253,10 @@ define({
         {value: 15, text: "2015"},
         {value: 16, text: "16"},
         {value: 17, text: "17"},
-        {value: 18, text: "18"}
+        {value: 18, text: "18"},
+        {value: 19, text: "19"},
+        {value: 20, text: "2020"},
+{value: 21, text: "21"}
     ],
 
     /* annual chart y axis */
