@@ -1,0 +1,25 @@
+#bookmarkComponent {
+  position: absolute;
+  z-index: 99;
+  top: 15px;
+  left: 55px;
+  background-color: #dddacf !important;
+}
+
+/* Bookmark - Start */
+.bookmark-btn {
+  background-color: #dddacf;
+  border: 1px solid #c5bfa7;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* iPhone X and Xs Max */
+@media only screen
+and (min-device-width: 375px)
+and (min-device-height: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+  #bookmarkComponent {
+    display: none;
+  }
+}

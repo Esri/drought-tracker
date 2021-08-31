@@ -1,0 +1,22 @@
+.agricultural-impacts-container {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background: #dddacf;
+  padding: .5rem;
+  max-width: 320px;
+  min-width: 320px;
+}
+
+.agr-color {
+  color: #5c7250;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.crops-container {
+  display: grid;
+  grid-template-columns: 1.7fr 2fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}

@@ -1,0 +1,15 @@
+.overlay-message {
+  position: absolute;
+  width: 180px;
+  text-align: center;
+  background-color: #dddacf;
+  z-index: 100;
+  border: 1px solid #b5b5b5;
+  padding: 1em;
+  right: 230px;
+  bottom: 20%;
+}
+
+.overlay-message-reset-btn:hover {
+  cursor: pointer;
+}

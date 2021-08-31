@@ -1,0 +1,25 @@
+.esri-search__form > input {
+  background-color: #dddacf !important;
+}
+
+/* Search - Start */
+.esri-search {
+  position: absolute !important;
+  z-index: 99 !important;
+  top: 50px !important;
+  left: 55px !important;
+  width: 235px !important;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* iPhone X and Xs Max */
+@media only screen
+and (min-device-width: 375px)
+and (min-device-height: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+  .esri-search {
+    left: 0 !important;
+    width: 100% !important;
+  }
+}

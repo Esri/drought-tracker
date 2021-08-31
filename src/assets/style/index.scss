@@ -1,0 +1,157 @@
+@import '~calcite-web/dist/css/calcite-web.min.css';
+
+.esri-view .esri-view-surface--inset-outline:focus::after {
+  outline: none !important;
+}
+
+#splash {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow-y: hidden;
+  text-align: center;
+  opacity: 1;
+  visibility: visible;
+  background: rgba(202, 197, 177, 1);
+  -webkit-transition: visibility 0ms linear 300ms, opacity 300ms cubic-bezier(0.215, 0.44, 0.42, 0.88);
+  transition: visibility 0ms linear 300ms, opacity 300ms cubic-bezier(0.215, 0.44, 0.42, 0.88);
+  z-index: 101;
+}
+
+#appLoadingIndicator {
+  position: absolute;
+  z-index: 102;
+  margin-left: 50%;
+  margin-top: 15%;
+}
+
+#dataComponentLoader {
+  position: absolute;
+  margin-left: 50%;
+}
+
+.mask-font-color {
+  color: #00000024 !important;
+}
+
+.mask-font-opacity {
+  opacity: 0.3 !important;
+}
+
+.reset-chart-btn {
+  border: 1px solid #737373;
+  padding: .15rem;
+  border-radius: .15rem;
+}
+
+.reset-chart-btn:hover {
+  cursor: pointer;
+}
+
+#viewDiv {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#topComponent {
+  background: #dddacf;
+  padding: .25rem;
+}
+
+#bottomComponent {
+  z-index: 99;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  right:0;
+  background: transparent;
+}
+
+.bottom-component-content {
+  display: flex;
+  flex-direction: row;
+}
+
+#administrativeSubdivision > fieldset {
+  z-index: 99;
+  background-color: transparent;
+}
+
+.radio-group-label {
+  margin: 0 !important;
+  background-color: #dddacf !important;
+}
+
+.radio-group-input:checked + .radio-group-label {
+  border: 1px solid #848484 !important;
+}
+
+.js-modal-toggle:hover {
+  cursor: pointer;
+}
+
+.custom-link {
+  color: #212121 !important;
+  font-weight: bold !important;
+}
+
+.custom-link:hover {
+  color: #953b3b !important;
+}
+
+.user-profile-link {
+  color: #212121 !important;
+}
+
+.user-profile-link:hover {
+  color: #953b3b !important;
+}
+
+.reset-app-btn:hover {
+  cursor: pointer;
+}
+
+
+/* MODAL */
+.js-modal-toggle {
+  color: #4e4e4e !important;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border-color: #505050;
+  color: #a67a53;
+}
+
+.modal-close-btn:hover {
+  background: transparent;
+  border-color: #343434;
+  color: #a67a53;
+}
+
+.modal-section-hdr {
+  font-size: 1.4em;
+  color: #aa3332;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
