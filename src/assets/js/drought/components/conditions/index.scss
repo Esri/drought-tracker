@@ -1,0 +1,90 @@
+.drought-status-component {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  margin-right: .2rem; max-width: 275px; min-width: 200px;
+}
+
+.m-flex-item {
+  box-sizing: border-box;
+  background: #dddacf;
+  padding: .5rem;
+  margin-bottom: .2rem;
+}
+
+.m-flex-item:nth-child(1) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+.m-flex-item:nth-child(2) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+
+.drought-status {
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.consecutive-weeks-container {
+  flex-wrap: wrap;
+  line-height: 1;
+}
+
+.consecutive-weeks {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.population {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.drought-outlook-container {
+  display: grid; grid-template-columns: 1.5fr 3fr; grid-template-rows: repeat(2, 1fr); grid-column-gap: 0; grid-row-gap: 0; align-items: baseline;
+}
+
+.outlook-date {
+  box-sizing: border-box; min-width: 100px;
+}
+
+.outlook-value {
+  box-sizing: border-box; min-width: 100px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+

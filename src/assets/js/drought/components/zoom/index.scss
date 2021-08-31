@@ -1,0 +1,23 @@
+.esri-zoom {
+  background-color: transparent !important;
+}
+
+.esri-widget--button {
+  background-color: #dddacf !important;
+}
+
+.esri-zoom .esri-widget--button:first-child {
+  margin-bottom: 4px !important;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* iPhone X and Xs Max */
+@media only screen
+and (min-device-width: 375px)
+and (min-device-height: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+  .esri-zoom {
+    display: none !important;
+  }
+}

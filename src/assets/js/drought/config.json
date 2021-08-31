@@ -1,0 +1,151 @@
+{
+  "webMapId": "ab5bf0057f11443ca86d78e7d1998da5",
+
+  "county_boundary": "https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/USA_Counties_and_States_with_PR/FeatureServer/0",
+  "county_boundary_outfields": ["CountyFIPS", "CountyName", "STATE_NAME"],
+
+  "state_boundary": "https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/USA_Counties_and_States_with_PR/FeatureServer/1",
+  "state_boundary_outfields": ["STATE_FIPS", "STATE_NAME"],
+
+  "drought_layer_name": "USA Drought Intensity 2000 - Present - US_Drought",
+  "droughtURL": "https://services9.arcgis.com/RHVPKKiFTONKtxq3/ArcGIS/rest/services/US_Drought_Intensity_v1/FeatureServer/",
+
+  "mapViewMinScale": 30999535,
+  "mapViewMaxScale":  577791,
+
+  "NO_DATA": "No Data",
+
+  "widgetPositions": {
+    "appHeader": "top-right",
+    "home": "top-left",
+    "legend": "manual",
+    "zoom": "top-left"
+  },
+
+  "selectedGeographicSymbology": {
+    "type": "simple-line",
+    "color": [57, 55, 55],
+    "width": 1
+  },
+
+  "selected": {
+    "adminAreaId": "county",
+    "mapPoint": {},
+    "state_name": "",
+    "date": ""
+  },
+
+  "boundaryQuery": {
+    "url": "",
+    "returnGeometry": true,
+    "outFields": [],
+    "geometry": {},
+    "q": ""
+  },
+
+  "chart": {
+    "margin": {
+      "top": 25,
+      "right": 0,
+      "bottom": 30,
+      "left": 35
+    },
+    "width": 700,
+    "height": 135,
+    "keys": ["d0", "d1", "d2", "d3", "d4", "nothing"]
+  },
+
+  "COUNTY_ADMIN": "county",
+  "STATE_ADMIN": "state",
+
+  "drought_colors" : {
+    "d4": {
+      "label": "Exceptional Drought",
+      "color": "#aa3332"
+    },
+    "d3": {
+      "label": "Extreme Drought",
+      "color": "#dc6f4d"
+    },
+    "d2": {
+      "label": "Severe Drought",
+      "color": "#eaa771"
+    },
+    "d1": {
+      "label": "Moderate Drought",
+      "color": "#ecd092"
+    },
+    "d0": {
+      "label": "Abnormally Dry",
+      "color": "#eee1b4"
+    },
+    "nothing": {
+      "label": "No Drought",
+      "color": ""
+    }
+  },
+
+  "qParams": {
+    "agriculture": {
+      "url": "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_PR_Counties_DroughtApp/FeatureServer/0",
+      "returnGeometry": false,
+      "outFields": ["*"],
+      "q": ""
+    },
+    "outlook": {
+      "monthly": {
+        "date" : {
+          "url": "https://services.arcgis.com/bDAhvQYMG4WL8O5o/ArcGIS/rest/services/mdo_polygons/FeatureServer/0",
+          "returnGeometry": false,
+          "outFields": ["Target"],
+          "orderByFields": ["Target"],
+          "q": "1=1"
+        },
+        "value" : {
+          "url": "https://services.arcgis.com/bDAhvQYMG4WL8O5o/ArcGIS/rest/services/mdo_polygons/FeatureServer/0",
+          "returnGeometry": false,
+          "outFields": ["*"],
+          "spatialRel": "esriSpatialRelIntersects",
+          "orderByFields": ["fid_persis desc", "fid_improv desc", "fid_dev desc", "fid_remove desc"],
+          "geometryType": "esriGeometryPolygon",
+          "geometry": "",
+          "q": ""
+        }
+      },
+
+      "seasonal": {
+        "date": {
+          "url": "https://services.arcgis.com/bDAhvQYMG4WL8O5o/ArcGIS/rest/services/sdo_polygons/FeatureServer/0",
+          "returnGeometry": false,
+          "outFields": ["*"],
+          "orderByFields": ["Target"],
+          "q": "1=1"
+        },
+        "value": {
+          "url": "https://services.arcgis.com/bDAhvQYMG4WL8O5o/ArcGIS/rest/services/sdo_polygons/FeatureServer/0",
+          "returnGeometry": false,
+          "outFields": ["*"],
+          "spatialRel": "esriSpatialRelIntersects",
+          "orderByFields": ["fid_persis desc", "fid_improv desc", "fid_dev desc", "fid_remove desc"],
+          "geometryType": "esriGeometryPolygon",
+          "geometry": "",
+          "q": ""
+        }
+      }
+    },
+    "severeDroughtConditions": {
+      "orderByFields": ["ddate desc"],
+      "outFields": ["*"],
+      "q": "",
+      "url": "",
+      "returnGeometry": false
+    },
+    "historicDroughtConditions": {
+      "orderByFields": ["ddate desc"],
+      "outFields": ["*"],
+      "q": "",
+      "url": "",
+      "returnGeometry": false
+    }
+  }
+}

@@ -1,0 +1,375 @@
+<div class="drawer drawer-right js-drawer" data-drawer="top-nav" tabindex="0">
+    <nav class="drawer-nav" role="navigation">
+        <aside class="side-nav">
+            <h2 class="side-nav-title">Administrative Subdivision</h2>
+            <div class="side-nav-link">
+                <fieldset class="radio-group">
+                    <input class="radio-group-input county" type="radio" id="mobileCounty" name="adminboundary" data-admin-area-id="county" checked/>
+                    <label class="radio-group-label" for="mobileCounty">County</label>
+                    <input class="radio-group-input state" type="radio" id="mobileState" name="adminboundary" data-admin-area-id="state"/>
+                    <label class="radio-group-label" for="mobileState">State</label>
+                </fieldset>
+            </div>
+
+            <h2 class="side-nav-title">About</h2>
+            <div class="btn btn-small btn-transparent js-modal-toggle side-nav-link" data-modal="foo">Click here</div>
+
+            <h2 class="side-nav-title">Source</h2>
+            <div class="font-size--2">
+                <div class="side-nav-link">
+                    <a href="https://www.noaa.gov/" target="_blank" rel="noopener">NOAA</a>
+                </div>
+                <div class="side-nav-link">
+                    <a href="https://www.census.gov/" target="_blank" rel="noopener">US Census</a>
+                </div>
+                <div class="side-nav-link">
+                    <a href="https://www.nass.usda.gov/" target="_blank" rel="noopener">USDA</a>
+                </div>
+            </div>
+        </aside>
+    </nav>
+</div>
+
+<div class="wrapper">
+
+    <calcite-loader
+            id="appLoadingIndicator"
+            active=""
+            type="indeterminate"
+            scale="l"
+            no-padding=""
+            value="0"
+            style="
+                --calcite-ui-brand: rgba(170, 51, 50, 1);
+                --calcite-ui-brand-hover: rgba(220, 111, 77, 1);
+                --calcite-ui-brand-press: rgba(234, 167, 113, 1);"
+    ></calcite-loader>
+
+    <calcite-alert
+            class="calcite-theme-light custom-alert"
+            icon="exclamation-mark-circle"
+            auto-dismiss
+            auto-dismiss="true"
+            auto-dismiss-duration="slow"
+            active="false"
+            scale="m"
+            color="red"
+            aria-hidden="false"
+            role="alert">
+        <div slot="title" class="alert-title"></div>
+        <div slot="message" class="alert-message"></div>
+        <calcite-link slot="link" title="my action" role="presentation" class="alert-link"></calcite-link>
+    </calcite-alert>
+
+    <div id="splash"></div>
+
+    <div id="viewDiv">
+        <div id="bookmarkComponent">
+            <nav class="bookmarks-nav">
+                <div class="bookmarks-container"></div>
+            </nav>
+        </div>
+
+        <div id="topComponent" class="esri-widget" style="display: none; background: #dddacf;">
+            <calcite-icon
+                    style="float: right;"
+                    icon="information"
+                    scale="m"
+                    class="information-icon js-modal-toggle"
+                    data-modal="foo">
+            </calcite-icon>
+
+            <calcite-icon
+                    style="display: none;"
+                    icon="hamburger"
+                    scale="m"
+                    class="drawer-btn js-drawer-toggle right"
+                    data-drawer="top-nav">
+            </calcite-icon>
+
+            <div class="font-size-3" style="color: #aa3332; text-shadow: 1px 1px 2px rgba(170, 51, 50, .61);">Esri Drought Aware</div>
+            <div class="font-size--3">Statistics and impacts of drought in the U.S.A.</div>
+            <div class="subheading">
+                <div class="font-size--3">Click on the map or search for a location for more information.</div>
+                <div class="font-size--3">Source: <a href="https://www.noaa.gov/" target="_blank" rel="noopener" class="custom-link">NOAA</a>, <a href="https://www.census.gov/" target="_blank" rel="noopener" class="custom-link">US Census</a>, <a href="https://www.nass.usda.gov/" target="_blank" rel="noopener" class="custom-link">USDA</a></div>
+            </div>
+        </div>
+
+        <div id="bottomComponent" class="esri-widget" style="display: none;">
+            <div id="administrativeSubdivision">
+                <fieldset class="radio-group" style="padding-left: 1em; margin-bottom: .5em;">
+                    <input class="radio-group-input county" type="radio" id="desktopCounty" name="adminboundary" data-admin-area-id="county" checked/>
+                    <label class="radio-group-label" for="desktopCounty">County</label>
+                    <input class="radio-group-input state" type="radio" id="desktopState" name="adminboundary" data-admin-area-id="state"/>
+                    <label class="radio-group-label" for="desktopState">State</label>
+                </fieldset>
+            </div>
+            <div class="bottom-component-content font-size--3">
+
+                <calcite-loader
+                        id="dataComponentLoader"
+                        type="indeterminate"
+                        scale="m"
+                        no-padding=""
+                        value="0"
+                        style="
+                    --calcite-ui-brand: rgba(170, 51, 50, 1);
+                    --calcite-ui-brand-hover: rgba(220, 111, 77, 1);
+                    --calcite-ui-brand-press: rgba(234, 167, 113, 1);"
+                ></calcite-loader>
+
+                <div class="overlay-message js-animation animate-fade-in font-size--2 hide">
+                    Go to <span class="overlay-message-reset-btn reset-chart-btn">Current Week</span> to enable drought statistics
+                </div>
+
+                <div class="historic-data-container" style="flex-grow: 1; background: #dddacf; padding: .5rem; margin-right: .2rem;">
+                    <div style="display: flex;">
+                        <div style="justify-content: flex-start; margin-left: .45rem;">HISTORIC DATA</div>
+                        <div style="flex: 1; text-align: center;">
+                            <div class="selected-location"></div>
+                            <div><span class="drought-percentage"></span>% of the area with drought conditions</div>
+                        </div>
+                        <div style="justify-content: flex-end; margin-left: .45rem;">
+                            <span class="reset-chart-btn">Current Week</span>
+                        </div>
+                    </div>
+
+                    <div id="areaChartScrubberContent" style="display: none">
+                        <div class="tooltip-flex-container">
+                            <div class="legend-tooltip-graphic abnormally-dry"></div>
+                            <div class="legend-tooltip-label">Abnormally Dry</div>
+                            <div id="areaChartScrubberContent_d0" class="legend-tooltip-value"></div>
+
+                            <div class="legend-tooltip-graphic moderate-drought"></div>
+                            <div class="legend-tooltip-label">Moderate</div>
+                            <div id="areaChartScrubberContent_d1" class="legend-tooltip-value"></div>
+
+                            <div class="legend-tooltip-graphic severe-drought"></div>
+                            <div class="legend-tooltip-label">Severe</div>
+                            <div id="areaChartScrubberContent_d2" class="legend-tooltip-value"></div>
+
+                            <div class="legend-tooltip-graphic extreme-drought"></div>
+                            <div class="legend-tooltip-label">Extreme</div>
+                            <div id="areaChartScrubberContent_d3" class="legend-tooltip-value"></div>
+
+                            <div class="legend-tooltip-graphic exceptional-drought"></div>
+                            <div class="legend-tooltip-label">Exceptional</div>
+                            <div id="areaChartScrubberContent_d4" class="legend-tooltip-value"></div>
+                        </div>
+                        <div id="areaChartScrubberContentDate"></div>
+                    </div>
+                    <div id="stackedBarchart"></div>
+
+                    <div class="chart-legend-container">
+                        <div class="chart-legend-item">
+                            <div class="chart-legend-graphic abnormally-dry"></div>
+                            <div>Abnormally Dry</div>
+                        </div>
+                        <div class="chart-legend-item">
+                            <div class="chart-legend-graphic moderate-drought"></div>
+                            <div>Moderate Drought</div>
+                        </div>
+                        <div class="chart-legend-item">
+                            <div class="chart-legend-graphic severe-drought"></div>
+                            <div>Severe Drought</div>
+                        </div>
+                        <div class="chart-legend-item">
+                            <div class="chart-legend-graphic extreme-drought"></div>
+                            <div>Extreme Drought</div>
+                        </div>
+                        <div class="chart-legend-item">
+                            <div class="chart-legend-graphic exceptional-drought"></div>
+                            <div>Exceptional Drought</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drought-status-component">
+                    <div class="m-flex-item">
+                        <div>LATEST DROUGHT CONDITIONS</div>
+                        <div class="font-size-1 drought-status"></div>
+                        <div>Population: <span class="font-size--1 population"></span></div>
+                        <div class="consecutive-weeks-container">For the past <span class="font-size--1 consecutive-weeks"></span> weeks this area has experienced Severe Drought conditions.</div>
+                    </div>
+
+                    <div class="m-flex-item">
+                        <div>DROUGHT OUTLOOK</div>
+                        <div class="drought-outlook-container">
+                            <div class="monthlyOutlookDate outlook-date"></div>
+                            <div class="font-size-0 outlook-value monthlyOutlookLabel"></div>
+                            <div class="seasonalOutlookDate outlook-date"></div>
+                            <div class="font-size-0 outlook-value seasonalOutlookLabel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="agricultural-impacts-container">
+
+                    <calcite-icon
+                            style="float: right;"
+                            icon="x-circle"
+                            scale="m"
+                            class="reset-app-btn right">
+                    </calcite-icon>
+
+                    <div>AGRICULTURAL IMPACTS</div>
+                    <div>Agricultural Jobs: <span class="font-size--1 jobs agr-color"></span></div>
+                    <div>Total Sales: <span class="font-size--1 total-sales agr-color"></span></div>
+                    <div class="leader-half crops-container">
+                        <div>Soy: <span class="soy-sales"></span></div>
+                        <div>Hay: <span class="hay-sales"></span></div>
+                        <div>Corn: <span class="corn-sales"></span></div>
+                        <div>Livestock: <span class="livestock-sales"></span></div>
+                    </div>
+                    <div>Winter Wheat: <span class="wheat-sales"></span></div>
+
+                    <div class="leader-half trailer-quarter">
+                        <div class="map-legend-container">
+                            <div class="map-legend-item">
+                                <div class="map-legend-graphic-container">
+                                    <div class="map-legend-graphic map-legend-graphic-1"></div>
+                                </div>
+                            </div>
+                            <div class="map-legend-item">
+                                <div class="map-legend-graphic-container">
+                                    <div class="map-legend-graphic map-legend-graphic-2"></div>
+                                </div>
+                            </div>
+                            <div class="map-legend-item">
+                                <div class="map-legend-graphic-container">
+                                    <div class="map-legend-graphic map-legend-graphic-3"></div>
+                                </div>
+                            </div>
+                            <div class="map-legend-item">
+                                <div class="map-legend-graphic-container">
+                                    <div class="map-legend-graphic map-legend-graphic-4"></div>
+                                </div>
+                            </div>
+                            <div class="map-legend-item">
+                                <div class="map-legend-graphic-container">
+                                    <div class="map-legend-graphic map-legend-graphic-5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agr-legend-labels-container">
+                        <div class="agr-label"> &lt; $50 million </div>
+                        <div class="agr-label"> &gt; $1 Billion </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="js-modal modal-overlay info-modal" data-modal="foo" style="display: none;">
+        <div class="modal-content column-18 font-size--2" role="dialog" aria-labelledby="modal" style="background-color: #cac5b1">
+
+            <div class="modal-section-hdr">About this App</div>
+            <div>
+                The Drought Aware app is intended to provide the latest information about current, future, and historical drought conditions in the United States.
+                The data shown here from
+                <a href="https://www.arcgis.com/home/group.html?id=b67c85e0a4f2486dbdcbab0785cc42e7#overview" target="_blank" rel="noopener" class="custom-link">ArcGIS Living Atlas</a> are authoritative U.S. government sources, including:
+            </div>
+            <div>
+                <ul class="font-size--2" style="margin-block-start: 0;">
+                    <li>
+                        NOAA NIDIS <a href="https://www.drought.gov/" target="_blank" rel="noopener" class="custom-link">US Drought Monitor</a>.
+                        Their website provides regional summaries of causation and impact.
+                    </li>
+                    <li>
+                        NOAA Climate Prediction Center <a
+                            href="https://www.cpc.ncep.noaa.gov/products/expert_assessment/mdo_summary.php"
+                            target="_blank" rel="noopener" class="custom-link">Monthly</a> and <a
+                            href="https://www.cpc.ncep.noaa.gov/products/expert_assessment/sdo_summary.php"
+                            target="_blank" rel="noopener" class="custom-link">Seasonal Drought Outlooks</a>
+                    </li>
+                    <li>
+                        The USDA <a href="https://livingatlas.arcgis.com/en/browse/#d=2&q=%22USDA%20Census%20of%20Agriculture%22&type=layers&cont=true&authoritative=true" target="_blank" rel="noopener" class="custom-link">2017 Census of Agriculture</a> for agricultural values and employment
+                    </li>
+                    <li>U.S. Census <a
+                            href="https://livingatlas.arcgis.com/en/browse/#d=2&q=%22ACS%20Population%20Variables%20-%20Boundaries%22&type=layers&cont=true&authoritative=true"
+                            target="_blank" rel="noopener" class="custom-link">American Community Survey</a> for state and
+                        county population totals for the past year
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal-section-hdr">Drought Definitions</div>
+            <div>
+                <div style="display: flex; align-items: baseline;">
+                    <div class="modal-legend-graphic abnormally-dry"></div>
+                    <div class="">Abnormally Dry (D0)</div>
+                </div>
+                <ul class="font-size--2" style="margin-block-start: 0;">
+                    <li>Going into drought there is short-term dryness slowing planting, growth of crops or pastures.</li>
+                    <li>Coming out of drought there is some lingering water deficits; pastures or crops not fully recovered.</li>
+                </ul>
+            </div>
+            <div>
+                <div style="display: flex; align-items: baseline;">
+                    <div class="modal-legend-graphic moderate-drought"></div>
+                    <div class="">Moderate Drought (D1)</div>
+                </div>
+                <ul class="font-size--2" style="margin-block-start: 0;">
+                    <li>Some damage to crops and pastures</li>
+                    <li>Streams, reservoirs, or wells low, some water shortages developing or imminent</li>
+                    <li>Voluntary water-use restrictions requested</li>
+                </ul>
+            </div>
+            <div>
+                <div style="display: flex; align-items: baseline;">
+                    <div class="modal-legend-graphic severe-drought"></div>
+                    <div class="">Severe Drought (D2)</div>
+                </div>
+                <ul class="font-size--2" style="margin-block-start: 0;">
+                    <li>Crop or pasture losses likely</li>
+                    <li>Water shortages common</li>
+                    <li>Water restrictions imposed</li>
+                </ul>
+            </div>
+            <div>
+                <div style="display: flex; align-items: baseline;">
+                    <div class="modal-legend-graphic extreme-drought"></div>
+                    <div class="">Extreme Drought (D3)</div>
+                </div>
+                <ul class="font-size--2" style="margin-block-start: 0;">
+                    <li>Major crop/pasture losses</li>
+                    <li>Widespread water shortages or restrictions</li>
+                </ul>
+            </div>
+            <div>
+                <div style="display: flex; align-items: baseline;">
+                    <div class="modal-legend-graphic exceptional-drought"></div>
+                    <div class="">Exceptional Drought (D4)</div>
+                </div>
+                <ul class="font-size--2" style="margin-block-start: 0;">
+                    <li>Exceptional and widespread crop/pasture losses</li>
+                    <li>Shortages of water in reservoirs, streams, and wells creating water emergencies</li>
+                </ul>
+            </div>
+
+            <div class="modal-section-hdr">Use this App</div>
+            <ul class="font-size--2" style="margin-block-start: 0;">
+                <li>Click a location in the U.S. to see the current Drought Monitor information and potential impacts. These values can be viewed by county or state totals from the selector at the bottom left.</li>
+                <li>Agriculture summaries are based on the USDA’s 2017 Census of Agriculture and are the best available data (though not all areas report data). Highlighted are some of the most economically important yet drought sensitive products.</li>
+                <li>The time series graph will change the display of the Drought Monitor map, however, all of the other values (outlooks, agriculture, etc) are fixed in time.</li>
+                <li>Use the mouse wheel to zoom in and out of the time series graph.</li>
+            </ul>
+
+            <div class="font-size--2">
+                A blog describing some ways to use Drought Aware can be found <a target="_blank" href="https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/water/drought-aware" class="custom-link" rel="noopener">here</a>.
+            </div>
+
+            <div class="font-size--2 leader-half">This app was designed by Esri’s <a href="https://www.esri.com/arcgis-blog/author/dpisut-2/" target="_blank" class="user-profile-link" rel="noopener">Dan Pisut</a>, <a
+                    href="https://www.esri.com/arcgis-blog/author/emeriam/" target="_blank" class="user-profile-link" rel="noopener">Emily Meriam</a>, <a href="https://www.esri.com/arcgis-blog/author/coscopel/?rmedium=redirect&rsource=blogs.esri.com/esri/arcgis/author/coscopel" target="_blank" class="user-profile-link" rel="noopener">Caitlin Scopel</a>, and <a href="https://github.com/ChrisMahlke" target="_blank" class="user-profile-link" rel="noopener">Chris Mahlke</a> . The source code for the app can be found on <a
+                        href="https://github.com/Esri/drought-tracker"
+                        target="_blank" class="user-profile-link" rel="noopener">GitHub</a>. For questions, please contact environment@esri.com.
+            </div>
+
+            <div class="text-center leader-half">
+                <button class="modal-close-btn btn btn-clear btn-large js-modal-toggle">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
