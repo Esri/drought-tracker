@@ -370,7 +370,8 @@ import { format } from 'date-fns';
             QueryUtils.fetchData(config.boundaryQuery).then(retrieveGeometryResponseHandler).then(response => {
                 if (response.features.length > 0) {
                     bottomComponent.style.display = "";
-                    dataComponentLoadingIndicator.setAttribute("active", "");
+                    // dataComponentLoadingIndicator.setAttribute("active", "");
+                    dataComponentLoadingIndicator.style.opacity = 1;
 
                     let selectedFeature = response.features[0];
                     config.selected.state_name = selectedFeature.attributes["STATE_NAME"];
@@ -464,7 +465,8 @@ import { format } from 'date-fns';
             });
             HistoryComponent.updateDroughtPercentage(found.attributes["D1_D4"]);
             Conditions.updateCurrentDroughtStatus(response);
-            dataComponentLoadingIndicator.removeAttribute("active");
+            // dataComponentLoadingIndicator.removeAttribute("active");
+            dataComponentLoadingIndicator.style.opacity = 0;
 
             Scrim.showScrim({
                 "mostRecentDate": new Date(inputDataset[inputDataset.length - 1].date),
