@@ -1,0 +1,7 @@
+@import "https://js.arcgis.com/4.28/@arcgis/core/assets/esri/themes/dark/main.css";
+/* @import "@fontsource/roboto-condensed/300.css"; */
+.index {}
+
+.esri-view-root {
+    --esri-view-outline: 0;
+}

@@ -1,50 +1,41 @@
 {
-  "name": "drought-tracker",
+  "name": "drought-aware",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --open",
-    "dev": "webpack --mode development",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Esri/drought-tracker.git"
-  },
   "keywords": [],
-  "author": "Chris Mahlke",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Esri/drought-tracker/issues"
-  },
-  "homepage": "https://github.com/Esri/drought-tracker#readme",
-  "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.0",
-    "babel-loader": "^8.0.4",
-    "css-loader": "^2.0.1",
-    "csv-loader": "^3.0.3",
-    "file-loader": "^2.0.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "i18n-webpack-plugin": "^1.0.0",
-    "mini-css-extract-plugin": "^0.5.0",
-    "sass": "^1.58.3",
-    "sass-loader": "^10.4.1",
-    "style-loader": "^0.23.1",
-    "url-loader": "^1.1.2",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
-  },
   "dependencies": {
-    "calcite-web": "github:Esri/calcite-web#v1.2.5",
-    "d3": "^6.7.0",
-    "date-fns": "^2.22.1",
-    "es6-promise": "^4.2.8",
-    "esri-loader": "^3.0.0",
-    "url-params": "^1.0.2"
+    "@arcgis/core": "^4.29.0",
+    "@babel/preset-typescript": "^7.23.3",
+    "@esri/calcite-components": "^2.0.0",
+    "@esri/calcite-components-react": "^2.2.0",
+    "@types/css-modules": "^1.0.5",
+    "@types/d3": "^7.4.3",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "d3": "^7.9.0",
+    "query-functions-ts": "^1.0.15",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "@babel/preset-react": "^7.23.3",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.4",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }

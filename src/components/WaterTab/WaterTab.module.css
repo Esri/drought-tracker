@@ -1,0 +1,183 @@
+:root {
+    --topDivHeight: 300px;
+    --areaModeHeight: 75px;
+    --lineSectionheight: 40px;
+}
+
+.outerContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.mainInformationDiv {}
+
+.areaTextSection {
+    height: var(--areaModeHeight);
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closeDiv {
+    position: absolute;
+    right: 30px;
+    top: 345px;
+}
+
+.disclaimerText {
+    padding-top: 10px;
+    font-style: italic;
+    font-size: 14px;
+    color: rgb(255, 255, 255, .4);
+}
+
+.sectionTitleDiv {
+    background-color: rgba(255, 255, 255, 0.10);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 30px;
+    margin-bottom: 15px;
+}
+
+.sectionContainers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tablesContainer {
+    width: 99.5%;
+    overflow: auto;
+    height: calc(100vh - var(--topDivHeight) - var(--areaModeHeight) - var(--lineSectionheight) - 2px);
+    /* the 2px are the 1px lines that make up the section divider in left panel*/
+}
+
+.tableDiv {
+    width: 90%;
+    padding-bottom: 20px;
+}
+
+.headerDiv {
+    color: rgb(255, 255, 255, .4);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.purposeCellContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.tableValueCells {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.tooltipContent {
+    font-size: 12px;
+    position: absolute;
+    padding: 10px;
+    background-color: rgba(31, 31, 31, .8);
+    backdrop-filter: blur(25px);
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .2);
+    border-radius: 3px;
+    pointer-events: none;
+    overflow: visible;
+    border-radius: 5px;
+
+}
+
+.riverTooltipText {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: start;
+    /* padding: 2px; */
+}
+
+.chartContainer {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: right; */
+    width: 100%;
+    /* padding-right: 10px; */
+    margin-bottom: 25px;
+    height: 90px;
+    /* overflow: visible; */
+    /* background-color:rgba(100,100,100,.3);
+    border:#000000 1px solid; */
+}
+
+.riverChartTitleContainer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.noResultsUI {
+    width: 100%;
+    height: 175px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-style: italic;
+}
+
+
+.riverSectionCharts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chartLegendContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.lineLegend {
+    border-bottom: 2px solid #44b7bd;
+    transform: rotate(-45deg) translate(-1px, -12px);
+    /* transform: translate(-10px); */
+    width: 25px;
+    height: 25px;
+}
+
+.circleLegend {
+    margin: 5px;
+    height: 5px;
+    width: 5px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    display: inline-block;
+}

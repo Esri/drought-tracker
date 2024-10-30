@@ -1,0 +1,74 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    position:absolute;
+    z-index:11;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+}
+
+.backdrop {
+    background-image: linear-gradient(147deg, rgba(49, 49, 49, 0.75) 0%, rgba(24, 6, 0, 0.75) 100%);
+    backdrop-filter: blur(10px);
+    transform: translate3d(0, 0, 0);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index:10;
+}
+
+.modalContainer {
+    width: 50vw;
+    height: 80vh;
+    border-radius: 25px;
+    background-image: linear-gradient(147deg, rgba(31, 31, 31, .4) 0%, rgba(48, 53, 56, .4) 100%);
+    margin:25px;
+    backdrop-filter: blur(50px);
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0px 0px 24px 0px #000000, inset 0 0 3px rgba(255, 255, 255, .2);
+    z-index:12;
+    padding: 5px;
+}
+
+
+.modalContainerMobile {
+    width: 90vw;
+    height: 80vh;
+    border-radius: 25px;
+    background-image: linear-gradient(147deg, rgba(31, 31, 31, .4) 0%, rgba(48, 53, 56, .4) 100%);
+    margin:25px;
+    backdrop-filter: blur(50px) !important;
+    -webkit-backdrop-filter: blur(5px)!important;
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0px 0px 24px 0px #000000, inset 0 0 3px rgba(255, 255, 255, .2);
+    z-index:12;
+    padding: 5px;
+}
+
+.content {
+    position: absolute;
+    padding-right:50px;
+    right: 5px;
+    left: 50px;
+    bottom: 50px;
+    top: 50px;
+    max-width:95%;
+    overflow:auto;
+}
+
+a {
+    color: white;
+    
+}
+
+a:visited {
+    color: white;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}

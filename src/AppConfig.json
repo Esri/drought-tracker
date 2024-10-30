@@ -1,0 +1,67 @@
+{
+    "agPanelOption": "ag",
+    "agricultureLayerTitle": "Agriculture",
+    "countyAgricultureLayerTitle": "Crop Sales County",
+    "countyFipsFieldName": "GEOID",
+    "countyPopLayerTitle": "ACS Population Boundaries - County",
+    "countyModeValue": "county",
+    "countyFieldName": "NAME",
+    "croplandLayerTitle": "USA_Cropland",
+    "droughtLayerTitle": "US Drought Monitor, by Severity",
+    "labelBasemapLayerIds": [
+        "92cb9830a1f34398b32f8b52fc1f3312"
+    ],
+    "levelLabels": {
+        "d0": "Abnormally Dry",
+        "d1": "Moderate Drought",
+        "d2": "Severe Drought",
+        "d3": "Extreme Drought",
+        "d4": "Exceptional Drought"
+    },
+    "levelColorClass": {
+        "d0": "abnormalDroughtColor",
+        "d1": "moderateDroughtColor",
+        "d2": "severeDroughtColor",
+        "d3": "extremeDroughtColor",
+        "d4": "exceptionalDroughtColor"
+    },
+    "nullPanelOption": null,
+    "objectIdFieldName": "OBJECTID",
+    "pointClickGraphicLayerTitle": "pointClickGraphicLayer",
+    "pointClickSpatialReference": 4326,
+    "populationLayerTitle": "Population",
+    "popPanelOption": "pop",
+    "statePopLayerTitle": "ACS Population Boundaries - State",
+    "stateAgricultureLayerTitle": "Crop Sales State",
+    "selectedFeatureLayerTitle": "selectedFeatureGraphicLayer",
+    "stateFieldName": "State",
+    "stateModeValue": "state",
+    "pointUrlParam": "point",
+    "areaTypes": [
+        "county",
+        "state",
+        "huc4",
+        "nation"
+    ],
+    "panelTabUrlParamValues": [
+        "pop",
+        "water",
+        "ag"
+    ],
+    "nullUrlParamObject": {
+       "areaType": null,
+       "panelTab": null,
+       "point": null,
+       "zoom": null,
+       "period": null
+    },
+    "waterPanelOption": "water",
+    "waterModeValue": "water",
+    "waterLayerTitle": "Water",
+    "webMapId": "9d78b6b7e020477b81e4cda4029dbccf",
+    "exceptionalDroughtLayerTitle": "Exceptional Drought (4)",
+    "extremeDroughtLayerTitle": "Extreme Drought (3)",
+    "severeDroughtLayerTitle": "Severe Drought (2)",
+    "moderateDroughtLayerTitle": "Moderate Drought (1)",
+    "abnormalDroughtLayerTitle": "Abnormally Dry (0)"
+}

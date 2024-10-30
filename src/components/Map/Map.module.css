@@ -1,0 +1,20 @@
+.view {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+.searchAndZoomContainer {
+    position: absolute;
+    top: 120px;
+    right: 20px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchWidgetContainer {
+    padding-right: 10px;
+}

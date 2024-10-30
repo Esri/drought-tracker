@@ -1,0 +1,74 @@
+.container {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(147deg, rgba(31, 31, 31, .8) 0%, rgba(48, 53, 56, .8) 100%);
+    backdrop-filter: blur(50px) !important;
+    -webkit-backdrop-filter: blur(5px)!important;
+    transform: translate3d(0, 0, 0);
+    box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.15);
+}
+
+.topDiv {
+    height: 300px;
+    width: 100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:end;
+    align-items: end;
+}
+
+.legendDiv {
+    padding-right:15px;
+}
+
+.loaderDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sectionTopLine{
+    width:95%;
+    border-top: 1px solid rgba(0,0,0,.2);
+    margin-top:20px;
+}
+
+.sectionBottomLine{
+    width:95%;
+    border-bottom:1px solid rgba(255,255,255,.2);
+    margin-bottom:20px;
+}
+
+.mainInformationDivFirefoxScroll {
+    height: calc(100vh - 340px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    scrollbar-color: #666666 #2A2F32;
+    scrollbar-width:thin;
+}
+.mainInformationDivChromiumScroll {
+    height: calc(100vh - 340px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #2A2F32;
+    box-shadow: inset 0 0 4px #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 8px;
+    background-color: #666666;
+    border-radius: 20px;
+    box-shadow: inset 0 0 4px #000000;
+}
+
+.firefoxScroll {
+    scrollbar-color: #666666 #2A2F32;
+    scrollbar-width:thin;
+}

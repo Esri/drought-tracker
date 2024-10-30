@@ -1,0 +1,109 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.modalDiv {
+    z-index: 15;
+}
+
+.loaderDiv {
+    width: calc(100vw - 380px);
+    height: calc(100vh - 100px);
+    background-color: rgba(0,0,0,.4);
+    position: absolute;
+    z-index: 100;
+    bottom:0;
+    right:0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+
+.fullMap {
+    width: 100vw;
+    height: 100vh;
+    z-index:0;
+}
+
+.collapsedMap {
+    width: 80%;
+    height: 100vh;
+    z-index: 0;
+    bottom: 0;
+    right: 0;
+    float: right;
+    position: relative;
+}
+
+.cornerContainer {
+    z-index: 3;
+    width: 500px;
+    height: 350px;
+    top: -105px;
+    left: -140px;
+    position: absolute;
+    pointer-events: fill;
+}
+
+.cornerShadowContainer {
+    z-index: 8;
+    width: 500px;
+    height: 350px;
+    top: -105px;
+    left: -140px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.cornerShadow {
+    transform: rotate(-30deg);
+    width: 100%;
+    height: 280px;
+    border-radius: 10px;
+    overflow: hidden;
+    pointer-events: none;
+    left: -10px;
+    top: 20px;
+    position: absolute;
+    box-shadow: 0px 0px 24px 0px #000000, inset 0 0 3px rgba(255, 255, 255, .2);
+    pointer-events: none;
+}
+
+.panelContainer {
+    height: 100vh;
+    position: absolute;
+    width: 380px;
+    z-index: 1;
+    box-shadow: 0px 0px 24px 0px #000000;
+    left: 0px;
+    animation: translate(-380px);
+    transition: .2s linear;
+}
+
+.panelContainerHidden {
+    height: 100vh;
+    left: -380px;
+    animation: translate(-380px);
+    animation-direction: reverse;
+    width: 380px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 0px 24px 0px #000000;
+}
+
+.chart {
+    top: 0;
+    width: 100vw;
+    height: 100px;
+    background-image: linear-gradient(147deg, rgba(31, 31, 31, .8) 0%, rgba(48, 53, 56, .8) 100%);
+    backdrop-filter: blur(50px) !important;
+    -webkit-backdrop-filter: blur(5px)!important;
+    transform: translate3d(0, 0, 0);
+    z-index: 2;
+    position: absolute;
+    box-shadow: 0px 0px 24px 0px #000000, inset 0 0 3px rgba(255, 255, 255, .2);
+}

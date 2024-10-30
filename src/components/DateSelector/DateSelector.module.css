@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    font-size: 14px;
+    color: rgb(255, 255, 255, .5);
+}
+
+.areaText {
+    font-style: italic;
+}
+
+.rowContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.rowElement {
+    padding-bottom: 3px;
+    padding-top: 3px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+}
+
+.textContainer {
+    font-family: 'Roboto Condensed';
+    font-weight: bold;
+    width: 65px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.disabledDateButton {
+    box-shadow: 0px 0px 6px 0px #000000;
+    border: 1px solid #444444;
+    color: #838383;
+    background-color: #1a1b1d;
+    
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.button {
+    box-shadow: 0px 0px 6px 0px #000000;
+    border: 1px solid #444444;
+    background-color: rgba(42, 45, 48, .8);
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.75);
+    color: white;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+}
+
+.button:active {
+    color: #333333;
+    border: 1px solid rgba(42, 45, 48, .8);
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, .8) 0%, rgba(240, 240, 240, 0.8) 100%);
+}

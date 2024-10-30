@@ -1,0 +1,296 @@
+{
+    "defaultCountyStateModeValue": "county",
+    "countyPopulationLayerTitle": "ACS Population Boundaries - County",
+    "statePopulationLayerTitle": "ACS Population Boundaries - State",
+    "totalPopFieldName": "P0010001",
+    "totalHousingFieldName": "H0010001",
+    "urbanPopFieldName": "P0020002",
+    "urbanHousingFieldName": "",
+    "ruralPopFieldName": "P0020003",
+    "ruralHousingFieldName": "",
+    "popFieldD4": "P0010001_D4",
+    "popFieldD3": "P0010001_D3",
+    "popFieldD2": "P0010001_D2",
+    "popFieldD1": "P0010001_D1",
+    "popFieldD0": "P0010001_D0",
+    "popFieldDx": "P0010001_Dx",
+    "droughtPopUrbanFieldName": "Hous_multi_pct_Dx",
+    "droughtPopRuralFieldName": "Hous_single_pct_Dx",
+    "housingFieldD4": "H0010001_D4",
+    "housingFieldD3": "H0010001_D3",
+    "housingFieldD2": "H0010001_D2",
+    "housingFieldD1": "H0010001_D1",
+    "housingFieldD0": "H0010001_D0",
+    "housingFieldDx": "H0010001_Dx",
+    "droughtTableTitle": "POPULATIONS WITHIN DROUGHT",
+    "vulnerablePopulationsTitle": "VULNERABLE POPULATIONS",
+    "economicImpactTitle": "ECONOMIC IMPACT",
+    "tableConfig": {
+        "droughtLevelColumnKey": "droughtLevel",
+        "populationColumnKey": "population",
+        "householdsColumnKey": "households",
+        "singleMultiFamilyColumnKey": "familyHousing",
+        "headers": [
+            {
+                "columnKeyAccessor": "droughtLevelColumnKey",
+                "value": ""
+            },
+            {
+                "columnKeyAccessor": "populationColumnKey",
+                "value": "Population"
+            },
+            {
+                "columnKeyAccessor": "householdsColumnKey",
+                "value": "Housing Units"
+            },
+            {
+                "columnKeyAccessor": "singleMultiFamilyColumnKey",
+                "value": "Rural | Urban"
+            }
+        ],
+        "headerHeight": "m",
+        "rowConfig": {
+            "rows": [
+                {
+                    "height": "s",
+                    "rowKey": "d4",
+                    "cells": [
+                        {
+                            "rowKey": "d4",
+                            "columnKey": "droughtLevelColumnKey",
+                            "value": "Exceptional",
+                            "fieldNameAccessor": "",
+                            "cellStyleAccessor": "exceptionalDroughtColor"
+                        },
+                        {
+                            "rowKey": "d4",
+                            "columnKey": "populationColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "P0010001_D4"
+                        },
+                        {
+                            "rowKey": "d4",
+                            "columnKey": "householdsColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "H0010001_D4"
+                        },
+                        {
+                            "rowKey": "d4",
+                            "columnKey": "singleMultiFamilyColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "",
+                            "multiFamilyField": "Hous_multi_pct_D4",
+                            "singleFamilyField": "Hous_single_pct_D4"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "d3",
+                    "cells": [
+                        {
+                            "rowKey": "d3",
+                            "columnKey": "droughtLevelColumnKey",
+                            "value": "Extreme",
+                            "fieldNameAccessor": "",
+                            "cellStyleAccessor": "extremeDroughtColor"
+                        },
+                        {
+                            "rowKey": "d3",
+                            "columnKey": "populationColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "P0010001_D3"
+                        },
+                        {
+                            "rowKey": "d3",
+                            "columnKey": "householdsColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "H0010001_D3"
+                        },
+                        {
+                            "rowKey": "d3",
+                            "columnKey": "singleMultiFamilyColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "",
+                            "multiFamilyField": "Hous_multi_pct_D3",
+                            "singleFamilyField": "Hous_single_pct_D3"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "d2",
+                    "cells": [
+                        {
+                            "rowKey": "d2",
+                            "columnKey": "droughtLevelColumnKey",
+                            "value": "Severe",
+                            "fieldNameAccessor": "",
+                            "cellStyleAccessor": "severeDroughtColor"
+                        },
+                        {
+                            "rowKey": "d2",
+                            "columnKey": "populationColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "P0010001_D2"
+                        },
+                        {
+                            "rowKey": "d2",
+                            "columnKey": "householdsColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "H0010001_D2"
+                        },
+                        {
+                            "rowKey": "d2",
+                            "columnKey": "singleMultiFamilyColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "",
+                            "multiFamilyField": "Hous_multi_pct_D2",
+                            "singleFamilyField": "Hous_single_pct_D2"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "d1",
+                    "cells": [
+                        {
+                            "rowKey": "d1",
+                            "columnKey": "droughtLevelColumnKey",
+                            "value": "Moderate",
+                            "fieldNameAccessor": "",
+                            "cellStyleAccessor": "moderateDroughtColor"
+                        },
+                        {
+                            "rowKey": "d1",
+                            "columnKey": "populationColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "P0010001_D1"
+                        },
+                        {
+                            "rowKey": "d1",
+                            "columnKey": "householdsColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "H0010001_D1"
+                        },
+                        {
+                            "rowKey": "d1",
+                            "columnKey": "singleMultiFamilyColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "",
+                            "multiFamilyField": "Hous_multi_pct_D1",
+                            "singleFamilyField": "Hous_single_pct_D1"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "d0",
+                    "cells": [
+                        {
+                            "rowKey": "d0",
+                            "columnKey": "droughtLevelColumnKey",
+                            "value": "Abn. Dry",
+                            "fieldNameAccessor": "",
+                            "cellStyleAccessor": "abnormalDroughtColor"
+                        },
+                        {
+                            "rowKey": "d0",
+                            "columnKey": "populationColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "P0010001_D0"
+                        },
+                        {
+                            "rowKey": "d0",
+                            "columnKey": "householdsColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "H0010001_D0"
+                        },
+                        {
+                            "rowKey": "d0",
+                            "columnKey": "singleMultiFamilyColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "",
+                            "multiFamilyField": "Hous_multi_pct_D0",
+                            "singleFamilyField": "Hous_single_pct_D0"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "dx",
+                    "cells": [
+                        {
+                            "rowKey": "dx",
+                            "columnKey": "droughtLevelColumnKey",
+                            "value": "Any Drought",
+                            "fieldNameAccessor": "",
+                            "cellStyleAccessor": "anyDroughtDroughtColor"
+                        },
+                        {
+                            "rowKey": "dx",
+                            "columnKey": "populationColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "P0010001_Dx"
+                        },
+                        {
+                            "rowKey": "dx",
+                            "columnKey": "householdsColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "H0010001_Dx"
+                        },
+                        {
+                            "rowKey": "dx",
+                            "columnKey": "singleMultiFamilyColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "",
+                            "multiFamilyField": "Hous_multi_pct_Dx",
+                            "singleFamilyField": "Hous_single_pct_Dx"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "vulnerablePopTableConfig": {
+        "rows": [
+            {
+                "key": "underNine",
+                "label": "Population Age 9 and Under",
+                "field" : "Pop_under_9_Dx"
+            },
+            {
+                "key": "overSeventy",
+                "label": "Population Age 70 and Over",
+                "field" : "Pop_over_70_Dx"
+            },
+            {
+                "key": "socialVulnerability",
+                "label" : "Social Vulnerability",
+                "field": "SOVI_RATNG"
+            },
+            {
+                "key": "communityResiliance",
+                "label" : "Community Resiliance",
+                "field": "RESL_RATNG"
+            }
+        ]
+    },
+    "economicImpactTableConfig": {
+        "rows": [
+            {
+                "key": "riskRating",
+                "label": "Risk Rating",
+                "field": "DRGT_RISKR"
+            },
+            {
+                "key": "expectedLoss",
+                "label": "Expected Annual Loss",
+                "fields": [
+                    "DRGT_EALT",
+                    "DRGT_EALR"
+            ]
+            }
+        ]
+    }
+}

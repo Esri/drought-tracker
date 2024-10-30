@@ -1,0 +1,161 @@
+:root {
+    --topDivHeight: 300px;
+    --lineSectionHeight: 40px;
+    --countyStateSelectorHeight: 50px;
+}
+
+.outerContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.mainInformationDiv {
+
+}
+
+.areaTextSection {
+    height: 75px;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.closeDiv {
+    position: absolute;
+    right: 30px;
+    top: 395px;
+}
+
+.modeSelectorSection {
+    height: var(--countyStateSelectorHeight);
+}
+
+.selectorRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.disclaimerText {
+    padding-top: 10px;
+    font-style: italic;
+    font-size: 14px;
+    color: rgb(255, 255, 255, .4);
+}
+
+.sectionTitleDiv {
+    background-color: rgba(255, 255, 255, 0.10);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 30px;
+    margin-bottom: 15px;
+}
+
+.sectionContainers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tablesContainer {
+    width: 99.5%;
+    overflow: auto;
+    height: calc(
+        100vh -
+        var(--topDivHeight) -
+        75px - 
+        var(--lineSectionHeight) - 
+        var(--countyStateSelectorHeight) - 
+        2px
+        );
+
+}
+
+.tableDiv {
+    width: 90%;
+    padding-bottom: 20px;
+}
+
+.droughtCell {
+    width: 100%;
+    justify-content: start;
+    display: flex;
+    padding: 2%;
+}
+
+
+
+
+
+
+
+
+.tableValueCells {
+    text-align: right;
+}
+
+.splitTextContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* justify-content: end; */
+    transform: rotate(-30deg);
+    font-size: 12px;
+}
+
+.headerDiv {
+    color: rgb(255, 255, 255, .4);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+.tableHeaderText {
+    transform: rotate(-30deg);
+    display: flex;
+    flex-direction: row;
+}
+
+.simpleTableLeftCell {
+    text-align: start;
+}
+
+.simpleLeftCellContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.simpleRightCellContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.economicImpactLossRating {
+    font-size: 12px;
+}
+
+.simpleTableRightCell {
+    text-align: end;
+}

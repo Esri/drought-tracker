@@ -1,0 +1,68 @@
+{
+    "primaryRiversSectionTitle": "MAJOR LOCAL RIVERS",
+    "soilMoistureSectionTitle": "ROOT ZONE SOIL MOISTURE",
+    "reservoirsSectionTitle": "RELEVANT LOCAL RESERVOIRS",
+    "waterAreaTypeValue": "water",
+    "riversLayerTitle": "Rivers",
+    "reservoirsLayerTitle": "Reservoirs",
+    "watershedsLayerTitle": "Watershed Boundary Dataset HUC 4s",
+    "reservoirTableConfig": {
+        "headerHeight": "m",
+        "headers": [
+            {
+                "columnKey": "name",
+                "value": "Name"
+            },
+            {
+                "columnKey": "purposeColumnKey",
+                "value": "Purpose"
+            },
+            {
+                "columnKey": "capacityColumnKey",
+                "value": "Capacity acre-ft"
+            }
+        ],
+       "columns": [
+        {
+            "columnKey": "name",
+            "fieldName": "NAME"
+        },
+        {
+            "columnKey": "purpose",
+            "fieldName": "PURPOSES"
+        },
+        {
+            "columnKey": "capacity",
+            "fieldName": "NORMAL_STORAGE"
+        }
+       ]
+    },
+    "riverChartFieldNames": [
+        "QE_01",
+        "QE_02",
+        "QE_03",
+        "QE_04",
+        "QE_05",
+        "QE_06",
+        "QE_07",
+        "QE_08",
+        "QE_09",
+        "QE_10",
+        "QE_11",
+        "QE_12"
+    ],
+    "xScaleValues": [
+        { "tick": "J", "fieldName": "QE_01", "mm": "01" },
+        { "tick": "F", "fieldName": "QE_02", "mm": "02" },
+        { "tick": "M", "fieldName": "QE_03", "mm": "03" },
+        { "tick": "A", "fieldName": "QE_04", "mm": "04" },
+        { "tick": "M", "fieldName": "QE_05", "mm": "05" },
+        { "tick": "J", "fieldName": "QE_06", "mm": "06" },
+        { "tick": "J", "fieldName": "QE_07", "mm": "07" },
+        { "tick": "A", "fieldName": "QE_08", "mm": "08" },
+        { "tick": "S", "fieldName": "QE_09", "mm": "09" },
+        { "tick": "O", "fieldName": "QE_10", "mm": "10" },
+        { "tick": "N", "fieldName": "QE_11", "mm": "11" },
+        { "tick": "D", "fieldName": "QE_12", "mm": "12" }
+    ]
+}
