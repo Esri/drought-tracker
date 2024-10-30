@@ -1,0 +1,145 @@
+:root {
+    --topDivHeight: 300px;
+    --lineSectionHeight: 40px;
+    --countyStateSelectorHeight: 50px;
+}
+
+.outerContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.areaTextSection {
+    height: 75px;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.closeDiv {
+    position: absolute;
+    right: 30px;
+    top: 395px;
+}
+
+
+.modeSelectorSection {
+    height:var(--countyStateSelectorHeight);
+}
+
+.selectorRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.disclaimerText {
+    padding-top:10px;
+    font-style: italic;
+    font-size: 14px;
+    color: rgb(255, 255, 255, .4);
+}
+
+.bottomDisclaimerDiv {
+    padding-left: 3%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 14px;
+    color: rgb(255, 255, 255, .4);
+}
+
+.sectionTitleDiv {
+    background-color: rgba(255, 255, 255, 0.10);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 30px;
+    margin-bottom:15px;
+}
+
+.sectionContainers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tablesContainer {
+    width: 99.5%;
+    overflow: auto;
+    height: calc(
+        100vh -
+        var(--topDivHeight) -
+        75px - 
+        var(--lineSectionHeight) - 
+        var(--countyStateSelectorHeight) - 
+        2px
+        );
+}
+
+.tableDiv {
+    width: 90%;
+    padding-bottom:20px;
+}
+
+.cropCell {
+    justify-content: start;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.leftCellSmallText {
+    font-size: 14px;
+}
+
+.simpleTableLeftCell {
+    text-align: start;
+}
+
+.simpleLeftCellContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.simpleRightCellContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.tableHeaderText {
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+}
+
+.headerDiv {
+    color: rgb(255, 255, 255, .4);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 12px;
+}

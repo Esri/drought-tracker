@@ -1,0 +1,384 @@
+{
+    "agricultureGroupLayerTitle": "Agriculture",
+    "defaultCountyStateModeValue": "county",
+    "countyModeValue": "county",
+    "stateModeValue": "state",
+    "countyLayerTitle": "Crop Sales County",
+    "stateLayerTitle": "Crop Sales State",
+    "paidLaborFieldName": "LBR_HRD_NUMWKRS_TOT",
+    "unpaidLaborFieldName": "LBR_UNPAID_NUMWKRS_TOT",
+    "droughtAffectedLaborFieldName": "labor_n",
+    "nullString": "--",
+    "dataFormattingConfig": [
+        {
+            "startYear": 2000,
+            "endYear": 2004,
+            "censusYear": 2002,
+            "missingCrops": [
+                "corn_sales",
+                "rice_sales",
+                "sorghum_sales",
+                "barley_sales",
+                "wheat_sales",
+                "soybean_sales"
+            ],
+            "missingLaborFields": [
+                "labor_n_unpaid",
+                "labor_n_mgt"
+            ]
+        },
+        {
+            "startYear": 2005,
+            "endYear": 2009,
+            "censusYear": 2007,
+            "missingCrops": [],
+            "missingLaborFields": [
+                "labor_n_unpaid",
+                "labor_n_mgt"
+            ]
+        },
+        {
+            "startYear": 2010,
+            "endYear": 2014,
+            "censusYear": 2012,
+            "missingCrops": [
+                "hay_sales"
+            ],
+            "missingLaborFields": []
+        },
+        {
+            "startYear": 2015,
+            "endYear": 2019,
+            "censusYear": 2017,
+            "missingCrops": [
+                "hay_sales"
+            ],
+            "missingLaborFields": []
+        },
+        {
+            "startYear": 2020,
+            "endYear": null,
+            "censusYear": 2022,
+            "missingCrops": [
+                "hay_sales"
+            ],
+            "missingLaborFields": []
+        }
+    ],
+    "tableConfig": {
+        "cropColumnKey": "crop",
+        "potentialRevenueLossColumnKey": "prl",
+        "acresInDroughtColumnKey": "ad",
+        "headers": [
+            {
+                "columnKeyAccessor": "cropColumnKey",
+                "value": "Crop"
+            },
+            {
+                "columnKeyAccessor": "potentialRevenueLossColumnKey",
+                "value": "Potential Sales Loss in Selected Area"
+            },
+            {
+                "columnKeyAccessor": "acresInDroughtColumnKey",
+                "values": [
+                    "Acres in Drought",
+                    "(% of Total)"
+                ]
+            }
+        ],
+        "headerHeight": "l",
+        "rowConfig": {
+            "rows": [
+                {
+                    "height": "s",
+                    "rowKey": "allCrops",
+                    "cells": [
+                        {
+                            "rowKey": "allCrops",
+                            "columnKey": "cropColumnKey",
+                            "value": "All Crops",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "allCrops",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "sales"
+                        },
+                        {
+                            "rowKey": "allCrops",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "",
+                            "percentFieldAccessor": ""
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "corn",
+                    "cells": [
+                        {
+                            "rowKey": "corn",
+                            "columnKey": "cropColumnKey",
+                            "value": "Corn",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "corn",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "corn_sales"
+                        },
+                        {
+                            "rowKey": "corn",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "corn_area_acres",
+                            "percentFieldAccessor": "corn_area_pct"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "wheat",
+                    "cells": [
+                        {
+                            "rowKey": "wheat",
+                            "columnKey": "cropColumnKey",
+                            "value": "Wheat",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "wheat",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "wheat_sales"
+                        },
+                        {
+                            "rowKey": "wheat",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "wheat_area_acres",
+                            "percentFieldAccessor": "wheat_area_pct"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "cotton",
+                    "cells": [
+                        {
+                            "rowKey": "cotton",
+                            "columnKey": "cropColumnKey",
+                            "value": "Cotton",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "cotton",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "cotton_sales"
+                        },
+                        {
+                            "rowKey": "cotton",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "cotton_area_acres",
+                            "percentFieldAccessor": "cotton_area_pct"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "rice",
+                    "cells": [
+                        {
+                            "rowKey": "rice",
+                            "columnKey": "cropColumnKey",
+                            "value": "Rice",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "rice",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "rice_sales"
+                        },
+                        {
+                            "rowKey": "rice",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "rice_area_acres",
+                            "percentFieldAccessor": "rice_area_pct"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "barley",
+                    "cells": [
+                        {
+                            "rowKey": "barley",
+                            "columnKey": "cropColumnKey",
+                            "value": "Barley",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "barley",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "barley_sales"
+                        },
+                        {
+                            "rowKey": "barley",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "barley_area_acres",
+                            "percentFieldAccessor": "barley_area_pct"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "hay",
+                    "cells": [
+                        {
+                            "rowKey": "hay",
+                            "columnKey": "cropColumnKey",
+                            "value": "Hay",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "hay",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "hay_sales"
+                        },
+                        {
+                            "rowKey": "hay",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "hay_area_acres",
+                            "percentFieldAccessor": "hay_area_pct"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "sorghum",
+                    "cells": [
+                        {
+                            "rowKey": "sorghum",
+                            "columnKey": "cropColumnKey",
+                            "value": "Sorghum",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "sorghum",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "sorghum_sales"
+                        },
+                        {
+                            "rowKey": "sorghum",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "sorghum_area_acres",
+                            "percentFieldAccessor": "sorghum_area_pct"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "soybeans",
+                    "cells": [
+                        {
+                            "rowKey": "soybeans",
+                            "columnKey": "cropColumnKey",
+                            "value": "Soybeans",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "soybeans",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "soybeans_sales"
+                        },
+                        {
+                            "rowKey": "soybeans",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "soybeans_area_acres",
+                            "percentFieldAccessor": "soybeans_area_pct"
+                        }
+                    ]
+                },
+                {
+                    "height": "s",
+                    "rowKey": "livestock",
+                    "cells": [
+                        {
+                            "rowKey": "livestock",
+                            "columnKey": "cropColumnKey",
+                            "value": "Animals",
+                            "fieldNameAccessor": ""
+                        },
+                        {
+                            "rowKey": "livestock",
+                            "columnKey": "potentialRevenueLossColumnKey",
+                            "value": "",
+                            "fieldNameAccessor": "livestock_sales"
+                        },
+                        {
+                            "rowKey": "livestock",
+                            "columnKey": "acresInDroughtColumnKey",
+                            "value": "",
+                            "acreFieldAccessor": "",
+                            "percentFieldAccessor": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "laborTableConfig": {
+        "rows": [
+            {
+                "key": "laborers",
+                "label": "Laborers (Hired & Unpaid)",
+                "field": "sumLabor"
+            },
+            {
+                "key": "hired",
+                "label": "Hired",
+                "field": "labor_n_hrd"
+            },
+            {
+                "key": "unpaid",
+                "label": "Unpaid",
+                "field": "labor_n_unpaid"
+            },
+            {
+                "key": "migrantWorkers",
+                "label": "Migrant Workers (H/C)",
+                "field": "labor_n_migt"
+            },
+            {
+                "key": "laborCost",
+                "label": "Labor Cost (H/C)",
+                "field": "labor_cost_con"
+            }
+        ]
+    },
+    "exposureTableConfig": {
+        "rows": [
+            {
+                "key": "exposure",
+                "label": "Agricultural Drought Exposure",
+                "field": "AGRIVALUE"
+            }
+        ]
+    },
+    "bottomDisclaimerText": "County economic impact values are reported for an entire county, regardless of the percentage of the area affected by drought. State impact values include summations of county-level values."
+}

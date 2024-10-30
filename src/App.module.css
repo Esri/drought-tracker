@@ -1,0 +1,38 @@
+.appContainer {
+    font-family: "Roboto Condensed" !important;
+    font-weight: 300;
+    color: #DDDDDD;
+}
+
+.loginDiv {
+    width: 100vw;
+    height: 100vh;
+    background-color: #00a0ff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    background-color: white;
+    color: black;
+    /* border-radius: 10px; */
+}
+
+button:hover {
+    cursor:pointer;
+}
+
+calcite-icon:hover {
+    cursor: pointer;
+}
+
+calcite-button:hover {
+    cursor: pointer
+}
+
+calcite-button:disabled {
+    pointer-events: none;
+    cursor:auto;
+}

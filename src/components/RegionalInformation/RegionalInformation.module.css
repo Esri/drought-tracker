@@ -1,0 +1,24 @@
+.secondaryText {
+    margin-top: 0;
+    color: #999999;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.primaryText {
+    margin-bottom: 0;
+    color: #DDDDDD;
+    font-size: 22px;
+}
+
+.container {
+    max-width: 90%;
+    height: 75px;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
