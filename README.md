@@ -1,22 +1,12 @@
 # Drought Aware Application
 
-## Run this App
-
-- node version 18.18.0
-- ```npm install``` to install dependencies
-- ```npm run start``` to run the application
-
-## About this App
-
 The Drought Aware app provides information about drought-affected areas in the U.S. over various time intervals (from 2000 to the present) and across different drought intensities. It provides summaries of the affected population and the potential impacts on crops, agricultural labor, rivers, and reservoirs.
-
-## Use this App
-
-Display drought maps for different weeks by clicking on the time-series chart (top bar) or by scrolling through time using the sector chart (top-left). Hover on each drought intensity level in the sector chart to highlight the areas on the map and display the area percentage. Click on the map to display a panel with summary information for the selected area. The panel includes three categories: population, water, and agriculture.
 
 ![App](./overview.PNG)
 
-## App Categories
+## Features
+
+Display drought maps for different weeks by clicking on the time-series chart (top bar) or by scrolling through time using the sector chart (top-left). Hover on each drought intensity level in the sector chart to highlight the areas on the map and display the area percentage. Click on the map to display a panel with summary information for the selected area. The panel includes three categories: population, water, and agriculture.
 
 The Drought Aware app summarizes three information categories that drought may impact.
 
@@ -24,27 +14,22 @@ The Drought Aware app summarizes three information categories that drought may i
 - **Water**: Depicts major local rivers, including the average inter-annual river flow and the relevant local reservoirs. The data is available at the Subregion Hydrologic Units (HUC4).
 - **Agriculture**: Displays the potential economic impact of drought on major crops, affected labor, and the agricultural exposure to droughts. The data is available at the county and state levels.
 
-## Drought Definitions
+### Drought Update Frequency
 
-- **Abnormally Dry (D0)**
-- - Going into drought there is short-term dryness slowing planting, growth of crops or pastures.
-- - Coming out of drought there are some lingering water deficits; pastures or crops not fully recovered.
-- **Moderate Drought (D1)**
-- - Some damage to crops and pastures.
-- - Streams, reservoirs, or wells low, some water shortages developing or imminent.
-- - Voluntary water-use restrictions requested.
-- **Severe Drought (D2)**
-- - Crop or pasture losses likely.
-- - Water shortages are common.
-- - Water restrictions imposed.
-- **Extreme Drought (D3)**
-- - Major crop/pasture losses.
-- - Widespread water shortages or restrictions.
-- **Exceptional Drought (D4)**
-- - Exceptional and widespread crop/pasture losses.
-- - Shortages of water in reservoirs, streams, and wells create water emergencies.
+The Drought Aware app includes weekly updates to the drought data, in line with the latest [U.S. Drought Monitor](https://www.arcgis.com/home/item.html?id=9731f9062afd45f2be7b3bf2e050fbfa) map. The update process is automated using the Esri [Aggregated Live Feed Methodology](https://www.arcgis.com/home/group.html?content=all&id=c42fd84aa35a4ab39806f6481b80c0a0#overview).
 
-## Data Sources
+The update frequency for other app data layers varies depending on the type of layer and is detailed in the source descriptions above.
+
+## Instructions
+
+- node version 18.18.0
+- ```npm install``` to install dependencies
+- ```npm run start``` to run the application
+- ```npm run build``` to build the application
+
+## Resources
+
+### Data Sources
 
 The data layers used in this app can be found in [ArcGIS Living Atlas of the World](https://livingatlas.arcgis.com/):
 
@@ -57,19 +42,20 @@ The data layers used in this app can be found in [ArcGIS Living Atlas of the Wor
 - [National Inventory of Dams (NID)](https://www.arcgis.com/home/item.html?id=a4c195b7a6b74f278ff43e5d60c6915d)
 - [National Boundary Dataset (WBD)](https://livingatlas.arcgis.com/en/browse/?q=%22Watershed%20Boundary%20Dataset%22#q=%22Watershed+Boundary+Dataset%22&d=2)
 
-## Drought Update Frequency
 
-The Drought Aware app includes weekly updates to the drought data, in line with the latest [U.S. Drought Monitor](https://www.arcgis.com/home/item.html?id=9731f9062afd45f2be7b3bf2e050fbfa) map. The update process is automated using the Esri [Aggregated Live Feed Methodology](https://www.arcgis.com/home/group.html?content=all&id=c42fd84aa35a4ab39806f6481b80c0a0#overview).
+## Issues
 
-The update frequency for other app data layers varies depending on the type of layer and is detailed in the source descriptions above.
+Find a bug or want to request a new feature?  Please let us know by submitting an issue.
+
+## Contributing
+
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
 ## License
 
-This app is provided for informational purposes and is not monitored 24/7 for accuracy and currency and is licensed under the Esri Master License Agreement.
-- [View Summary](https://downloads2.esri.com/arcgisonline/docs/tou_summary.pdf)
-- [View Terms of Use](https://www.esri.com/en-us/legal/terms/full-master-agreement)
+Copyright 2024 Esri
 
-This codebase is licensed under the Apache License, Version 2.0 (the "License");
+Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
@@ -81,19 +67,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/drought-tracker/master/LICENSE.txt) file.
-
-## Contributing
-
-Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+A copy of the license is available in the repository's [license.txt](https://github-admin.esri.com/doc/LICENSE.txt) file.
 
 ## Contact
 
 For questions or comments about the Drought Aware app, please contact us at [environment@esri.com](mailto:environment@esri.com)
 
 Released in 2024.
-
-Ken Baloun - Project Manager
 
 John Nelson - Cartography, Design
 
