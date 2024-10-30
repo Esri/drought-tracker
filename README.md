@@ -83,6 +83,12 @@ limitations under the License.
 
 A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/drought-tracker/master/LICENSE.txt) file.
 
+## Contributing
+
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+
 ## Contact
 
 For questions or comments about the Drought Aware app, please contact us at [environment@esri.com](mailto:environment@esri.com)
+
+The latest version of the Drought Aware project was released in 2024. The project's design and cartography was done by John Nelson, the data is supported by Gonzalo Espinoza-Davalos, the application was developed by Nathan Traylor, and the project was overseen by Ken Baloun.
