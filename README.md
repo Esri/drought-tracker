@@ -13,7 +13,7 @@ The Drought Aware app provides information about drought-affected areas in the U
 
 Display drought maps for different weeks by clicking on the time-series chart (top bar) or by scrolling through time using the sector chart (top-left). Hover on each drought intensity level in the sector chart to highlight the areas on the map and display the area percentage. Click on the map to display a panel with summary information for the selected area. The panel includes three categories: population, water, and agriculture.
 
-![App](./overview.png)
+![App](./overview.PNG)
 
 ## App Categories
 
