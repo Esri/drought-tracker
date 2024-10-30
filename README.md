@@ -92,7 +92,11 @@ Esri welcomes contributions from anyone and everyone. Please see our [guidelines
 For questions or comments about the Drought Aware app, please contact us at [environment@esri.com](mailto:environment@esri.com)
 
 Released in 2024.
+
 Ken Baloun - Project Manager
+
 John Nelson - Cartography, Design
+
 Gonzalo Espinoza-Davalos - Data Support
+
 Nathan Traylor - Application Developer
