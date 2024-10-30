@@ -3,6 +3,7 @@
 ## Run this App
 
 - node version 18.18.0
+- ```npm install``` to install dependencies
 - ```npm run start``` to run the application
 
 ## About this App
