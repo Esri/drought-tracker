@@ -91,4 +91,8 @@ Esri welcomes contributions from anyone and everyone. Please see our [guidelines
 
 For questions or comments about the Drought Aware app, please contact us at [environment@esri.com](mailto:environment@esri.com)
 
-The latest version of the Drought Aware project was released in 2024. The project's design and cartography was done by John Nelson, the data is supported by Gonzalo Espinoza-Davalos, the application was developed by Nathan Traylor, and the project was overseen by Ken Baloun.
+Released in 2024.
+Ken Baloun - Project Manager
+John Nelson - Cartography, Design
+Gonzalo Espinoza-Davalos - Data Support
+Nathan Traylor - Application Developer
